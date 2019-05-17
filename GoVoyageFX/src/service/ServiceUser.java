@@ -5,6 +5,8 @@
  */
 package service;
 
+import entite.Agence;
+import entite.Hotel;
 import entite.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,8 +38,11 @@ public class ServiceUser {
                     + "tel_user,"
                     + "longitude_user,"
                     + "lattitude_user,"
-                    + "is_active_user)"
-                    + " VALUES (?,?,?,?,?,?,?,?,?)";
+                    + "is_active_user,"
+                    + "is_hotel,"
+                    + "is_agency,"
+                    + "is_client)"
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, r.getLogin_user());
             preparedStatement.setString(2, r.getNom_user());
@@ -48,6 +53,9 @@ public class ServiceUser {
             preparedStatement.setString(7, r.getLongitude_user());
             preparedStatement.setString(8, r.getLattitude_user());
             preparedStatement.setInt(9, r.getIs_active_user());
+            preparedStatement.setInt(10, r.getIs_hotel());
+            preparedStatement.setInt(11, r.getIs_agency());
+            preparedStatement.setInt(12, r.getIs_client());
             int va = preparedStatement.executeUpdate();
 
             if (va > 0) {
@@ -99,7 +107,72 @@ public class ServiceUser {
                             rs.getString(8),
                             rs.getString(9),
                             rs.getInt(10),
-                            rs.getInt(11));
+                            rs.getInt(11),
+                            rs.getInt(12),
+                            rs.getInt(13),
+                            rs.getInt(14));
+
+                    return resultUser;
+
+                }
+            } else {
+                System.out.println("error: could not get the record counts");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return resultUser;
+    }
+
+    public Hotel getHotelData(int userId) {
+
+        Hotel resultUser = null;
+        try {
+            String query = "SELECT  * From hotel where id_user = ? ";
+            PreparedStatement preparedStatement = con.prepareStatement(query);
+            preparedStatement.setInt(1, userId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int numberOfRows = rs.getInt(1);
+                System.out.println("numberOfRows= " + numberOfRows);
+                if (numberOfRows > 0) {
+                    resultUser = new Hotel(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getInt(3),
+                            rs.getInt(4),
+                            rs.getString(5),
+                            rs.getString(6),
+                            rs.getInt(7),
+                            rs.getString(8));
+
+                    return resultUser;
+
+                }
+            } else {
+                System.out.println("error: could not get the record counts");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return resultUser;
+    }
+    
+    public Agence getAgenceData(int userId) {
+
+        Agence resultUser = null;
+        try {
+            String query = "SELECT  * From agence where id_user = ? ";
+            PreparedStatement preparedStatement = con.prepareStatement(query);
+            preparedStatement.setInt(1, userId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int numberOfRows = rs.getInt(1);
+                System.out.println("numberOfRows= " + numberOfRows);
+                if (numberOfRows > 0) {
+                    resultUser = new Agence(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getInt(3),
+                            rs.getString(4));
 
                     return resultUser;
 

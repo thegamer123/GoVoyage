@@ -28,7 +28,6 @@ import javafx.stage.Stage;
 public class ClientHomeScreenController implements Initializable {
 
 
-    @FXML
     private AnchorPane mainAP;
 
     /**
@@ -47,9 +46,6 @@ public class ClientHomeScreenController implements Initializable {
     private void volCheck(ActionEvent event) {
     }
 
-    @FXML
-    private void otherCheck(ActionEvent event) {
-    }
 
     @FXML
     private void logout(ActionEvent event) throws IOException {

@@ -5,11 +5,17 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -18,13 +24,18 @@ import javafx.fxml.Initializable;
  */
 public class AdminHomeScreenController implements Initializable {
 
+    @FXML
+    private Button hotelBtn;
+    @FXML
+    private Button volBtn;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void hotelCheck(ActionEvent event) {
@@ -35,11 +46,13 @@ public class AdminHomeScreenController implements Initializable {
     }
 
     @FXML
-    private void otherCheck(ActionEvent event) {
+    private void logout(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = hotelBtn.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
+
     }
 
-    @FXML
-    private void logout(ActionEvent event) {
-    }
-    
 }

@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import entite.Hotel;
+import entite.Agence;
 import entite.User;
 import java.io.IOException;
 import java.net.URL;
@@ -25,65 +25,52 @@ import service.ServiceUser;
  *
  * @author Lenovo
  */
-public class HotelHomeScreenController implements Initializable {
+public class AgenceHomeScreenController implements Initializable {
 
     @FXML
     private TextField hotelNameTF;
-
-    public static String hotelName;
-    public static int idHotel;
+    private static String agenceName;
+    private static int idAgence;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }
 
     @FXML
     private void logout(ActionEvent event) throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
         Scene scene = new Scene(root);
         Scene currentScene = hotelNameTF.getScene();
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
-
     }
 
     @FXML
-    private void myOffers(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/ShowHotelOffer.fxml"));
-        Parent root = (Parent) loader.load();
-        Scene scene = new Scene(root);
-        //AddHotelOfferController controller = loader.getController();
-        //controller.setUserId(idHotel);
-        Scene currentScene = hotelNameTF.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
-        primStage.setScene(scene);
+    private void myOffers(ActionEvent event) {
     }
 
     @FXML
-    private void AddOffer(ActionEvent event) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AddHotelOffer.fxml"));
+    private void addVol(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AddAgenceOffer.fxml"));
         Parent root = (Parent) loader.load();
         Scene scene = new Scene(root);
-        AddHotelOfferController controller = loader.getController();
-        controller.setUserId(idHotel);
+        AddAgenceOfferController controller = loader.getController();
+        controller.setUserId(idAgence);
         Scene currentScene = hotelNameTF.getScene();
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
-
     }
 
     public void setUser(User user) {
 
-        Hotel hotel = new ServiceUser().getHotelData(user.getId_user());
-        hotelName = hotel.getNom_hotel();
-        idHotel = hotel.getId_hotel();
-        hotelNameTF.setText(hotelName);
+        Agence agence = new ServiceUser().getAgenceData(user.getId_user());
+        agenceName = agence.getNom_agence();
+        idAgence = agence.getId_agence();
+        hotelNameTF.setText(agenceName);
 
     }
 

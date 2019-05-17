@@ -113,29 +113,16 @@ public class AjouterUserController implements Initializable {
                             prenomTF.getText(),
                             naissanceDP.getValue().toString(),
                             passTF1.getText(),
-                            Integer.parseInt(telTF.getText()), "", "", 0, 0));
+                            Integer.parseInt(telTF.getText()), "", "", 0, 0, 0, 0, 1));
 
                     if (result > -1) {
 
-                        Alert alert = new Alert(AlertType.INFORMATION, "Compte créer avec succès", ButtonType.OK);
-                        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-                        alert.show();
-                        Optional<ButtonType> choice = alert.showAndWait();
-                        if (choice.isPresent()) // alert is exited, no button has been pressed.
-                        {
-                            if (choice.get() == ButtonType.OK) //oke button is pressed
-                            {
-                                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
-                                Scene scene = new Scene(root);
-                                Scene currentScene = user_name.getScene();
-                                Stage primStage = (Stage) currentScene.getWindow();
-                                primStage.setScene(scene);
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+                        Scene scene = new Scene(root);
+                        Scene currentScene = user_name.getScene();
+                        Stage primStage = (Stage) currentScene.getWindow();
+                        primStage.setScene(scene);
 
-                            } else if (choice.get() == ButtonType.CANCEL) {
-                                alert.close();
-                            }
-
-                        }
                     } else {
                         Alert alert = new Alert(AlertType.INFORMATION, "problem in the request ", ButtonType.OK);
                         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -152,29 +139,18 @@ public class AjouterUserController implements Initializable {
                             prenomTF.getText(),
                             naissanceDP.getValue().toString(),
                             passTF1.getText(),
-                            Integer.parseInt(telTF.getText()), "", "", 0, 0));
+                            Integer.parseInt(telTF.getText()), "", "", 0, 0, 0, 1, 0));
 
                     if (result > -1) {
+                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AgenceAdditionalInfo.fxml"));
+                        Parent root = (Parent) loader.load();
+                        Scene scene = new Scene(root);
+                        AgenceAdditionalInfoController controller = loader.getController();
+                        controller.setIdUser(result);
+                        Scene currentScene = user_name.getScene();
+                        Stage primStage = (Stage) currentScene.getWindow();
+                        primStage.setScene(scene);
 
-                        Alert alert = new Alert(AlertType.INFORMATION, "Compte créer avec succès", ButtonType.OK);
-                        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-                        alert.show();
-                        Optional<ButtonType> choice = alert.showAndWait();
-                        if (choice.isPresent()) // alert is exited, no button has been pressed.
-                        {
-                            if (choice.get() == ButtonType.OK) //oke button is pressed
-                            {
-                                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
-                                Scene scene = new Scene(root);
-                                Scene currentScene = user_name.getScene();
-                                Stage primStage = (Stage) currentScene.getWindow();
-                                primStage.setScene(scene);
-
-                            } else if (choice.get() == ButtonType.CANCEL) {
-                                alert.close();
-                            }
-
-                        }
                     } else {
                         Alert alert = new Alert(AlertType.INFORMATION, "problem in the request ", ButtonType.OK);
                         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -191,7 +167,7 @@ public class AjouterUserController implements Initializable {
                             prenomTF.getText(),
                             naissanceDP.getValue().toString(),
                             passTF1.getText(),
-                            Integer.parseInt(telTF.getText()), "", "", 0, 0));
+                            Integer.parseInt(telTF.getText()), "", "", 0, 0, 1, 0, 0));
 
                     if (result > -1) {
 
@@ -205,7 +181,7 @@ public class AjouterUserController implements Initializable {
                         primStage.setScene(scene);
 
                     } else {
-                        Alert alert = new Alert(AlertType.INFORMATION, "problem in the request ", ButtonType.OK);
+                        Alert alert = new Alert(AlertType.INFORMATION, "login déja utilisé", ButtonType.OK);
                         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
                         alert.show();
                     }

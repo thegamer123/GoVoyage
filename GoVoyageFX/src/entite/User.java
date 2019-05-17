@@ -24,8 +24,11 @@ public class User {
     private String lattitude_user;
     private int is_active_user;
     private int is_admin_user;
+    private int is_hotel;
+    private int is_agency;
+    private int is_client;
 
-    public User(int id_user, String login_user,String nom_user, String prenom_user, String date_naissance_user, String password_user, int tel_user, String longitude_user, String lattitude_user, int is_active_user, int is_admin_user) {
+    public User(int id_user, String login_user, String nom_user, String prenom_user, String date_naissance_user, String password_user, int tel_user, String longitude_user, String lattitude_user, int is_active_user, int is_admin_user, int is_hotel, int is_agency, int is_client) {
         this.id_user = id_user;
         this.login_user = login_user;
         this.nom_user = nom_user;
@@ -37,7 +40,12 @@ public class User {
         this.lattitude_user = lattitude_user;
         this.is_active_user = is_active_user;
         this.is_admin_user = is_admin_user;
+        this.is_hotel = is_hotel;
+        this.is_agency = is_agency;
+        this.is_client = is_client;
     }
+
+
 
     public int getId_user() {
         return id_user;
@@ -126,7 +134,30 @@ public class User {
     public void setIs_admin_user(int is_admin_user) {
         this.is_admin_user = is_admin_user;
     }
-    
+
+    public int getIs_hotel() {
+        return is_hotel;
+    }
+
+    public void setIs_hotel(int is_hotel) {
+        this.is_hotel = is_hotel;
+    }
+
+    public int getIs_agency() {
+        return is_agency;
+    }
+
+    public void setIs_agency(int is_agency) {
+        this.is_agency = is_agency;
+    }
+
+    public int getIs_client() {
+        return is_client;
+    }
+
+    public void setIs_client(int is_client) {
+        this.is_client = is_client;
+    }
     
     
 

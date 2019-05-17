@@ -50,13 +50,47 @@ public class LoginController implements Initializable {
         if (validateData()) {
             result = service.loginUser(loginTF.getText(), passTF.getText());
             if (result != null) {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ClientHomeScreen.fxml"));
-                Scene scene = new Scene(root);
-                Scene currentScene = loginTF.getScene();
-                Stage primStage = (Stage) currentScene.getWindow();
-                primStage.setScene(scene);
-            }else {
-                 showAlert("Problème de connexion");
+
+                if (result.getIs_admin_user() == 1) {
+                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/AdminHomeScreen.fxml"));
+                    Scene scene = new Scene(root);
+                    Scene currentScene = loginTF.getScene();
+                    Stage primStage = (Stage) currentScene.getWindow();
+                    primStage.setScene(scene);
+
+                } else {
+                    if (result.getIs_hotel() == 1) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/HotelHomeScreen.fxml"));
+                        Parent root = (Parent) loader.load();
+                        Scene scene = new Scene(root);
+                        HotelHomeScreenController controller = loader.getController();
+                        controller.setUser(result);
+                        Scene currentScene = loginTF.getScene();
+                        Stage primStage = (Stage) currentScene.getWindow();
+                        primStage.setScene(scene);
+
+                    } else if (result.getIs_agency() == 1) {
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AgenceHomeScreen.fxml"));
+                        Parent root = (Parent) loader.load();
+                        Scene scene = new Scene(root);
+                        AgenceHomeScreenController controller = loader.getController();
+                        controller.setUser(result);
+                        Scene currentScene = loginTF.getScene();
+                        Stage primStage = (Stage) currentScene.getWindow();
+                        primStage.setScene(scene);
+                        
+                    } else if (result.getIs_client() == 1) {
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ClientHomeScreen.fxml"));
+                        Scene scene = new Scene(root);
+                        Scene currentScene = loginTF.getScene();
+                        Stage primStage = (Stage) currentScene.getWindow();
+                        primStage.setScene(scene);
+
+                    }
+                }
+            } else {
+                showAlert("Problème de connexion");
             }
         }
 

@@ -2,35 +2,24 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ClientHomeScreenController">
    <children>
-    <AnchorPane fx:id="mainAP" minHeight="0.0" minWidth="0.0" prefHeight="404.0" prefWidth="161.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#hotelCheck" prefHeight="101.5" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Hotels" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutY="100.0" mnemonicParsing="false" onAction="#volCheck" prefHeight="101.5" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Vols" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutY="202.0" mnemonicParsing="false" onAction="#otherCheck" prefHeight="101.5" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Loisirs" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button layoutY="302.0" mnemonicParsing="false" onAction="#logout" prefHeight="101.5" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Déconnecter" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <Pane fx:id="HotelsPan" layoutX="175.0" prefHeight="404.0" prefWidth="425.0" />
+      <Button layoutX="213.0" layoutY="123.0" mnemonicParsing="false" onAction="#hotelCheck" prefHeight="39.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Hotels" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="213.0" layoutY="191.0" mnemonicParsing="false" onAction="#volCheck" prefHeight="39.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Vols" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="29.0" layoutY="350.0" mnemonicParsing="false" onAction="#logout" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #000a12;" text="Déconnecter" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
