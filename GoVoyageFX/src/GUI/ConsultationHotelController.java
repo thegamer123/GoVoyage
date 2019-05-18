@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -61,27 +62,26 @@ public class ConsultationHotelController implements Initializable {
     ObservableList<String> listRomms = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms");
 //  private ObservableList<String> list=FXCollections.observableArrayList();
     private static final ListView<HotelOffer> leftListView = new ListView<HotelOffer>();
-
     private static final ObservableList<HotelOffer> leftList = FXCollections
             .observableArrayList();
     private static final ObservableList<HotelOffer> rightList = FXCollections
             .observableArrayList();
     private static final ListView<HotelOffer> rightListView = new ListView<HotelOffer>();
-
     private static final GridPane rootPane = new GridPane();
-    
+
     private ComboBox<String> box_Room;
     @FXML
     private DatePicker date_checkIn;
     @FXML
     private DatePicker date_checkout;
-
     @FXML
     private Button butSearch;
     @FXML
     private ListView<HotelOffer> listViewHotel;
     @FXML
     private TextField titleTF;
+    List<HotelOffer> list;
+    List<HotelOffer> filtered;
 
     /**
      * Initializes the controller class.
@@ -89,26 +89,31 @@ public class ConsultationHotelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ServiceHotel serviceHotel = new ServiceHotel();
-        List<HotelOffer> list = serviceHotel.readAllOffers();
+        list = serviceHotel.readAllOffers();
         listViewHotel.setCellFactory(lv -> new HotelListCell());
         listViewHotel.getItems().addAll(list);
-         listViewHotel.setOnMouseClicked(new EventHandler<MouseEvent>() {
-        @Override
-        public void handle(MouseEvent event) {
-            System.out.println("clicked on " + listViewHotel.getSelectionModel().getSelectedItem());
-        }
-    });
+        listViewHotel.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("clicked on " + listViewHotel.getSelectionModel().getSelectedItem());
+            }
+        });
     }
 
     @FXML
     public void controleSearch() {
         if (titleTF.getText().equals("")) {
-            Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Destination Selected");
-            alert.setContentText("Please select a destination in the TextField.");
-            alert.showAndWait();
+            listViewHotel.getItems().addAll(list);
+        } else {
+            filtered = list.stream().filter(item -> item.getTitre_offre_hotel().contains(titleTF.getText())).collect(Collectors.toList());
+            listViewHotel.getItems().clear();
+            listViewHotel.getItems().addAll(filtered);
         }
+
+    }
+
+    @FXML
+    private void backButton(ActionEvent event) {
 
     }
 

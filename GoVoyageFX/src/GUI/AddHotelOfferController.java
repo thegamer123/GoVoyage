@@ -104,9 +104,9 @@ public class AddHotelOfferController implements Initializable {
         }
     }
 
-    public void setUserId(int userID) {
-        userId = userID;
-    }
+        public void setUserId(int userID) {
+            userId = userID;
+        }
     
      private void showAlert(String text) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, text, ButtonType.OK);
