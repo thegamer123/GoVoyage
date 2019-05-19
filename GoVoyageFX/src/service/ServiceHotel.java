@@ -108,4 +108,20 @@ public class ServiceHotel {
         return list;
     }
 
+    public boolean deleteOffer(int offerId) {
+        try {
+            String deleteSQL = "DELETE FROM hotel_offre WHERE id_offre_hotel = ?";
+            PreparedStatement pstmt = con.prepareStatement(deleteSQL);
+            pstmt.setInt(1, offerId);
+            // execute delete SQL stetement
+            pstmt.executeUpdate();
+            System.out.println("Record is deleted!");
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
 }

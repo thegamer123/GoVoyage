@@ -6,17 +6,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelOfferDetailScreenController">
    <children>
       <ImageView fx:id="profilePictureIV" fitHeight="198.0" fitWidth="219.0" layoutX="31.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="titleTF" layoutX="272.0" layoutY="31.0" prefHeight="54.0" prefWidth="420.0" promptText="HotelF1 Paris Saint Ouen Marché Aux Puces " />
-      <TextArea fx:id="desriptionTA" layoutX="31.0" layoutY="261.0" prefHeight="154.0" prefWidth="660.0" promptText="L'HotelF1 Paris Saint-Ouen Marché Aux Puces propose des hébergements avec une télévision à écran plat et une connexion Wi-Fi gratuite dans l'ensemble de ses locaux. Il vous accueille à quelques pas du marché aux puces ainsi qu'à 10 minutes à pied de la station de métro Garibaldi." />
-      <TextField fx:id="startDateTF" layoutX="272.0" layoutY="102.0" prefHeight="54.0" prefWidth="420.0" promptText="date début" />
-      <TextField fx:id="dateEndTF" layoutX="272.0" layoutY="174.0" prefHeight="54.0" prefWidth="420.0" promptText="date fin" />
-      <Button layoutX="592.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Supprimer" />
+      <TextField fx:id="titleTF" editable="false" layoutX="272.0" layoutY="31.0" prefHeight="38.0" prefWidth="420.0" promptText="HotelF1 Paris Saint Ouen Marché Aux Puces " />
+      <TextArea fx:id="desriptionTA" editable="false" layoutX="31.0" layoutY="261.0" prefHeight="154.0" prefWidth="660.0" promptText="L'HotelF1 Paris Saint-Ouen Marché Aux Puces propose des hébergements avec une télévision à écran plat et une connexion Wi-Fi gratuite dans l'ensemble de ses locaux. Il vous accueille à quelques pas du marché aux puces ainsi qu'à 10 minutes à pied de la station de métro Garibaldi." />
+      <TextField fx:id="startDateTF" editable="false" layoutX="272.0" layoutY="81.0" prefHeight="38.0" prefWidth="420.0" promptText="date début" />
+      <TextField fx:id="dateEndTF" editable="false" layoutX="272.0" layoutY="130.0" prefHeight="38.0" prefWidth="420.0" promptText="date fin" />
+      <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Supprimer" />
       <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#listerReservation" prefHeight="46.0" prefWidth="219.0" text="Liste des reservations" />
-      <Button layoutX="482.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Réclamation" />
-      <Button layoutX="375.0" layoutY="448.0" mnemonicParsing="false" onAction="#Commentaire" prefHeight="46.0" prefWidth="99.0" text="Commentaire" />
+      <Button layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Réclamation" />
+      <Button layoutX="361.0" layoutY="448.0" mnemonicParsing="false" onAction="#Commentaire" prefHeight="46.0" prefWidth="99.0" text="Commentaire" />
+      <TextField fx:id="priceTF" editable="false" layoutX="272.0" layoutY="181.0" prefHeight="38.0" prefWidth="420.0" promptText="prix" />
    </children>
 </AnchorPane>

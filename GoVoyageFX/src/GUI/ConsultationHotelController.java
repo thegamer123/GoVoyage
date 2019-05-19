@@ -48,6 +48,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javax.security.auth.callback.Callback;
 import service.ServiceHotel;
 
@@ -82,13 +83,14 @@ public class ConsultationHotelController implements Initializable {
     private TextField titleTF;
     List<HotelOffer> list;
     List<HotelOffer> filtered;
+    ServiceHotel serviceHotel;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ServiceHotel serviceHotel = new ServiceHotel();
+        serviceHotel = new ServiceHotel();
         list = serviceHotel.readAllOffers();
         listViewHotel.setCellFactory(lv -> new HotelListCell());
         listViewHotel.getItems().addAll(list);
@@ -96,6 +98,7 @@ public class ConsultationHotelController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 System.out.println("clicked on " + listViewHotel.getSelectionModel().getSelectedItem());
+                openInNewWindow(listViewHotel.getSelectionModel().getSelectedItem());
             }
         });
     }
@@ -103,6 +106,7 @@ public class ConsultationHotelController implements Initializable {
     @FXML
     public void controleSearch() {
         if (titleTF.getText().equals("")) {
+            listViewHotel.getItems().clear();
             listViewHotel.getItems().addAll(list);
         } else {
             filtered = list.stream().filter(item -> item.getTitre_offre_hotel().contains(titleTF.getText())).collect(Collectors.toList());
@@ -113,7 +117,12 @@ public class ConsultationHotelController implements Initializable {
     }
 
     @FXML
-    private void backButton(ActionEvent event) {
+    private void backButton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelHomeScreen.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = butSearch.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
 
     }
 
@@ -140,6 +149,38 @@ public class ConsultationHotelController implements Initializable {
                 final String text = String.format("%s", item.getTitre_offre_hotel());
                 setText(text);
             }
+        }
+    }
+
+    private void openInNewWindow(HotelOffer offer) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/HotelOfferDetailScreen.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            HotelOfferDetailScreenController controller = loader.getController();
+            controller.setHotelOfferData(offer);
+            Stage primStage = new Stage();
+            primStage.setTitle("Détail offre");
+            primStage.setScene(scene);
+            primStage.show();
+            primStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    System.out.println("Stage is closing");
+                    list = serviceHotel.readAllOffers();
+                    if (titleTF.getText().equals("")) {
+                        listViewHotel.getItems().clear();
+                        listViewHotel.getItems().addAll(list);
+                    } else {
+                        filtered = list.stream().filter(item -> item.getTitre_offre_hotel().contains(titleTF.getText())).collect(Collectors.toList());
+                        listViewHotel.getItems().clear();
+                        listViewHotel.getItems().addAll(filtered);
+                    }
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
