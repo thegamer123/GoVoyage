@@ -41,7 +41,10 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import service.ServiceUser;
 
@@ -85,6 +88,8 @@ public class AjouterUserController implements Initializable {
     @FXML
     private ComboBox<String> compteTypeCB;
     private String selectedType;
+    private Scene scene;
+    MyBrowser myBrowser;
 
     /**
      * Initializes the controller class.
@@ -98,6 +103,7 @@ public class AjouterUserController implements Initializable {
         compteTypeCB.getSelectionModel()
                 .selectedIndexProperty()
                 .addListener(observable -> selectedType = compteTypeCB.getValue());
+
     }
 
     @FXML
@@ -142,7 +148,7 @@ public class AjouterUserController implements Initializable {
                             Integer.parseInt(telTF.getText()), "", "", 0, 0, 0, 1, 0));
 
                     if (result > -1) {
-                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AgenceAdditionalInfo.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AgenceAdditionalInfo.fxml"));
                         Parent root = (Parent) loader.load();
                         Scene scene = new Scene(root);
                         AgenceAdditionalInfoController controller = loader.getController();
@@ -224,11 +230,12 @@ public class AjouterUserController implements Initializable {
     @FXML
     private void goToGps(MouseEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/map/MapView.fxml"));
-        Scene scene = new Scene(root);
-        Scene currentScene = loginTF.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
+        myBrowser = new MyBrowser();
+        scene = new Scene(myBrowser, 640, 480);
+        Scene currentScene = user_name.getScene();
+        Stage primStage = new Stage();
         primStage.setScene(scene);
+        primStage.show();
 
     }
 
@@ -240,6 +247,24 @@ public class AjouterUserController implements Initializable {
         Scene currentScene = loginTF.getScene();
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
+    }
+
+    class MyBrowser extends Region {
+
+        HBox toolbar;
+
+        WebView webView = new WebView();
+        WebEngine webEngine = webView.getEngine();
+
+        public MyBrowser() {
+
+            final URL urlGoogleMaps = getClass().getClassLoader().getResource("GUI/map/googlemaps.html");
+            webEngine.load(urlGoogleMaps.toExternalForm());
+
+            boolean add = getChildren().add(webView);
+
+        }
+
     }
 
 }

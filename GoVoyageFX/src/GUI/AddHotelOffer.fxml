@@ -23,10 +23,11 @@
       <Label layoutX="111.0" layoutY="204.0" text="Date fin :" />
       <DatePicker fx:id="startDP" layoutX="197.0" layoutY="154.0" prefHeight="25.0" prefWidth="261.0" />
       <DatePicker fx:id="endDP" layoutX="197.0" layoutY="200.0" prefHeight="25.0" prefWidth="261.0" />
-      <Label layoutX="108.0" layoutY="340.0" text="Prix :" />
-      <TextField fx:id="priceTF" layoutX="197.0" layoutY="336.0" prefHeight="25.0" prefWidth="261.0" />
+      <Label layoutX="108.0" layoutY="328.0" text="Prix :" />
+      <TextField fx:id="priceTF" layoutX="197.0" layoutY="324.0" prefHeight="25.0" prefWidth="261.0" />
       <TextArea fx:id="descriptionTA" layoutX="197.0" layoutY="242.0" prefHeight="64.0" prefWidth="261.0" promptText="description" />
       <Label layoutX="108.0" layoutY="257.0" text="Description :" />
-      <Button layoutX="484.0" layoutY="361.0" mnemonicParsing="false" onAction="#submitOffer" prefHeight="25.0" prefWidth="102.0" text="Submit" />
+      <Button layoutX="484.0" layoutY="361.0" mnemonicParsing="false" onAction="#submitOffer" prefHeight="25.0" prefWidth="102.0" text="Confirmer" />
+      <Button layoutX="374.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="102.0" text="Back" />
    </children>
 </AnchorPane>

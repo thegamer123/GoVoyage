@@ -44,13 +44,14 @@ public class HotelOfferDetailScreenController implements Initializable {
     @FXML
     private TextField priceTF;
     public static int offerId;
+    public static String hotelName;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        titleTF.setText(hotelName);
     }
 
     @FXML
@@ -88,7 +89,7 @@ public class HotelOfferDetailScreenController implements Initializable {
 
     public void setHotelOfferData(HotelOffer offer) {
         offerId = offer.getId_offre_hotel();
-        titleTF.setText(offer.getTitre_offre_hotel());
+        hotelName = offer.getTitre_offre_hotel();
         desriptionTA.setText(offer.getDescription_offre_hotel());
         startDateTF.setText("Date Début : " + offer.getDate_debut_dispo());
         dateEndTF.setText("Date Fin : " + offer.getDate_fin_dispo());
