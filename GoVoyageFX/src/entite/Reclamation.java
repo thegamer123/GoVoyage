@@ -12,23 +12,49 @@ import java.time.LocalDateTime;
  * @author lenovo
  */
 public class Reclamation {
-
+ 
     private  int id_reclamation;
+    private String type;
     private  String reference;
     private  int id_user;
-    private  int etat;
+    private  String etat;
     private String description;
     private String sujet;
-    private  LocalDateTime date;
+    private  LocalDateTime date = LocalDateTime.now();
+    private String image;
 
-    public Reclamation(int id_reclamation, String reference, int id_user, int etat, String description, String sujet, LocalDateTime date) {
+    public Reclamation(int id_reclamation,LocalDateTime date, String type, String reference, int id_user, String etat, String description, String sujet,String image) {
         this.id_reclamation = id_reclamation;
+        this.date=date;
+        this.type = type;
         this.reference = reference;
         this.id_user = id_user;
         this.etat = etat;
         this.description = description;
         this.sujet = sujet;
-        this.date = date;
+        this.image=image;
+    }
+    
+
+    public Reclamation(String type, String reference, String description, int id_user,  String sujet, String image) {
+        this.type = type;
+        this.reference = reference;
+        this.id_user=id_user;
+        this.description = description;
+        this.sujet = sujet;
+        this.image = image;
+        
+    }
+
+    public Reclamation(LocalDateTime date, String type, String reference, int id_user, String etat, String description, String sujet,String image) {
+        this.date=date;
+        this.type = type;
+        this.reference = reference;
+        this.id_user = id_user;
+        this.etat = etat;
+        this.description = description;
+        this.sujet = sujet;
+        this.image=image;
     }
 
     public int getId_reclamation() {
@@ -39,11 +65,19 @@ public class Reclamation {
         this.id_reclamation = id_reclamation;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getReference() {
         return reference;
     }
 
-    public void setId_offre(String reference) {
+    public void setReference(String reference) {
         this.reference = reference;
     }
 
@@ -55,11 +89,11 @@ public class Reclamation {
         this.id_user = id_user;
     }
 
-    public int getEtat() {
+    public String getEtat() {
         return etat;
     }
 
-    public void setEtat(int etat) {
+    public void setEtat(String etat) {
         this.etat = etat;
     }
 
@@ -87,10 +121,31 @@ public class Reclamation {
         this.date = date;
     }
 
-   
+    public Reclamation(int id_reclamation, String type, String reference, int id_user, String etat, String description, String sujet,String image) {
+        this.id_reclamation = id_reclamation;
+        this.type = type;
+        this.reference = reference;
+        this.id_user = id_user;
+        this.etat = etat;
+        this.description = description;
+        this.sujet = sujet;
+        this.image=image;
+    }
 
-   
+    public String getImage() {
+        return image;
+    }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Reclamation{" + "id_reclamation=" + id_reclamation + ", type=" + type + ", reference=" + reference + ", id_user=" + id_user + ", etat=" + etat + ", description=" + description + ", sujet=" + sujet + ", date=" + date +", image=" + image + '}';
+    }
+
+    public Reclamation() {
+    }
     
-
 }

@@ -15,8 +15,8 @@ import java.util.List;
  */
 public interface I_Reclamation<T> {
     
-    public void ajoutReclamation(T t);
-    public void suppressionReclamation(int id );
-    public void majReclamation(int id ,T t);
-    public List<T> affichage();
+    public void addRec(T t);
+    public void deleteRec(int id );
+    public void updateRec(int id ,T t);
+    public List<T> getAll();
 }

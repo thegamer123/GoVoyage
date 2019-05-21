@@ -25,5 +25,6 @@
             <Font size="17.0" />
          </font>
       </Button>
+      <Button fx:id="rec" layoutX="495.0" layoutY="359.0" mnemonicParsing="false" onAction="#ReclamationAction" text="Réclamation" />
    </children>
 </AnchorPane>

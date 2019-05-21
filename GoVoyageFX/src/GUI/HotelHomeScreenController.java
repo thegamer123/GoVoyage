@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import service.ServiceUser;
@@ -33,6 +34,8 @@ public class HotelHomeScreenController implements Initializable {
     public static int idHotel;
 
     public static String hotelTitle;
+    @FXML
+    private Button rec;
 
     /**
      * Initializes the controller class.
@@ -85,6 +88,15 @@ public class HotelHomeScreenController implements Initializable {
         hotelTitle = hotelName;
         idHotel = hotel.getId_hotel();
         hotelNameTF.setText(hotelName);
+    }
+
+    @FXML
+    private void ReclamationAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = hotelNameTF.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
 }

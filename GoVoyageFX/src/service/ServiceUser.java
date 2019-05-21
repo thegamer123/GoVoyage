@@ -103,14 +103,15 @@ public class ServiceUser {
                             rs.getString(4),
                             rs.getString(5),
                             rs.getString(6),
-                            rs.getInt(7),
-                            rs.getString(8),
+                            rs.getString(7),
+                            rs.getInt(8),
                             rs.getString(9),
-                            rs.getInt(10),
+                            rs.getString(10),
                             rs.getInt(11),
                             rs.getInt(12),
                             rs.getInt(13),
-                            rs.getInt(14));
+                            rs.getInt(14),
+                            rs.getInt(15));
 
                     return resultUser;
 
@@ -156,7 +157,7 @@ public class ServiceUser {
         }
         return resultUser;
     }
-    
+
     public Agence getAgenceData(int userId) {
 
         Agence resultUser = null;
@@ -173,6 +174,46 @@ public class ServiceUser {
                             rs.getString(2),
                             rs.getInt(3),
                             rs.getString(4));
+
+                    return resultUser;
+
+                }
+            } else {
+                System.out.println("error: could not get the record counts");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return resultUser;
+    }
+
+    public User get(int id) {
+        User resultUser = null;
+        try {
+            String query = "SELECT  * From user where id_user = ? ";
+            PreparedStatement preparedStatement = con.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int numberOfRows = rs.getInt(1);
+                System.out.println("numberOfRows= " + numberOfRows);
+                if (numberOfRows > 0) {
+                    resultUser = new User(rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getString(6),
+                            rs.getString(7),
+                            rs.getInt(8),
+                            rs.getString(9),
+                            rs.getString(10),
+                            rs.getInt(11),
+                            rs.getInt(12),
+                            rs.getInt(13),
+                            rs.getInt(14),
+                            rs.getInt(15));
 
                     return resultUser;
 

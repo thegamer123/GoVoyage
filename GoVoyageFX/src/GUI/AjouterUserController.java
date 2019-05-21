@@ -80,6 +80,8 @@ public class AjouterUserController implements Initializable {
     private String selectedType;
     private Scene scene;
     MyBrowser myBrowser;
+    @FXML
+    private TextField emailTF;
 
     /**
      * Initializes the controller class.
@@ -107,6 +109,7 @@ public class AjouterUserController implements Initializable {
                             loginTF.getText(),
                             nameTF.getText(),
                             prenomTF.getText(),
+                            emailTF.getText(),
                             naissanceDP.getValue().toString(),
                             passTF1.getText(),
                             Integer.parseInt(telTF.getText()), "", "", 0, 0, 0, 0, 1));
@@ -133,6 +136,7 @@ public class AjouterUserController implements Initializable {
                             loginTF.getText(),
                             nameTF.getText(),
                             prenomTF.getText(),
+                            emailTF.getText(),
                             naissanceDP.getValue().toString(),
                             passTF1.getText(),
                             Integer.parseInt(telTF.getText()), "", "", 0, 0, 0, 1, 0));
@@ -161,6 +165,7 @@ public class AjouterUserController implements Initializable {
                             loginTF.getText(),
                             nameTF.getText(),
                             prenomTF.getText(),
+                            emailTF.getText(),
                             naissanceDP.getValue().toString(),
                             passTF1.getText(),
                             Integer.parseInt(telTF.getText()), "", "", 0, 0, 1, 0, 0));
