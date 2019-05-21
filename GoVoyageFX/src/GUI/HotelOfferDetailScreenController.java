@@ -6,13 +6,18 @@
 package GUI;
 
 import entite.HotelOffer;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
@@ -45,6 +50,8 @@ public class HotelOfferDetailScreenController implements Initializable {
     private TextField priceTF;
     public static int offerId;
     public static String hotelName;
+    @FXML
+    private Button reclamationbBT;
 
     /**
      * Initializes the controller class.
@@ -101,6 +108,15 @@ public class HotelOfferDetailScreenController implements Initializable {
     private void closeScreen() {
         Stage stage = (Stage) titleTF.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void AddRec(ActionEvent event) throws IOException
+    {Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = reclamationbBT.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
 }

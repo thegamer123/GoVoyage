@@ -183,7 +183,7 @@
                                     <Image url="@../../pkgimages/billet-reclamoscope1.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="sujetM" layoutX="142.0" layoutY="23.0" prefHeight="34.0" prefWidth="270.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="sujetM" layoutX="142.0" layoutY="23.0" prefHeight="34.0" prefWidth="270.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -193,7 +193,7 @@
                                     <Image url="@../../pkgimages/time.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="dateM" layoutX="537.0" layoutY="23.0" prefHeight="34.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="dateM" layoutX="537.0" layoutY="23.0" prefHeight="34.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -203,7 +203,7 @@
                                     <Image url="@../../pkgimages/images.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="emailM" layoutX="129.0" layoutY="111.0" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="emailM" layoutX="129.0" layoutY="111.0" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -213,7 +213,7 @@
                                     <Image url="@../../pkgimages/avis-clients-2.jpg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="etatM" layoutX="537.0" layoutY="111.0" prefHeight="34.0" prefWidth="254.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="etatM" layoutX="537.0" layoutY="111.0" prefHeight="34.0" prefWidth="254.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -223,7 +223,7 @@
                                     <Image url="@../../pkgimages/Messaging-Moved-Topic-icon.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="descriptionM" layoutX="113.0" layoutY="217.0" prefHeight="80.0" prefWidth="690.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                              <Label fx:id="descriptionM" layoutX="113.0" layoutY="217.0" prefHeight="80.0" prefWidth="690.0" style="-fx-background-color: #DCDCDC;">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

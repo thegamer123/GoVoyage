@@ -78,6 +78,7 @@ public class HelloReclamationController implements Initializable {
     }
 
     @FXML
+    //Ajout reclamation user
     private void addRec(ActionEvent event) throws IOException {
         prixBR.setToggleGroup(groupe);
         qualiteBR.setToggleGroup(groupe);
@@ -92,6 +93,7 @@ public class HelloReclamationController implements Initializable {
     }
 
     @FXML
+    //telecharger une image user 
     private void parcourirAction(ActionEvent event) {
         try {
             FileChooser fileChooser = new FileChooser();
@@ -139,6 +141,7 @@ public class HelloReclamationController implements Initializable {
     }
 
     @FXML
+    //Se rediriger vers le home 
     private void previousAction(ActionEvent event) {
         try {
 
@@ -156,6 +159,7 @@ public class HelloReclamationController implements Initializable {
     }
 
     @FXML
+    //Se déconnecter 
     private void logoutActionR(ActionEvent event) {
         try {
 

@@ -36,7 +36,7 @@
                            <graphic>
                               <ImageView fx:id="del" fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/delete.png" />
+                                    <Image url="@../../pkgimages/delete.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -78,7 +78,7 @@
                               </ImageView>
                               <ImageView fitHeight="46.0" fitWidth="73.0" layoutX="2.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/download.png" />
+                                    <Image url="@../../pkgimages/download.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
@@ -130,17 +130,17 @@
                               <RadioButton fx:id="tr" layoutX="80.0" layoutY="437.0" mnemonicParsing="false" text="Traiter" />
                               <ImageView fitHeight="36.0" fitWidth="46.0" layoutX="202.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/sad.png" />
+                                    <Image url="@../../pkgimages/sad.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="35.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/smile.png" />
+                                    <Image url="@../../pkgimages/smile.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="28.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/hqdefault.jpg" />
+                                    <Image url="@../../pkgimages/hqdefault.jpg" />
                                  </image>
                               </ImageView>
                            </children>
@@ -148,7 +148,7 @@
                         <Button fx:id="btnRefresh" layoutX="52.0" layoutY="26.0" mnemonicParsing="false" onAction="#refreshAction" prefHeight="36.0" prefWidth="39.0" />
                         <ImageView fx:id="btn" fitHeight="28.0" fitWidth="26.0" layoutX="57.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../pkgimages/refresh.png" />
+                              <Image url="@../../pkgimages/refresh.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="961.0" layoutY="30.0" prefHeight="27.0" prefWidth="294.0" text="DETAILS INFORMATION">
@@ -180,50 +180,50 @@
                            <children>
                               <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="23.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/billet-reclamoscope1.png" />
+                                    <Image url="@../../pkgimages/billet-reclamoscope1.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="sujetM" layoutX="142.0" layoutY="23.0" prefHeight="34.0" prefWidth="270.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="sujetM" layoutX="142.0" layoutY="23.0" prefHeight="34.0" prefWidth="270.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                               <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="446.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/time.png" />
+                                    <Image url="@../../pkgimages/time.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="dateM" layoutX="537.0" layoutY="23.0" prefHeight="34.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="dateM" layoutX="537.0" layoutY="23.0" prefHeight="34.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                               <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="23.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/images.png" />
+                                    <Image url="@../../pkgimages/images.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="emailM" layoutX="129.0" layoutY="111.0" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="emailM" layoutX="129.0" layoutY="111.0" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                               <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="446.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/avis-clients-2.jpg" />
+                                    <Image url="@../../pkgimages/avis-clients-2.jpg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="etatM" layoutX="537.0" layoutY="111.0" prefHeight="34.0" prefWidth="254.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                              <Label fx:id="etatM" layoutX="537.0" layoutY="111.0" prefHeight="34.0" prefWidth="254.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                               <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="23.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/Messaging-Moved-Topic-icon.png" />
+                                    <Image url="@../../pkgimages/Messaging-Moved-Topic-icon.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="descriptionM" layoutX="113.0" layoutY="217.0" prefHeight="80.0" prefWidth="690.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                              <Label fx:id="descriptionM" layoutX="113.0" layoutY="217.0" prefHeight="80.0" prefWidth="690.0" style="-fx-background-color: #DCDCDC;">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -258,7 +258,7 @@
                            <children>
                               <ImageView fitHeight="84.0" fitWidth="101.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/userProfilPicture.png" />
+                                    <Image url="@../../pkgimages/userProfilPicture.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="84.0" fitWidth="101.0" layoutX="14.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
@@ -273,7 +273,7 @@
                               </ImageView>
                               <ImageView fitHeight="84.0" fitWidth="101.0" layoutX="471.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../pkgimages/time.png" />
+                                    <Image url="@../../pkgimages/time.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="loghis" layoutX="132.0" layoutY="45.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: #DCDCDC;" text="Label">
@@ -317,7 +317,7 @@
       <Button fx:id="log" layoutX="1725.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logoutActionR" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #c71111;" text="Logout" textFill="#131212" />
       <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="1675.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../pkgimages/logoutRed.png" />
+            <Image url="@../../pkgimages/logoutRed.png" />
          </image>
       </ImageView>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />

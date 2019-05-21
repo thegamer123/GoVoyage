@@ -175,7 +175,7 @@ public class ConsulterReclamationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+ // rafraichir l'écran des reclamation coté admin
         listR.getColumns().clear();
         listR.getItems().clear();
         ReclamationService rs = new ReclamationService();
@@ -299,7 +299,7 @@ public class ConsulterReclamationController implements Initializable {
         );
 
     }
-
+//affichage des données du user 
     public void initialiser(ObservableList data) {
         details.setVisible(false);
 
