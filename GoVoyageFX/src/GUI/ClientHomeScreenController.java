@@ -27,8 +27,11 @@ import javafx.stage.Stage;
  */
 public class ClientHomeScreenController implements Initializable {
 
+    @FXML
+    private Button logoutBtn;
 
-    private AnchorPane mainAP;
+
+
 
     /**
      * Initializes the controller class.
@@ -52,7 +55,7 @@ public class ClientHomeScreenController implements Initializable {
         
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
         Scene scene = new Scene(root);
-        Scene currentScene = mainAP.getScene();
+        Scene currentScene = logoutBtn.getScene();
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
     }

@@ -8,11 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GoVoyageFX.jar" size="61930" download="eager" />
-    <jar href="lib\GMapsFX-2.12.0.jar" size="207618" download="eager" />
+    <jar href="GoVoyageFX.jar" size="70719" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
-    <jar href="lib\slf4j-api-1.7.26.jar" size="41139" download="eager" />
-    <jar href="lib\slf4j-jdk14-1.7.26.jar" size="8476" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GoVoyageFX" >
     <param name="requiredFXVersion" value="8.0+"/>

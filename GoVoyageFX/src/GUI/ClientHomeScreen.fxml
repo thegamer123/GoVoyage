@@ -16,7 +16,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="29.0" layoutY="350.0" mnemonicParsing="false" onAction="#logout" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #000a12;" text="Déconnecter" textFill="WHITE">
+      <Button fx:id="logoutBtn" layoutX="29.0" layoutY="350.0" mnemonicParsing="false" onAction="#logout" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: #000a12;" text="Déconnecter" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

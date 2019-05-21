@@ -30,15 +30,16 @@ public class HotelHomeScreenController implements Initializable {
     @FXML
     private TextField hotelNameTF;
 
-    public static String hotelName;
     public static int idHotel;
+
+    public static String hotelTitle;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        hotelNameTF.setText(hotelTitle);
     }
 
     @FXML
@@ -54,7 +55,7 @@ public class HotelHomeScreenController implements Initializable {
 
     @FXML
     private void myOffers(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/ShowHotelOffer.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/ShowHotelOffer.fxml"));
         Parent root = (Parent) loader.load();
         Scene scene = new Scene(root);
         //AddHotelOfferController controller = loader.getController();
@@ -79,12 +80,11 @@ public class HotelHomeScreenController implements Initializable {
     }
 
     public void setUser(User user) {
-
         Hotel hotel = new ServiceUser().getHotelData(user.getId_user());
-        hotelName = hotel.getNom_hotel();
+        String hotelName = hotel.getNom_hotel();
+        hotelTitle = hotelName;
         idHotel = hotel.getId_hotel();
         hotelNameTF.setText(hotelName);
-
     }
 
 }

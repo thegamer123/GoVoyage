@@ -5,14 +5,6 @@
  */
 package GUI;
 
-import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.MapOptions;
-import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
-import com.lynden.gmapsfx.javascript.object.Marker;
-import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import com.sun.prism.PhongMaterial.MapType;
 import entite.User;
 import java.io.IOException;
@@ -82,8 +74,6 @@ public class AjouterUserController implements Initializable {
     @FXML
     private ImageView gpsIV;
 
-    GoogleMapView mapView;
-    GoogleMap map;
     private Spinner<String> compteType;
     @FXML
     private ComboBox<String> compteTypeCB;
