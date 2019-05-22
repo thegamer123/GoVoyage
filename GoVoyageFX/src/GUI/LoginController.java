@@ -34,6 +34,7 @@ public class LoginController implements Initializable {
     private TextField loginTF;
     @FXML
     private PasswordField passTF;
+    public static int id;
 
     /**
      * Initializes the controller class.

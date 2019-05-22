@@ -28,6 +28,8 @@ public class AdminHomeScreenController implements Initializable {
     private Button hotelBtn;
     @FXML
     private Button volBtn;
+    @FXML
+    private Button reclamation;
 
     /**
      * Initializes the controller class.
@@ -53,6 +55,15 @@ public class AdminHomeScreenController implements Initializable {
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
 
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/ConsulterReclamation.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = volBtn.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
 }

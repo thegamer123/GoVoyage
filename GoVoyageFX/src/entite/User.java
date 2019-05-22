@@ -17,6 +17,7 @@ public class User {
     private String login_user;
     private String nom_user;
     private String prenom_user;
+    private String email_user;
     private String date_naissance_user;
     private String password_user;
     private int tel_user;
@@ -28,11 +29,12 @@ public class User {
     private int is_agency;
     private int is_client;
 
-    public User(int id_user, String login_user, String nom_user, String prenom_user, String date_naissance_user, String password_user, int tel_user, String longitude_user, String lattitude_user, int is_active_user, int is_admin_user, int is_hotel, int is_agency, int is_client) {
+    public User(int id_user, String login_user, String nom_user, String prenom_user, String email_user, String date_naissance_user, String password_user, int tel_user, String longitude_user, String lattitude_user, int is_active_user, int is_admin_user, int is_hotel, int is_agency, int is_client) {
         this.id_user = id_user;
         this.login_user = login_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
+        this.email_user = email_user;
         this.date_naissance_user = date_naissance_user;
         this.password_user = password_user;
         this.tel_user = tel_user;
@@ -44,8 +46,6 @@ public class User {
         this.is_agency = is_agency;
         this.is_client = is_client;
     }
-
-
 
     public int getId_user() {
         return id_user;
@@ -158,7 +158,13 @@ public class User {
     public void setIs_client(int is_client) {
         this.is_client = is_client;
     }
-    
-    
+
+    public String getEmail_user() {
+        return email_user;
+    }
+
+    public void setEmail_user(String email_user) {
+        this.email_user = email_user;
+    }
 
 }

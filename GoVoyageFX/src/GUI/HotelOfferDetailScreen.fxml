@@ -15,7 +15,7 @@
       <TextField fx:id="dateEndTF" editable="false" layoutX="272.0" layoutY="130.0" prefHeight="38.0" prefWidth="420.0" promptText="date fin" />
       <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Supprimer" />
       <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#listerReservation" prefHeight="46.0" prefWidth="219.0" text="Liste des reservations" />
-      <Button layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Réclamation" />
+      <Button fx:id="reclamationbBT" layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#AddRec" prefHeight="46.0" prefWidth="99.0" text="Réclamation" />
       <Button layoutX="361.0" layoutY="448.0" mnemonicParsing="false" onAction="#Commentaire" prefHeight="46.0" prefWidth="99.0" text="Commentaire" />
       <TextField fx:id="priceTF" editable="false" layoutX="272.0" layoutY="181.0" prefHeight="38.0" prefWidth="420.0" promptText="prix" />
    </children>

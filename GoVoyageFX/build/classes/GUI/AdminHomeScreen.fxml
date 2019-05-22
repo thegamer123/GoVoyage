@@ -6,12 +6,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminHomeScreenController">
    <children>
-      <Button fx:id="hotelBtn" layoutX="189.0" layoutY="120.0" mnemonicParsing="false" onAction="#hotelCheck" prefHeight="55.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Hotels" textFill="WHITE">
+      <Button fx:id="hotelBtn" layoutX="192.0" layoutY="82.0" mnemonicParsing="false" onAction="#hotelCheck" prefHeight="55.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Hotels" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="volBtn" layoutX="189.0" layoutY="203.0" mnemonicParsing="false" onAction="#volCheck" prefHeight="55.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Vols" textFill="WHITE">
+      <Button fx:id="volBtn" layoutX="192.0" layoutY="165.0" mnemonicParsing="false" onAction="#volCheck" prefHeight="55.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Vols" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -19,6 +19,11 @@
       <Button layoutX="14.0" layoutY="347.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #000a12;" text="Déconnecter" textFill="WHITE">
          <font>
             <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="reclamation" layoutX="192.0" layoutY="246.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="55.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Réclamations" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
          </font>
       </Button>
    </children>
