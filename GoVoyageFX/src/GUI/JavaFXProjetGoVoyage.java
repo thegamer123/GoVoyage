@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.GoVoyage.GUI;
+package GUI;
 
-import com.GoVoyage.entite.Hotel;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.collections.FXCollections;

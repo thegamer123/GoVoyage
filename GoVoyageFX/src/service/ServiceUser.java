@@ -144,7 +144,9 @@ public class ServiceUser {
                             rs.getString(5),
                             rs.getString(6),
                             rs.getInt(7),
-                            rs.getString(8));
+                            rs.getString(9),
+                            rs.getString(10)
+                    );
 
                     return resultUser;
 

@@ -3,21 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.GoVoyage.GUI;
+package GUI;
 
 
-import com.GoVoyage.entite.Chambre;
-import com.GoVoyage.entite.Classe;
-import com.GoVoyage.entite.Hotel;
 import com.GoVoyage.entite.Renseignement;
 import com.GoVoyage.entite.Vol;
 import com.GoVoyage.service.Cell;
-import com.GoVoyage.service.CellHotel;
-import com.GoVoyage.service.ServiceClasse;
+import service.CellHotel;
 
 
-import com.GoVoyage.service.ServiceHotel;
-import com.GoVoyage.service.ServiceRenseigtHotel;
+import service.ServiceRenseigtHotel;
 import com.GoVoyage.utiles.ConersionDate;
 import java.io.IOException;
 import java.net.URL;

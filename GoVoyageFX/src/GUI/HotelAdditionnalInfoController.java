@@ -58,7 +58,7 @@ public class HotelAdditionnalInfoController implements Initializable {
         ServiceHotel service = new ServiceHotel();
         int result = -1;
         if (validateData()) {
-            result = service.addHotel(new Hotel(0, nameTF.getText(), id_user, 0, adrTF.getText(), startTF.getText(), Integer.parseInt(roomTF.getText()), prixTF.getText()));
+            result = service.addHotel(new Hotel(0, nameTF.getText(), id_user, 0, adrTF.getText(), startTF.getText(), Integer.parseInt(roomTF.getText()), prixTF.getText(),""));
             if (result > -1) {
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelHomeScreen.fxml"));
                 Scene scene = new Scene(root);

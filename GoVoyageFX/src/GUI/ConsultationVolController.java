@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.GoVoyage.GUI;
+package GUI;
 
 import com.GoVoyage.entite.Vol;
 import com.GoVoyage.service.Cell;
-import com.GoVoyage.service.ServiceVol;
+import service.ServiceVol;
 import com.GoVoyage.utiles.ConersionDate;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,15 +32,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 
-
 /**
  * FXML Controller class
  *
  * @author ASUS
  */
 public class ConsultationVolController implements Initializable {
-    
-    private ObservableList<Vol> volList=FXCollections .observableArrayList();
+
+    private ObservableList<Vol> volList = FXCollections.observableArrayList();
 
     @FXML
     private TextField FieldFrom;
@@ -62,215 +61,220 @@ public class ConsultationVolController implements Initializable {
     private Label LabelRet;
     @FXML
     private ListView<Vol> listViewVol;
- Image profile=new Image("/image/vol.png");
+    Image profile = new Image("/image/vol.png");
     @FXML
     private Button btnbest;
     @FXML
     private Button btncheap;
+
     /**
      * Initializes the controller class.
      */
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-        ServiceVol vol=new ServiceVol();
-        List<Vol> list=vol.readAll();
-        for(Vol v:list){
-            Vol vol1 = new Vol();
-            int id_vol= v.getId_vol();
-            // id_vol=v.getId_vol();  
-            String type_Vol=v.getType_vol();
-            String origine=v.getOrigine();
-             vol1.setId_vol(id_vol);
-             vol1.setType_vol(type_Vol);
-            vol1.setOrigine(origine);
-            String destination=v.getDestination();
-            vol1.setDestination(destination);
-            String heureDepart=v.getHeureDepart();
-            vol1.setHeureDepart(heureDepart);
-            String heureArrive=v.getHeureArrive();
-            vol1.setHeureArrive(heureArrive);
-            Float prix=v.getPrix();
-            vol1.setPrix(prix);
-            int nbpassagers=v.getNb_pax_max();
-            vol1.setNb_pax_max(nbpassagers);
-            int nbEscales=v.getNb_escale();
-            vol1.setNb_escale(nbEscales);
-            String heureDep=v.getHeureDepart();
-            vol1.setHeureDepart(heureDepart);
-            String heureArr=v.getHeureArrive();
-            vol1.setHeureArrive(heureArrive);
-            volList.add(vol1);
-            
-        }
-        listViewVol.setItems(volList);
-      //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
-listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() { 
- 
-    public ListCell<Vol> call(ListView<Vol> lv) { 
-        return new Cell(); 
-    } 
-});
-    }    
-    @FXML
-     public void controleSearch(){
-       List<Alert> list=new ArrayList<Alert>();
-    if(FieldFrom.getText().equals("") ){
-        Alert alert = new Alert(AlertType.INFORMATION);
-     
-        alert.setTitle("No Selection");
-        alert.setHeaderText("No city Selected");
-        alert.setContentText(" Please enter a valid city.");
-      // list.add( alert);
-        alert.showAndWait();
-    }  
-        if(FieldDestination.getText().equals("") ){
-       labelFrom.textProperty (). bind (FieldFrom.textProperty ());
-        Alert alert1 = new Alert(AlertType.INFORMATION);
-     
-       // alert.setTitle("No Selection");
-        //alert1.setHeaderText("No city Selected");
-        alert1.setContentText(" Please enter a valid city.");
-       // list.add( alert1);
-        
-        alert1.showAndWait();
-    }   
 
-} 
-public void trierParPrix(){
-         
-     ObservableList<Vol> volList=FXCollections .observableArrayList();
-        ServiceVol vol=new ServiceVol();
-        List<Vol> list=vol.readOrderByPriceAsc();
-        for(Vol v:list){
+        ServiceVol vol = new ServiceVol();
+        List<Vol> list = vol.readAll();
+        for (Vol v : list) {
             Vol vol1 = new Vol();
-            int id_vol= v.getId_vol();
+            int id_vol = v.getId_vol();
             // id_vol=v.getId_vol();  
-            String type_Vol=v.getType_vol();
-            String origine=v.getOrigine();
-             vol1.setId_vol(id_vol);
-             vol1.setType_vol(type_Vol);
+            String type_Vol = v.getType_vol();
+            String origine = v.getOrigine();
+            vol1.setId_vol(id_vol);
+            vol1.setType_vol(type_Vol);
             vol1.setOrigine(origine);
-            String destination=v.getDestination();
+            String destination = v.getDestination();
             vol1.setDestination(destination);
-            String heureDepart=v.getHeureDepart();
+            String heureDepart = v.getHeureDepart();
             vol1.setHeureDepart(heureDepart);
-            String heureArrive=v.getHeureArrive();
+            String heureArrive = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
-            Float prix=v.getPrix();
+            Float prix = v.getPrix();
             vol1.setPrix(prix);
-            int nbpassagers=v.getNb_pax_max();
+            int nbpassagers = v.getNb_pax_max();
             vol1.setNb_pax_max(nbpassagers);
-            int nbEscales=v.getNb_escale();
+            int nbEscales = v.getNb_escale();
             vol1.setNb_escale(nbEscales);
-            String heureDep=v.getHeureDepart();
+            String heureDep = v.getHeureDepart();
             vol1.setHeureDepart(heureDepart);
-            String heureArr=v.getHeureArrive();
+            String heureArr = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
             volList.add(vol1);
-            
+
         }
-        
         listViewVol.setItems(volList);
-      //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
-listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() { 
- 
-    public ListCell<Vol> call(ListView<Vol> lv) { 
-        return new Cell(); 
-    } 
-});  
-}
-public void trierParPrixDsc(){
-         
-     ObservableList<Vol> volList=FXCollections .observableArrayList();
-        ServiceVol vol=new ServiceVol();
-        List<Vol> list=vol.readOrderByPriceDsc();
-        for(Vol v:list){
+        //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
+        listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() {
+
+            public ListCell<Vol> call(ListView<Vol> lv) {
+                return new Cell();
+            }
+        });
+    }
+
+    @FXML
+    public void controleSearch() {
+        List<Alert> list = new ArrayList<Alert>();
+        if (FieldFrom.getText().equals("")) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No city Selected");
+            alert.setContentText(" Please enter a valid city.");
+            // list.add( alert);
+            alert.showAndWait();
+        }
+        if (FieldDestination.getText().equals("")) {
+            labelFrom.textProperty().bind(FieldFrom.textProperty());
+            Alert alert1 = new Alert(AlertType.INFORMATION);
+
+            // alert.setTitle("No Selection");
+            //alert1.setHeaderText("No city Selected");
+            alert1.setContentText(" Please enter a valid city.");
+            // list.add( alert1);
+
+            alert1.showAndWait();
+        }
+
+    }
+
+    public void trierParPrix() {
+
+        ObservableList<Vol> volList = FXCollections.observableArrayList();
+        ServiceVol vol = new ServiceVol();
+        List<Vol> list = vol.readOrderByPriceAsc();
+        for (Vol v : list) {
             Vol vol1 = new Vol();
-            int id_vol= v.getId_vol();
+            int id_vol = v.getId_vol();
             // id_vol=v.getId_vol();  
-            String type_Vol=v.getType_vol();
-            String origine=v.getOrigine();
-             vol1.setId_vol(id_vol);
-             vol1.setType_vol(type_Vol);
+            String type_Vol = v.getType_vol();
+            String origine = v.getOrigine();
+            vol1.setId_vol(id_vol);
+            vol1.setType_vol(type_Vol);
             vol1.setOrigine(origine);
-            String destination=v.getDestination();
+            String destination = v.getDestination();
             vol1.setDestination(destination);
-            String heureDepart=v.getHeureDepart();
+            String heureDepart = v.getHeureDepart();
             vol1.setHeureDepart(heureDepart);
-            String heureArrive=v.getHeureArrive();
+            String heureArrive = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
-            Float prix=v.getPrix();
+            Float prix = v.getPrix();
             vol1.setPrix(prix);
-            int nbpassagers=v.getNb_pax_max();
+            int nbpassagers = v.getNb_pax_max();
             vol1.setNb_pax_max(nbpassagers);
-            int nbEscales=v.getNb_escale();
+            int nbEscales = v.getNb_escale();
             vol1.setNb_escale(nbEscales);
-            String heureDep=v.getHeureDepart();
+            String heureDep = v.getHeureDepart();
             vol1.setHeureDepart(heureDepart);
-            String heureArr=v.getHeureArrive();
+            String heureArr = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
             volList.add(vol1);
-            
+
         }
-        
+
         listViewVol.setItems(volList);
-      //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
-listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() { 
- 
-    public ListCell<Vol> call(ListView<Vol> lv) { 
-        return new Cell(); 
-    } 
-});  
-}
-public void lireParCritereRecherche(){
-    ConersionDate sr=new ConersionDate();
-    int date=sr.convertirDateToString(DateDeparture);
-    System.out.println("FieldFrom.getText() = "+ FieldFrom.getText());
-    System.out.println("FieldDestination.getText() = "+FieldDestination.getText());
-    System.out.println("Le résultat est = "+ date);
-          controleSearch();  
-     ObservableList<Vol> volList=FXCollections .observableArrayList();
-        ServiceVol vol=new ServiceVol();
-        List<Vol> list=vol.lireParCritereRecherche(FieldFrom.getText(),FieldDestination.getText(),date);
-        for(Vol v:list){
+        //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
+        listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() {
+
+            public ListCell<Vol> call(ListView<Vol> lv) {
+                return new Cell();
+            }
+        });
+    }
+
+    public void trierParPrixDsc() {
+
+        ObservableList<Vol> volList = FXCollections.observableArrayList();
+        ServiceVol vol = new ServiceVol();
+        List<Vol> list = vol.readOrderByPriceDsc();
+        for (Vol v : list) {
             Vol vol1 = new Vol();
-            int id_vol= v.getId_vol();
+            int id_vol = v.getId_vol();
             // id_vol=v.getId_vol();  
-            String type_Vol=v.getType_vol();
-            String origine=v.getOrigine();
-             vol1.setId_vol(id_vol);
-             vol1.setType_vol(type_Vol);
+            String type_Vol = v.getType_vol();
+            String origine = v.getOrigine();
+            vol1.setId_vol(id_vol);
+            vol1.setType_vol(type_Vol);
             vol1.setOrigine(origine);
-            String destination=v.getDestination();
+            String destination = v.getDestination();
             vol1.setDestination(destination);
-            String heureDepart=v.getHeureDepart();
+            String heureDepart = v.getHeureDepart();
             vol1.setHeureDepart(heureDepart);
-            String heureArrive=v.getHeureArrive();
+            String heureArrive = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
-            Float prix=v.getPrix();
+            Float prix = v.getPrix();
             vol1.setPrix(prix);
-            int nbpassagers=v.getNb_pax_max();
+            int nbpassagers = v.getNb_pax_max();
             vol1.setNb_pax_max(nbpassagers);
-            int nbEscales=v.getNb_escale();
+            int nbEscales = v.getNb_escale();
             vol1.setNb_escale(nbEscales);
-            String heureDep=v.getHeureDepart();
+            String heureDep = v.getHeureDepart();
             vol1.setHeureDepart(heureDepart);
-            String heureArr=v.getHeureArrive();
+            String heureArr = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
             volList.add(vol1);
-            
+
         }
-        
+
         listViewVol.setItems(volList);
-      //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
-listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() { 
- 
-    public ListCell<Vol> call(ListView<Vol> lv) { 
-        return new Cell(); 
-    } 
-});  
-}
+        //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
+        listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() {
+
+            public ListCell<Vol> call(ListView<Vol> lv) {
+                return new Cell();
+            }
+        });
+    }
+
+    public void lireParCritereRecherche() {
+        ConersionDate sr = new ConersionDate();
+        int date = sr.convertirDateToString(DateDeparture);
+        System.out.println("FieldFrom.getText() = " + FieldFrom.getText());
+        System.out.println("FieldDestination.getText() = " + FieldDestination.getText());
+        System.out.println("Le résultat est = " + date);
+        controleSearch();
+        ObservableList<Vol> volList = FXCollections.observableArrayList();
+        ServiceVol vol = new ServiceVol();
+        List<Vol> list = vol.lireParCritereRecherche(FieldFrom.getText(), FieldDestination.getText(), date);
+        for (Vol v : list) {
+            Vol vol1 = new Vol();
+            int id_vol = v.getId_vol();
+            // id_vol=v.getId_vol();  
+            String type_Vol = v.getType_vol();
+            String origine = v.getOrigine();
+            vol1.setId_vol(id_vol);
+            vol1.setType_vol(type_Vol);
+            vol1.setOrigine(origine);
+            String destination = v.getDestination();
+            vol1.setDestination(destination);
+            String heureDepart = v.getHeureDepart();
+            vol1.setHeureDepart(heureDepart);
+            String heureArrive = v.getHeureArrive();
+            vol1.setHeureArrive(heureArrive);
+            Float prix = v.getPrix();
+            vol1.setPrix(prix);
+            int nbpassagers = v.getNb_pax_max();
+            vol1.setNb_pax_max(nbpassagers);
+            int nbEscales = v.getNb_escale();
+            vol1.setNb_escale(nbEscales);
+            String heureDep = v.getHeureDepart();
+            vol1.setHeureDepart(heureDepart);
+            String heureArr = v.getHeureArrive();
+            vol1.setHeureArrive(heureArrive);
+            volList.add(vol1);
+
+        }
+
+        listViewVol.setItems(volList);
+        //  listViewVol.setCellFactory(volList -> new Cell<Vol>());
+        listViewVol.setCellFactory(new Callback<ListView<Vol>, ListCell<Vol>>() {
+
+            public ListCell<Vol> call(ListView<Vol> lv) {
+                return new Cell();
+            }
+        });
+    }
 }

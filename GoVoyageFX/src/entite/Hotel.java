@@ -19,8 +19,9 @@ public class Hotel {
     private String stars_hotel;
     private int chambre_hotel;
     private String prix_hotel;
+    private String img_hotel;
 
-    public Hotel(int id_hotel, String nom_hotel, int id_user, int is_available_hotel, String Adresse_hotel, String stars_hotel, int chambre_hotel, String prix_hotel) {
+    public Hotel(int id_hotel, String nom_hotel, int id_user, int is_available_hotel, String Adresse_hotel, String stars_hotel, int chambre_hotel, String prix_hotel, String img_hotel) {
         this.id_hotel = id_hotel;
         this.nom_hotel = nom_hotel;
         this.id_user = id_user;
@@ -29,8 +30,19 @@ public class Hotel {
         this.stars_hotel = stars_hotel;
         this.chambre_hotel = chambre_hotel;
         this.prix_hotel = prix_hotel;
+        this.img_hotel = img_hotel;
     }
 
+    public String getImg_hotel() {
+        return img_hotel;
+    }
+
+    public void setImg_hotel(String img_hotel) {
+        this.img_hotel = img_hotel;
+    }
+
+    
+    
     public int getId_hotel() {
         return id_hotel;
     }

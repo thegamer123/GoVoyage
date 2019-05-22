@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.GoVoyage.service;
+package service;
 
 
-import com.GoVoyage.entite.Hotel;
 import com.GoVoyage.entite.Renseignement;
-import java.awt.Rectangle;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.ContentDisplay;
