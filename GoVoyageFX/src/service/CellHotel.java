@@ -6,7 +6,7 @@
 package service;
 
 
-import com.GoVoyage.entite.Renseignement;
+import entite.Renseignement;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.ContentDisplay;
@@ -124,7 +124,7 @@ public class CellHotel extends ListCell<Renseignement>{
             modelLabel.setText("Hotel "+item.getNom_hotel()); 
             String image=item.getNom_hotel();
             System.out.println("image"+image);
-            Image img=new Image("/image/"+item.getImg_hotel()+".jpg");
+            Image img=new Image("/png/"+item.getImg_hotel());
             carte.setText("Show on Map");
             classe.setText(String.format("%d Stars", item.getNbr_etoile_class()));
             prix.setText("Price/night: "+String.valueOf(item.getPrix())+"€");

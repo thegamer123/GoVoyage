@@ -5,7 +5,7 @@
  */
 package service;
 
-import com.GoVoyage.entite.Renseignement;
+import entite.Renseignement;
 import utils.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -33,11 +33,9 @@ public class ServiceRenseigtHotel {
             while (reseSet.next()) {
                 int id_hotel = reseSet.getInt("id_hotel");
                 String nom_hotel = reseSet.getString("nom_hotel");
-
                 int id_user = reseSet.getInt("id_user");
                 String adr_hotel = reseSet.getString("adr_hotel");
                 String img_hotel = reseSet.getString("img_hotel");
-
                 int nbr_etoile_class = reseSet.getInt("nbr_etoile_class");
                 int id_chambre = reseSet.getInt("id_chambre");
                 int num_chambre = reseSet.getInt("num_chambre");
@@ -49,7 +47,7 @@ public class ServiceRenseigtHotel {
                 int id_categorie = reseSet.getInt("id_categorie");
                 String descrip_categorie = reseSet.getString("descrip_categorie");
                 Float prix = reseSet.getFloat("prix");
-
+                
                 list.add(new Renseignement(id_hotel, nom_hotel, id_user, adr_hotel,
                         img_hotel, nbr_etoile_class, id_chambre,
                         num_chambre, tel_chambre, id_reservation, id_offre, date_debut,

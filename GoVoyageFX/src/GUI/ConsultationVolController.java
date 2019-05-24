@@ -5,8 +5,8 @@
  */
 package GUI;
 
-import com.GoVoyage.entite.Vol;
-import com.GoVoyage.service.Cell;
+import entite.Vol;
+import service.Cell;
 import service.ServiceVol;
 import com.GoVoyage.utiles.ConersionDate;
 import java.net.URL;

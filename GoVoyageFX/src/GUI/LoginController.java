@@ -82,7 +82,7 @@ public class LoginController implements Initializable {
                         primStage.setScene(scene);
                         
                     } else if (result.getIs_client() == 1) {
-                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ClientHomeScreen.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
                         Scene scene = new Scene(root);
                         Scene currentScene = loginTF.getScene();
                         Stage primStage = (Stage) currentScene.getWindow();

@@ -20,6 +20,11 @@ public class HotelOffer {
     private String prix;
     private int id_hotel;
 
+    public HotelOffer() {
+    }
+    
+    
+
     public HotelOffer(int id_offre_hotel, String titre_offre_hotel, String photo_offre_hotel, String description_offre_hotel, String date_debut_dispo, String date_fin_dispo, String prix, int id_hotel) {
         this.id_offre_hotel = id_offre_hotel;
         this.titre_offre_hotel = titre_offre_hotel;

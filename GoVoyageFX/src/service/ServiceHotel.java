@@ -42,8 +42,6 @@ public class ServiceHotel {
                 String nom_hotel = reseSet.getString("nom_hotel");
                 int disponibilite = reseSet.getInt("is_available_hotel");
                 int id_user = reseSet.getInt("id_user");
-                int id_chambre = reseSet.getInt("id_chambre");
-                String ville = reseSet.getString("adr_hotel");
                 String img = reseSet.getString("img_hotel");
                 String Adresse_hotel = reseSet.getString("Adresse_hotel");
                 String stars_hotel = reseSet.getString("stars_hotel");

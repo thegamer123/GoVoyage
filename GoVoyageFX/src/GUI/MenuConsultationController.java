@@ -48,57 +48,46 @@ public class MenuConsultationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-      
-   
-    }    
+
+    }
+
     private void navigation(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MenuConsultation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MenuConsultation.fxml"));
         Scene scene = new Scene(root);
 //          Image image = new Image("/image/govoyage.jpg");
 //     img_govoyage.setImage(image);
         Scene currentScene = img_govoyage.getScene();
- 
-   
-        Stage primStage = (Stage) currentScene.getWindow() ;
+        Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
     }
 
-    
-       @FXML
-  public void Appel(ActionEvent event) throws IOException { 
-  if(butHotel.isSelected()){
-            Parent root = FXMLLoader.load(getClass().getResource("ConsultationHotel.fxml"));
+    @FXML
+    public void Appel(ActionEvent event) throws IOException {
+        if (butHotel.isSelected()) {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ConsultationHotel.fxml"));
             Scene scene = new Scene(root);
-
             Scene currentScene = butSearch.getScene();
-
-
-           Stage primStage = (Stage) currentScene.getWindow() ;
+            Stage primStage = (Stage) currentScene.getWindow();
             primStage.setScene(scene);
 
-    }else if(butFlights.isSelected()){
-            Parent root = FXMLLoader.load(getClass().getResource("ConsultationVol.fxml"));
+        } else if (butFlights.isSelected()) {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ConsultationVol.fxml"));
             Scene scene = new Scene(root);
-
             Scene currentScene = butSearch.getScene();
-
-
-           Stage primStage = (Stage) currentScene.getWindow() ;
+            Stage primStage = (Stage) currentScene.getWindow();
             primStage.setScene(scene);
-      
-  }
-  }
+
+        }
+    }
 
     @FXML
     private void nav(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ConsultationOffre.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ConsultationOffre.fxml"));
         Scene scene = new Scene(root);
 //          Image image = new Image("/image/govoyage.jpg");
 //     img_govoyage.setImage(image);
         Scene currentScene = ButDeals.getScene();
- 
-   
-        Stage primStage = (Stage) currentScene.getWindow() ;
+        Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
     }
 

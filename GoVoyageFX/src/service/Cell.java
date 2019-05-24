@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.GoVoyage.service;
+package service;
 
-import com.GoVoyage.entite.Vol;
+import entite.Vol;
 import java.awt.Color;
 import java.awt.Rectangle;
 import javafx.geometry.HPos;
