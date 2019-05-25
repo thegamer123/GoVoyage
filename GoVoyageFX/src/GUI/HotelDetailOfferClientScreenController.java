@@ -7,10 +7,13 @@ package GUI;
 
 import static GUI.HotelOfferDetailScreenController.hotelName;
 import static GUI.HotelOfferDetailScreenController.offerId;
+import GUI.reservationHotel.FirstStepReservationHotelController;
 import entite.HotelOffer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,6 +49,7 @@ public class HotelDetailOfferClientScreenController implements Initializable {
     @FXML
     private TextField priceTF;
     private String path = "file:///C:/Users/Lenovo/Desktop/GoVoyageFX/png/";
+    static HotelOffer currentOffer;
 
     /**
      * Initializes the controller class.
@@ -57,11 +61,16 @@ public class HotelDetailOfferClientScreenController implements Initializable {
 
     @FXML
     private void Reserver(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/reservationHotel/firstStepReservationHotel.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/reservationHotel/firstStepReservationHotel.fxml"));
+        Parent root = (Parent) loader.load();
+        FirstStepReservationHotelController controller = loader.getController();
+        controller.setHotelOfferData(currentOffer);
+        System.out.println(root);
         Scene scene = new Scene(root);
-        Scene currentScene = reclamationbBT.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
+        Stage primStage = new Stage();
         primStage.setScene(scene);
+        primStage.show();
+
     }
 
     @FXML
@@ -69,8 +78,9 @@ public class HotelDetailOfferClientScreenController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
         Scene scene = new Scene(root);
         Scene currentScene = reclamationbBT.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
+        Stage primStage = new Stage();
         primStage.setScene(scene);
+        primStage.show();
     }
 
     @FXML
@@ -78,6 +88,7 @@ public class HotelDetailOfferClientScreenController implements Initializable {
     }
 
     public void setHotelOfferData(HotelOffer offer) {
+        currentOffer = offer;
         offerId = offer.getId_offre_hotel();
         hotelName = offer.getTitre_offre_hotel();
         titleTF.setText(hotelName);

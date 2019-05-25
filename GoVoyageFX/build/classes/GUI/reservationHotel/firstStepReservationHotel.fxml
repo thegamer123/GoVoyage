@@ -8,14 +8,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Recherche_resController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.FirstStepReservationHotelController">
    <children>
       <Label layoutX="73.0" layoutY="97.0" prefHeight="17.0" prefWidth="70.0" text="Hotels" />
       <TextField fx:id="rechercheF" editable="false" layoutX="168.0" layoutY="93.0" prefHeight="25.0" prefWidth="265.0" />
       <Label layoutX="74.0" layoutY="177.0" text="Fin" />
       <Label layoutX="73.0" layoutY="138.0" prefHeight="17.0" prefWidth="70.0" text="Début" />
-      <DatePicker fx:id="dt1" layoutX="167.0" layoutY="173.0" prefHeight="25.0" prefWidth="265.0" />
-      <DatePicker fx:id="dt2" layoutX="167.0" layoutY="134.0" prefHeight="25.0" prefWidth="265.0" />
+      <DatePicker fx:id="finDate" layoutX="167.0" layoutY="173.0" prefHeight="25.0" prefWidth="265.0" />
+      <DatePicker fx:id="debutDate" layoutX="167.0" layoutY="134.0" prefHeight="25.0" prefWidth="265.0" />
       <Label layoutX="73.0" layoutY="287.0" text="NB. Nuitées" />
       <Label layoutX="73.0" layoutY="215.0" prefHeight="17.0" prefWidth="70.0" text="Adultes" />
       <Label layoutX="73.0" layoutY="248.0" prefHeight="17.0" prefWidth="70.0" text="Enfants" />
