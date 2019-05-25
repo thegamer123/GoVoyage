@@ -7,6 +7,7 @@ package GUI.reservationHotel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -32,8 +33,6 @@ public class FirstStepReservationHotelController implements Initializable {
     @FXML
     private Button btn_rch;
     @FXML
-    private ComboBox<?> cb_ch;
-    @FXML
     private ComboBox<?> cb_enf;
     @FXML
     private ComboBox<?> cb_ad;
@@ -47,5 +46,9 @@ public class FirstStepReservationHotelController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void ajouterReservation(ActionEvent event) {
+    }
     
 }

@@ -5,34 +5,31 @@
  */
 package GUI;
 
+import static GUI.HotelOfferDetailScreenController.hotelName;
+import static GUI.HotelOfferDetailScreenController.offerId;
 import entite.HotelOffer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.function.Consumer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import service.ServiceHotel;
 
 /**
  * FXML Controller class
  *
  * @author Lenovo
  */
-public class HotelOfferDetailScreenController implements Initializable {
+public class HotelDetailOfferClientScreenController implements Initializable {
 
     @FXML
     private ImageView profilePictureIV;
@@ -44,50 +41,36 @@ public class HotelOfferDetailScreenController implements Initializable {
     private TextField startDateTF;
     @FXML
     private TextField dateEndTF;
-
-    private String path = "file:///C:/Users/Lenovo/Desktop/GoVoyageFX/png/";
-    @FXML
-    private TextField priceTF;
-    public static int offerId;
-    public static String hotelName;
     @FXML
     private Button reclamationbBT;
+    @FXML
+    private TextField priceTF;
+    private String path = "file:///C:/Users/Lenovo/Desktop/GoVoyageFX/png/";
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }
 
     @FXML
-    private void supprimer(ActionEvent event) {
-        ServiceHotel service = new ServiceHotel();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Supprimer l'offre");
-        alert.setContentText("Confirmer?");
-        ButtonType okButton = ButtonType.YES;
-        ButtonType noButton = ButtonType.NO;
-        ButtonType cancelButton = new ButtonType("YesNo", ButtonBar.ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().setAll(okButton, noButton);
-        alert.showAndWait().ifPresent(new Consumer<ButtonType>() {
-            @Override
-            public void accept(ButtonType type) {
-                if (type == ButtonType.YES) {
-                    service.deleteOffer(offerId);
-                    closeScreen();
-                } else if (type == ButtonType.NO) {
-                } else {
-                    alert.close();
-                }
-            }
-        });
-
+    private void Reserver(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/reservationHotel/firstStepReservationHotel.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = reclamationbBT.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
     @FXML
-    private void listerReservation(ActionEvent event) {
+    private void Reclamation(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = reclamationbBT.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
     @FXML
@@ -109,15 +92,6 @@ public class HotelOfferDetailScreenController implements Initializable {
     private void closeScreen() {
         Stage stage = (Stage) titleTF.getScene().getWindow();
         stage.close();
-    }
-
-    @FXML
-    private void AddRec(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
-        Scene scene = new Scene(root);
-        Scene currentScene = reclamationbBT.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
-        primStage.setScene(scene);
     }
 
 }

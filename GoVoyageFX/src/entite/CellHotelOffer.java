@@ -39,12 +39,14 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
     private final Label classe = new Label();
     private final Label prix = new Label();
     private final Label room = new Label();
+    private final Label dateDebut = new Label();
+    private final Label dateFin = new Label();
 
     public CellHotelOffer() {
         volIcon.setFitWidth(150);
         volIcon.setPreserveRatio(true);
         GridPane.setConstraints(volIcon, 0, 0, 1, 3);
-        GridPane.setValignment(volIcon, VPos.TOP);
+        GridPane.setValignment(volIcon, VPos.CENTER);
         // 
         modelLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 1.5em;");
         GridPane.setConstraints(modelLabel, 1, 0);
@@ -78,6 +80,7 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
         classe.setStyle(" -fx-opacity: 0.75;");
         GridPane.setConstraints(classe, 1, 2);
         GridPane.setColumnSpan(classe, Integer.MAX_VALUE);
+
         prix.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.75;");
         GridPane.setConstraints(prix, 2, 2);
         GridPane.setValignment(prix, VPos.CENTER);
@@ -85,6 +88,14 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
         room.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.5;");
         GridPane.setConstraints(room, 3, 1);
         GridPane.setValignment(room, VPos.CENTER);
+
+        dateDebut.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.5;");
+        GridPane.setConstraints(dateDebut, 1, 3);
+        GridPane.setValignment(dateDebut, VPos.CENTER);
+
+        dateFin.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.5;");
+        GridPane.setConstraints(dateFin, 2, 3);
+        GridPane.setValignment(dateFin, VPos.CENTER);
         //         
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.LEFT, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true));
@@ -95,7 +106,7 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
         gridPane.getRowConstraints().add(new RowConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, VPos.CENTER, true));
         gridPane.setHgap(6);
         gridPane.setVgap(6);
-        gridPane.getChildren().setAll(volIcon, modelLabel, brandLabel, brandIcon, descriptionLabel, idhotel, carte, classe, prix, room);
+        gridPane.getChildren().setAll(volIcon, modelLabel, brandLabel, brandIcon, descriptionLabel, idhotel, carte, classe, prix, room, dateDebut, dateFin);
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
         AnchorPane.setBottomAnchor(gridPane, 0d);
@@ -119,9 +130,11 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
             carte.setText("Show on Map");
             prix.setText("Price/night: " + String.valueOf(item.getPrix()) + "€");
             //  brandIcon.setImage(img); 
-            volIcon.setImage(img); 
+            volIcon.setImage(img);
             descriptionLabel.setText(item.getDescription_offre_hotel());
-            room.setText(item.getDescription_offre_hotel() + " Room");
+            //room.setText(item.getDescription_offre_hotel() + " Room");
+            dateDebut.setText("Date début : " + item.getDate_debut_dispo());
+            dateFin.setText("Date fin : " + item.getDate_fin_dispo());
 
             setText(null);
             setGraphic(content);
