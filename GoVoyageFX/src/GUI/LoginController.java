@@ -35,6 +35,9 @@ public class LoginController implements Initializable {
     @FXML
     private PasswordField passTF;
     public static int id;
+    public static User result = null;
+
+    ;
 
     /**
      * Initializes the controller class.
@@ -47,7 +50,7 @@ public class LoginController implements Initializable {
     @FXML
     private void login(ActionEvent event) throws IOException {
         ServiceUser service = new ServiceUser();
-        User result = null;
+
         if (validateData()) {
             result = service.loginUser(loginTF.getText(), passTF.getText());
             if (result != null) {
@@ -80,7 +83,7 @@ public class LoginController implements Initializable {
                         Scene currentScene = loginTF.getScene();
                         Stage primStage = (Stage) currentScene.getWindow();
                         primStage.setScene(scene);
-                        
+
                     } else if (result.getIs_client() == 1) {
                         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
                         Scene scene = new Scene(root);

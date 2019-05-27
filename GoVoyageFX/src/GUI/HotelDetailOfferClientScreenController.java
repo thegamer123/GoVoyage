@@ -49,7 +49,7 @@ public class HotelDetailOfferClientScreenController implements Initializable {
     @FXML
     private TextField priceTF;
     private String path = "file:///C:/Users/Lenovo/Desktop/GoVoyageFX/png/";
-    static HotelOffer currentOffer;
+    public static HotelOffer currentOffer;
 
     /**
      * Initializes the controller class.
@@ -70,7 +70,6 @@ public class HotelDetailOfferClientScreenController implements Initializable {
         Stage primStage = new Stage();
         primStage.setScene(scene);
         primStage.show();
-
     }
 
     @FXML

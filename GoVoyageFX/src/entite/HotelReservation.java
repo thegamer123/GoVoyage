@@ -9,7 +9,7 @@ package entite;
  *
  * @author Lenovo
  */
-public class hotel_reservation {
+public class HotelReservation {
 
     private int id_hotel_reservation;
     private String date_debut_hotel_reservation;
@@ -84,7 +84,7 @@ public class hotel_reservation {
         this.id_hotel_offre = id_hotel_offre;
     }
 
-    public hotel_reservation(int id_hotel_reservation, String date_debut_hotel_reservation, String date_fin_hotel_reservation, int enfant_hotel_reservation, int adulte_hotel_reservation, int nuit_hotel_reservation, int id_user, int id_hotel_offre) {
+    public HotelReservation(int id_hotel_reservation, String date_debut_hotel_reservation, String date_fin_hotel_reservation, int enfant_hotel_reservation, int adulte_hotel_reservation, int nuit_hotel_reservation, int id_user, int id_hotel_offre) {
         this.id_hotel_reservation = id_hotel_reservation;
         this.date_debut_hotel_reservation = date_debut_hotel_reservation;
         this.date_fin_hotel_reservation = date_fin_hotel_reservation;
@@ -94,5 +94,10 @@ public class hotel_reservation {
         this.id_user = id_user;
         this.id_hotel_offre = id_hotel_offre;
     }
+
+    public HotelReservation() {
+    }
+    
+    
 
 }

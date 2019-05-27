@@ -7,13 +7,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.FirstStepReservationHotelController">
    <children>
       <Label layoutX="73.0" layoutY="97.0" prefHeight="17.0" prefWidth="70.0" text="Hotels" />
       <TextField fx:id="rechercheF" editable="false" layoutX="168.0" layoutY="93.0" prefHeight="25.0" prefWidth="265.0" />
-      <Label layoutX="74.0" layoutY="177.0" text="Fin" />
-      <Label layoutX="73.0" layoutY="138.0" prefHeight="17.0" prefWidth="70.0" text="Début" />
+      <Label layoutX="74.0" layoutY="177.0" text="Arrivée" />
+      <Label layoutX="73.0" layoutY="138.0" prefHeight="17.0" prefWidth="70.0" text="Départ" />
       <DatePicker fx:id="finDate" layoutX="167.0" layoutY="173.0" prefHeight="25.0" prefWidth="265.0" />
       <DatePicker fx:id="debutDate" layoutX="167.0" layoutY="134.0" prefHeight="25.0" prefWidth="265.0" />
       <Label layoutX="73.0" layoutY="287.0" text="NB. Nuitées" />
@@ -32,5 +35,28 @@
             <Image url="@../../../png/next.png" />
          </image>
       </ImageView>
+      <Circle fill="#0485ff" layoutX="109.0" layoutY="45.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="105.0" layoutY="35.0" text="1" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Line endX="-65.0" endY="37.5" fill="#862727" layoutX="318.0" layoutY="7.0" startX="-111.0" startY="37.5" stroke="#ebcaca" />
+      <Label layoutX="133.0" layoutY="37.0" text="Reservation" />
+      <Circle fill="#5b6c7c" layoutX="285.0" layoutY="45.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+      <Line endX="-65.0" endY="37.5" fill="#862727" layoutX="471.0" layoutY="7.0" startX="-111.0" startY="37.5" stroke="#ebcaca" />
+      <Label layoutX="309.0" layoutY="37.0" text="Détails" />
+      <Circle fill="#5b6c7c" layoutX="433.0" layoutY="44.0" radius="16.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="469.0" layoutY="35.0" text="Tarif" />
+      <Label layoutX="281.0" layoutY="34.0" text="2" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="429.0" layoutY="34.0" text="3" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
