@@ -7,6 +7,7 @@ package GUI.reservationHotel;
 
 import GUI.HotelDetailOfferClientScreenController;
 import GUI.LoginController;
+import GUI.Utility;
 import entite.HotelOffer;
 import entite.HotelReservation;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class FirstStepReservationHotelController implements Initializable {
     private ImageView nextIV;
     @FXML
     private ImageView backIV;
-    private String path = "file:///C:/Users/Lenovo/Desktop/Bob/Esprit 1ere/GoVoyage/GoVoyage/GoVoyageFX/png/";
+    
     ObservableList<Integer> options
             = FXCollections.observableArrayList(
                     0,
@@ -82,8 +83,8 @@ public class FirstStepReservationHotelController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         reservation = new HotelReservation();
-        nextIV.setImage(new Image(path + "next.png"));
-        backIV.setImage(new Image(path + "next.png"));
+        nextIV.setImage(new Image(Utility.path + "next.png"));
+        backIV.setImage(new Image(Utility.path + "next.png"));
         cb_ad.setItems(options);
         cb_ad.getSelectionModel().select(1);
         cb_enf.setItems(options);

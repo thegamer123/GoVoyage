@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,7 +64,15 @@ public class AddHotelOfferController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        priceTF.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*")) {
+                      priceTF.setText(oldValue);
+                }
+            }
+        });
     }
 
     @FXML
@@ -74,11 +84,11 @@ public class AddHotelOfferController implements Initializable {
 
             result = service.addOfferToHotel(new HotelOffer(0, titreTF.getText(), imageName, descriptionTA.getText(), startDP.getValue().toString(), endDP.getValue().toString(), priceTF.getText(), userId));
         }
-        
-        if(result){
-             showAlert("offre ajouté avec succès");
-        }else {
-               showAlert("Erreur dans l'opération");
+
+        if (result) {
+            showAlert("offre ajouté avec succès");
+        } else {
+            showAlert("Erreur dans l'opération");
         }
 
     }
@@ -109,11 +119,11 @@ public class AddHotelOfferController implements Initializable {
         }
     }
 
-        public void setUserId(int userID) {
-            userId = userID;
-        }
-    
-     private void showAlert(String text) {
+    public void setUserId(int userID) {
+        userId = userID;
+    }
+
+    private void showAlert(String text) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, text, ButtonType.OK);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.show();
@@ -121,12 +131,12 @@ public class AddHotelOfferController implements Initializable {
 
     @FXML
     private void back(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelHomeScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelHomeScreen.fxml"));
         Scene scene = new Scene(root);
         Scene currentScene = picIV.getScene();
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
-        
+
     }
 
 }

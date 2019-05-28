@@ -11,10 +11,15 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import service.ReservationHotelService;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -61,11 +66,17 @@ public class TarifScreenController implements Initializable {
         result = service.addReservation(FirstStepReservationHotelController.reservation);
 
         if (result) {
-           closeScreen();
+            closeScreen();
         } else {
-            //showAlert("Erreur dans l'opération");
+            showAlert("Erreur dans l'opération");
         }
 
+    }
+
+    private void showAlert(String text) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, text, ButtonType.OK);
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.show();
     }
 
     @FXML
@@ -74,6 +85,8 @@ public class TarifScreenController implements Initializable {
     }
 
     void closeScreen() {
+        TrayNotification tn = new TrayNotification("Réservation", "Réservation envoyée avec succèes", NotificationType.SUCCESS);
+        tn.showAndWait();
         Stage stage = (Stage) chmF1.getScene().getWindow();
         stage.close();
     }

@@ -5,6 +5,7 @@
  */
 package entite;
 
+import GUI.Utility;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.ContentDisplay;
@@ -31,7 +32,7 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
     private final Label brandLabel = new Label();
     private final Label modelLabel = new Label();
     private final Label idhotel = new Label();
-    private String path = "file:///C:/Users/Lenovo/Desktop/GoVoyageFX/png/";
+ 
     private final Label descriptionLabel = new Label();
     private final ImageView volIcon = new ImageView();
     private final Hyperlink carte = new Hyperlink();
@@ -126,7 +127,7 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
             modelLabel.setText("Hotel " + item.getTitre_offre_hotel());
             String image = item.getPhoto_offre_hotel();
             System.out.println("image" + image);
-            Image img = new Image(path + item.getPhoto_offre_hotel());
+            Image img = new Image(Utility.path + item.getPhoto_offre_hotel());
             carte.setText("Show on Map");
             prix.setText("Price/night: " + String.valueOf(item.getPrix()) + "€");
             //  brandIcon.setImage(img); 

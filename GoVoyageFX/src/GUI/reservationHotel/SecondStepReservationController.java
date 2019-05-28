@@ -7,6 +7,7 @@ package GUI.reservationHotel;
 
 import GUI.HotelDetailOfferClientScreenController;
 import GUI.LoginController;
+import GUI.Utility;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,15 +54,15 @@ public class SecondStepReservationController implements Initializable {
     private ImageView nextIV;
     @FXML
     private ImageView backIV;
-    private String path = "file:///C:/Users/Lenovo/Desktop/Bob/Esprit 1ere/GoVoyage/GoVoyage/GoVoyageFX/png/";
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nextIV.setImage(new Image(path + "next.png"));
-        backIV.setImage(new Image(path + "next.png"));
+        nextIV.setImage(new Image(Utility.path + "next.png"));
+        backIV.setImage(new Image(Utility.path + "next.png"));
         nomTF.setText(LoginController.result.getNom_user());
         prenomTF.setText(LoginController.result.getPrenom_user());
         emailTF.setText(LoginController.result.getEmail_user());

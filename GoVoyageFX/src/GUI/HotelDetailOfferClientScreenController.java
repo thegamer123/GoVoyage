@@ -48,7 +48,7 @@ public class HotelDetailOfferClientScreenController implements Initializable {
     private Button reclamationbBT;
     @FXML
     private TextField priceTF;
-    private String path = "file:///C:/Users/Lenovo/Desktop/GoVoyageFX/png/";
+    
     public static HotelOffer currentOffer;
 
     /**
@@ -95,7 +95,7 @@ public class HotelDetailOfferClientScreenController implements Initializable {
         startDateTF.setText("Date Début : " + offer.getDate_debut_dispo());
         dateEndTF.setText("Date Fin : " + offer.getDate_fin_dispo());
         priceTF.setText("Prix : " + offer.getPrix());
-        Image picture = new Image(path + offer.getPhoto_offre_hotel());
+        Image picture = new Image(Utility.path + offer.getPhoto_offre_hotel());
         profilePictureIV.setImage(picture);
     }
 
