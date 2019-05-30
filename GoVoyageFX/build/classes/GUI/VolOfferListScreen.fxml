@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VolOfferListScreenController">
+   <children>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="166.0" />
+      <ListView fx:id="lsitViewHotel" layoutX="166.0" prefHeight="572.0" prefWidth="597.0" />
+   </children>
+</AnchorPane>

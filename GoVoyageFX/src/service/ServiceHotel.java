@@ -184,4 +184,28 @@ public class ServiceHotel {
         return true;
     }
 
+    public List<HotelOffer> readAllOffersByHotelId(String hotelId) {
+        List<HotelOffer> list = new ArrayList<>();
+        try {
+            ste = con.createStatement();
+            ResultSet reseSet = ste.executeQuery("select * from hotel_offre Where id_hotel =" + hotelId);
+            while (reseSet.next()) {
+                int id_offre_hotel = reseSet.getInt("id_offre_hotel");
+                String title_offer = reseSet.getString("titre_offre_hotel");
+                String photo = reseSet.getString("photo_offre_hotel");
+                String description = reseSet.getString("description_offre_hotel");
+                String date_debut_dispo = reseSet.getString("date_debut_dispo");
+                String date_fin_dispo = reseSet.getString("date_fin_dispo");
+                String prix = reseSet.getString("prix");
+                int id_hotel = reseSet.getInt("id_hotel");
+                list.add(new HotelOffer(id_offre_hotel, title_offer, photo, description, date_debut_dispo, date_fin_dispo, prix, id_hotel));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return list;
+    }
+
 }

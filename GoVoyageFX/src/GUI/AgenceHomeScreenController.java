@@ -50,7 +50,15 @@ public class AgenceHomeScreenController implements Initializable {
     }
 
     @FXML
-    private void myOffers(ActionEvent event) {
+    private void myOffers(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/ConsultationVol.fxml"));
+        Parent root = (Parent) loader.load();
+        Scene scene = new Scene(root);
+        //AddAgenceOfferController controller = loader.getController();
+        //controller.setUserId(idAgence);
+        Scene currentScene = hotelNameTF.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
     @FXML

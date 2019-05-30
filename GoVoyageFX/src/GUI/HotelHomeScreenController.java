@@ -36,6 +36,7 @@ public class HotelHomeScreenController implements Initializable {
     public static String hotelTitle;
     @FXML
     private Button rec;
+    
 
     /**
      * Initializes the controller class.
@@ -58,11 +59,9 @@ public class HotelHomeScreenController implements Initializable {
 
     @FXML
     private void myOffers(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/ShowHotelOffer.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/HotelOfferListScreen.fxml"));
         Parent root = (Parent) loader.load();
         Scene scene = new Scene(root);
-        //AddHotelOfferController controller = loader.getController();
-        //controller.setUserId(idHotel);
         Scene currentScene = hotelNameTF.getScene();
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);

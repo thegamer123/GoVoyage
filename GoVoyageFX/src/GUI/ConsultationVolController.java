@@ -61,7 +61,7 @@ public class ConsultationVolController implements Initializable {
     private Label LabelRet;
     @FXML
     private ListView<Vol> listViewVol;
-    Image profile = new Image("/image/vol.png");
+    Image profile = new Image(Utility.path + "vol.png");
     @FXML
     private Button btnbest;
     @FXML
@@ -70,7 +70,6 @@ public class ConsultationVolController implements Initializable {
     /**
      * Initializes the controller class.
      */
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

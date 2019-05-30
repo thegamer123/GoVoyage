@@ -45,7 +45,6 @@ public class HotelOfferDetailScreenController implements Initializable {
     @FXML
     private TextField dateEndTF;
 
-    private String path = "file:///C:/Users/Lenovo/Desktop/GoVoyageFX/png/";
     @FXML
     private TextField priceTF;
     public static int offerId;
@@ -87,7 +86,12 @@ public class HotelOfferDetailScreenController implements Initializable {
     }
 
     @FXML
-    private void listerReservation(ActionEvent event) {
+    private void listerReservation(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MyHotelOfferReservationListScreen.fxml"));
+        Scene scene = new Scene(root);
+        Stage primStage = new Stage();
+        primStage.setScene(scene);
+        primStage.show();
     }
 
     @FXML
@@ -102,7 +106,7 @@ public class HotelOfferDetailScreenController implements Initializable {
         startDateTF.setText("Date Début : " + offer.getDate_debut_dispo());
         dateEndTF.setText("Date Fin : " + offer.getDate_fin_dispo());
         priceTF.setText("Prix : " + offer.getPrix());
-        Image picture = new Image(path + offer.getPhoto_offre_hotel());
+        Image picture = new Image(Utility.path + offer.getPhoto_offre_hotel());
         profilePictureIV.setImage(picture);
     }
 

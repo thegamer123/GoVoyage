@@ -91,11 +91,11 @@ public class ConsultationHotelController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        box_Stars.setValue("Stars");
-        box_Stars.setItems(listStars);
+       // box_Stars.setValue("Stars");
+       // box_Stars.setItems(listStars);
 
-        box_Room.setValue("Rooms");
-        box_Room.setItems(listRomms);
+      //  box_Room.setValue("Rooms");
+      //  box_Room.setItems(listRomms);
 
         ServiceRenseigtHotel service = new ServiceRenseigtHotel();
         List<Renseignement> listR = service.readAll();
