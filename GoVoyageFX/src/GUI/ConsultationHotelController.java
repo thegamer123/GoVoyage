@@ -12,6 +12,7 @@ import service.CellHotel;
 
 import service.ServiceRenseigtHotel;
 import com.GoVoyage.utiles.ConersionDate;
+import entite.Hotel;
 import entite.HotelOffer;
 import java.io.IOException;
 import java.net.URL;
@@ -64,8 +65,7 @@ public class ConsultationHotelController implements Initializable {
 
     ObservableList<String> listStars = FXCollections.observableArrayList("1", "2", "3", "4", "5");
     ObservableList<String> listRomms = FXCollections.observableArrayList("1 Room", "2 Rooms", "3 Rooms", "4 Rooms", "5 Rooms");
-    private ObservableList<Renseignement> listHotel = FXCollections.observableArrayList();
-
+    ObservableList<Hotel> listHotel = FXCollections.observableArrayList();
     @FXML
     public TextField fldDestination;
     @FXML
@@ -80,7 +80,7 @@ public class ConsultationHotelController implements Initializable {
     private Button butSearch;
 
     @FXML
-    private ListView<Renseignement> listViewHotel;
+    private ListView<Hotel> listViewHotel;
     @FXML
     private Pane PaneHotel;
     @FXML
@@ -91,42 +91,42 @@ public class ConsultationHotelController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // box_Stars.setValue("Stars");
-       // box_Stars.setItems(listStars);
+        // box_Stars.setValue("Stars");
+        // box_Stars.setItems(listStars);
 
-      //  box_Room.setValue("Rooms");
-      //  box_Room.setItems(listRomms);
+        //  box_Room.setValue("Rooms");
+        //  box_Room.setItems(listRomms);
+        ServiceHotel service = new ServiceHotel();
+        List<Hotel> listR = service.readAll();
 
-        ServiceRenseigtHotel service = new ServiceRenseigtHotel();
-        List<Renseignement> listR = service.readAll();
-        for (Renseignement h : listR) {
-            Renseignement r = new Renseignement();
+        /*  for (Hotel h : listR) {
+            Hotel r = new Hotel();
             int id_hotel = h.getId_hotel();
             String nom_hotel = h.getNom_hotel();
-            String adr = h.getAdr_hotel();
+            String adr = h.getAdresse_hotel();
             System.out.println("nom_hotel = " + nom_hotel);
             String img = h.getImg_hotel();
             System.out.println("img = " + img);
-            int nbr_etoile_class = h.getNbr_etoile_class();
-            Float prix = h.getPrix();
-            String descrip_categorie = h.getDescrip_categorie();
+            int nbr_etoile_class = Integer.valueOf(h.getStars_hotel());
+            String prix = h.getPrix_hotel();
+            //String descrip_categorie = h.getDescrip_categorie();
             r.setId_hotel(id_hotel);
             r.setNom_hotel(nom_hotel);
             r.setImg_hotel(img);
-            r.setAdr_hotel(adr);
-            r.setNbr_etoile_class(nbr_etoile_class);
-            r.setPrix(prix);
-            r.setDescrip_categorie(descrip_categorie);
+            r.setAdresse_hotel(adr);
+            r.setStars_hotel(String.valueOf(nbr_etoile_class));
+            r.setPrix_hotel(prix);
+            //r.setDescrip_categorie(descrip_categorie);
             listHotel.add(r);
 
         }
         listViewHotel.setItems(listHotel);
-        listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, ListCell<Renseignement>>() {
+        listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Hotel>, ListCell<Hotel>>() {
 
-            public ListCell<Renseignement> call(ListView<Renseignement> lv) {
+            public ListCell<Hotel> call(ListView<Hotel> lv) {
                 return new CellHotel();
             }
-        });
+        });/*
 
     }
 
@@ -150,72 +150,72 @@ public class ConsultationHotelController implements Initializable {
         int dateOut = sr.convertirDateToString(date_checkout);
 
         controleSearch();
-        ObservableList<Renseignement> volList = FXCollections.observableArrayList();
+        ObservableList<Hotel> volList = FXCollections.observableArrayList();
         ServiceRenseigtHotel service = new ServiceRenseigtHotel();
-        List<Renseignement> listR = service.lireParCritereRecherche(fldDestination.getText(), dateIn, dateOut);
-        for (Renseignement h : listR) {
-            Renseignement r = new Renseignement();
+        // List<Hotel> listR = service.lireParCritereRecherche(fldDestination.getText(), dateIn, dateOut);
+        /*for (Hotel h : listR) {
+            Hotel r = new Hotel();
             int id_hotel = h.getId_hotel();
             String nom_hotel = h.getNom_hotel();
-            String adr = h.getAdr_hotel();
+            String adr = h.getAdresse_hotel();
             System.out.println("nom_hotel = " + nom_hotel);
             String img = h.getImg_hotel();
             System.out.println("img = " + img);
-            int nbr_etoile_class = h.getNbr_etoile_class();
-            Float prix = h.getPrix();
-            String descrip_categorie = h.getDescrip_categorie();
+            int nbr_etoile_class = Integer.valueOf(h.getStars_hotel());
+            String prix = h.getPrix_hotel();
+            //String descrip_categorie = h.getDescrip_categorie();
             r.setId_hotel(id_hotel);
             r.setNom_hotel(nom_hotel);
             r.setImg_hotel(img);
-            r.setAdr_hotel(adr);
-            r.setNbr_etoile_class(nbr_etoile_class);
-            r.setPrix(prix);
-            r.setDescrip_categorie(descrip_categorie);
-            volList.add(r);
+            r.setAdresse_hotel(adr);
+            r.setStars_hotel(String.valueOf(nbr_etoile_class));
+            r.setPrix_hotel(prix);
+            //r.setDescrip_categorie(descrip_categorie);
+            listHotel.add(r);
 
-        }
-        listViewHotel.setItems(volList);
-        listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, ListCell<Renseignement>>() {
+        }*/
+ /*  listViewHotel.setItems(volList);
+        listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Hotel>, ListCell<Hotel>>() {
 
-            public ListCell<Renseignement> call(ListView<Renseignement> lv) {
+            public ListCell<Hotel> call(ListView<Hotel> lv) {
                 return new CellHotel();
             }
-        });
+        });/*
     }
 
     @FXML
     public void lireParStars() {
 
-        ObservableList<Renseignement> hotlList = FXCollections.observableArrayList();
+        ObservableList<Hotel> hotlList = FXCollections.observableArrayList();
         ServiceRenseigtHotel service = new ServiceRenseigtHotel();
-        List<Renseignement> listR = service.lireParNbStars(Integer.valueOf(box_Stars.getSelectionModel().getSelectedItem()));
-        for (Renseignement h : listR) {
-            Renseignement r = new Renseignement();
+        List<Hotel> listR = service.lireParNbStars(Integer.valueOf(box_Stars.getSelectionModel().getSelectedItem()));
+        for (Hotel h : listR) {
+            Hotel r = new Hotel();
             int id_hotel = h.getId_hotel();
             String nom_hotel = h.getNom_hotel();
-            String adr = h.getAdr_hotel();
+            String adr = h.getAdresse_hotel();
             System.out.println("nom_hotel = " + nom_hotel);
             String img = h.getImg_hotel();
             System.out.println("img = " + img);
-            int nbr_etoile_class = h.getNbr_etoile_class();
-            Float prix = h.getPrix();
-            String descrip_categorie = h.getDescrip_categorie();
+            int nbr_etoile_class = Integer.valueOf(h.getStars_hotel());
+            String prix = h.getPrix_hotel();
+            //String descrip_categorie = h.getDescrip_categorie();
             r.setId_hotel(id_hotel);
             r.setNom_hotel(nom_hotel);
             r.setImg_hotel(img);
-            r.setAdr_hotel(adr);
-            r.setNbr_etoile_class(nbr_etoile_class);
-            r.setPrix(prix);
-            r.setDescrip_categorie(descrip_categorie);
-            hotlList.add(r);
+            r.setAdresse_hotel(adr);
+            r.setStars_hotel(String.valueOf(nbr_etoile_class));
+            r.setPrix_hotel(prix);
+            //r.setDescrip_categorie(descrip_categorie);
+            listHotel.add(r);
 
         }
-        listViewHotel.setItems(hotlList);
-        listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, ListCell<Renseignement>>() {
+       /* listViewHotel.setItems(hotlList);
+        listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Hotel>, ListCell<Hotel>>() {
 
-            public ListCell<Renseignement> call(ListView<Renseignement> lv) {
+            public ListCell<Hotel> call(ListView<Hotel> lv) {
                 return new CellHotel();
             }
-        });
+        });*/
     }
 }

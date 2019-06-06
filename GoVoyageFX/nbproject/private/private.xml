@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/service/ServiceVol.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>180</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelHomeScreenController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/MyHotelOfferReservationListScreenController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/entite/HotelReservation.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/service/ReservationHotelService.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/entite/AgenceReservationFullModel.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/AgenceOfferDetailScreenController.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/entite/User.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/service/CellAgenceReservation.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/entite/Vol.java</file>
+            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/AgenceReservationListScreenController.java</file>
             <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelOfferDetailScreenController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelOfferListScreen.fxml</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/MyHotelOfferReservationListScreen.fxml</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelOfferListScreenController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/ConsultationOffreController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/service/ServiceHotel.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/entite/CellHotelReservation.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/ConsultationOffre.fxml</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelOfferDetailScreen.fxml</file>
+            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/service/ServiceVol.java</file>
         </group>
     </open-files>
 </project-private>

@@ -9,6 +9,7 @@ import entite.Agence;
 import entite.AgenceOffer;
 import entite.Hotel;
 import entite.HotelOffer;
+import entite.Vol;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,6 +78,50 @@ public class ServiceAgence {
             System.out.println(ex);
         }
         return test;
+    }
+
+    public boolean addVolToAgency(Vol v) {
+        boolean test = false;
+        try {
+
+            String query = "INSERT INTO Vol"
+                    + "(nb_escale,prix,origine ,destination ,heureDepart,heureArrive,depart,arrivee,id_agence)"
+                    + " VALUES(?,?,?,?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, v.getNb_escale());
+            preparedStatement.setString(2, v.getPrix());
+            preparedStatement.setString(3, v.getOrigine());
+            preparedStatement.setString(4, v.getDestination());
+            preparedStatement.setString(5, v.getHeureDepart());
+            preparedStatement.setString(6, v.getHeureArrive());
+            preparedStatement.setString(7, v.getDepart());
+            preparedStatement.setString(8, v.getArrivee());
+            preparedStatement.setInt(9, v.getId_agence());
+            int va = preparedStatement.executeUpdate();
+            if (va > 0) {
+                test = true;
+                return test;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return test;
+    }
+
+    public boolean deleteOffer(int idVol) {
+        try {
+            String deleteSQL = "DELETE FROM vol WHERE id_vol = ?";
+            PreparedStatement pstmt = con.prepareStatement(deleteSQL);
+            pstmt.setInt(1, idVol);
+            // execute delete SQL stetement
+            pstmt.executeUpdate();
+            System.out.println("Record is deleted!");
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
     }
 
 }

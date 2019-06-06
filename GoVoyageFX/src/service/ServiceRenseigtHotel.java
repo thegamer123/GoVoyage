@@ -5,6 +5,7 @@
  */
 package service;
 
+import entite.Hotel;
 import entite.Renseignement;
 import utils.DataSource;
 import java.sql.Connection;
@@ -24,8 +25,8 @@ public class ServiceRenseigtHotel {
     Connection con = DataSource.getInstance().getConnection();
     Statement ste;
 
-    public List<Renseignement> readAll() {
-        List<Renseignement> list = new ArrayList<>();
+    public List<Hotel> readAll() {
+        List<Hotel> list = new ArrayList<>();
         try {
             ste = con.createStatement();
             ResultSet reseSet = ste.executeQuery("select * from Renseignement  ");
@@ -33,10 +34,12 @@ public class ServiceRenseigtHotel {
             while (reseSet.next()) {
                 int id_hotel = reseSet.getInt("id_hotel");
                 String nom_hotel = reseSet.getString("nom_hotel");
+
                 int id_user = reseSet.getInt("id_user");
                 String adr_hotel = reseSet.getString("adr_hotel");
                 String img_hotel = reseSet.getString("img_hotel");
-                int nbr_etoile_class = reseSet.getInt("nbr_etoile_class");
+
+                String nbr_etoile_class = reseSet.getString("nbr_etoile_class");
                 int id_chambre = reseSet.getInt("id_chambre");
                 int num_chambre = reseSet.getInt("num_chambre");
                 int tel_chambre = reseSet.getInt("tel_chambre");
@@ -46,53 +49,19 @@ public class ServiceRenseigtHotel {
                 int date_fin = reseSet.getInt("date_fin");
                 int id_categorie = reseSet.getInt("id_categorie");
                 String descrip_categorie = reseSet.getString("descrip_categorie");
-                Float prix = reseSet.getFloat("prix");
-                
-                list.add(new Renseignement(id_hotel, nom_hotel, id_user, adr_hotel,
-                        img_hotel, nbr_etoile_class, id_chambre,
-                        num_chambre, tel_chambre, id_reservation, id_offre, date_debut,
-                        date_fin, id_categorie, descrip_categorie, prix));
+                String prix = reseSet.getString("prix");
+                int id_availabe = reseSet.getInt("is_available_hotel");
 
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-
-        return list;
-    }
-
-    public List<Renseignement> lireParCritereRecherche(String destination, int datedebut, int datefin) {
-
-        List<Renseignement> list = new ArrayList<>();
-        try {
-            ste = con.createStatement();
-            ResultSet reseSet = ste.executeQuery("select * from renseignement where adr_hotel='" + destination + "' and date_debut='" + datedebut + "' and date_fin='" + datefin + "'");
-            //and destination='"+destination+"' and depart='"+datedeprt+"'
-
-            while (reseSet.next()) {
-                int id_hotel = reseSet.getInt("id_hotel");
-                String nom_hotel = reseSet.getString("nom_hotel");
-
-                int id_user = reseSet.getInt("id_user");
-                String adr_hotel = reseSet.getString("adr_hotel");
-                String img_hotel = reseSet.getString("img_hotel");
-
-                int nbr_etoile_class = reseSet.getInt("nbr_etoile_class");
-                int id_chambre = reseSet.getInt("id_chambre");
-                int num_chambre = reseSet.getInt("num_chambre");
-                int tel_chambre = reseSet.getInt("tel_chambre");
-                int id_reservation = reseSet.getInt("id_reservation");
-                int id_offre = reseSet.getInt("id_offre");
-                int date_debut = reseSet.getInt("date_debut");
-                int date_fin = reseSet.getInt("date_fin");
-                int id_categorie = reseSet.getInt("id_categorie");
-                String descrip_categorie = reseSet.getString("descrip_categorie");
-                Float prix = reseSet.getFloat("prix");
-
-                list.add(new Renseignement(id_hotel, nom_hotel, id_user, adr_hotel,
-                        img_hotel, nbr_etoile_class, id_chambre,
-                        num_chambre, tel_chambre, id_reservation, id_offre, date_debut,
-                        date_fin, id_categorie, descrip_categorie, prix));
+                list.add(new Hotel(id_hotel,
+                        nom_hotel,
+                        id_user,
+                        id_availabe,
+                        adr_hotel,
+                        nbr_etoile_class,
+                        num_chambre,
+                        prix,
+                        img_hotel
+                ));
 
             }
         } catch (SQLException ex) {
@@ -102,9 +71,9 @@ public class ServiceRenseigtHotel {
         return list;
     }
 
-    public List<Renseignement> lireParNbStars(int nbr_etoile) {
+    public List<Hotel> lireParNbStars(int nbr_etoile) {
 
-        List<Renseignement> list = new ArrayList<>();
+        List<Hotel> list = new ArrayList<>();
         try {
             ste = con.createStatement();
             ResultSet reseSet = ste.executeQuery("select * from renseignement where nbr_etoile_class='" + nbr_etoile + "' ");
@@ -118,7 +87,7 @@ public class ServiceRenseigtHotel {
                 String adr_hotel = reseSet.getString("adr_hotel");
                 String img_hotel = reseSet.getString("img_hotel");
 
-                int nbr_etoile_class = reseSet.getInt("nbr_etoile_class");
+                String nbr_etoile_class = reseSet.getString("nbr_etoile_class");
                 int id_chambre = reseSet.getInt("id_chambre");
                 int num_chambre = reseSet.getInt("num_chambre");
                 int tel_chambre = reseSet.getInt("tel_chambre");
@@ -128,12 +97,19 @@ public class ServiceRenseigtHotel {
                 int date_fin = reseSet.getInt("date_fin");
                 int id_categorie = reseSet.getInt("id_categorie");
                 String descrip_categorie = reseSet.getString("descrip_categorie");
-                Float prix = reseSet.getFloat("prix");
+                String prix = reseSet.getString("prix");
+                int id_availabe = reseSet.getInt("is_available_hotel");
 
-                list.add(new Renseignement(id_hotel, nom_hotel, id_user, adr_hotel,
-                        img_hotel, nbr_etoile_class, id_chambre,
-                        num_chambre, tel_chambre, id_reservation, id_offre, date_debut,
-                        date_fin, id_categorie, descrip_categorie, prix));
+                list.add(new Hotel(id_hotel,
+                        nom_hotel,
+                        id_user,
+                        id_availabe,
+                        adr_hotel,
+                        nbr_etoile_class,
+                        num_chambre,
+                        prix,
+                        img_hotel
+                ));
 
             }
         } catch (SQLException ex) {

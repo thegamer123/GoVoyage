@@ -6,13 +6,18 @@
 package GUI;
 
 import entite.AgenceOffer;
+import entite.Vol;
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
@@ -23,6 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import service.ServiceAgence;
 import service.ServiceHotel;
 
@@ -34,21 +40,22 @@ import service.ServiceHotel;
 public class AddAgenceOfferController implements Initializable {
 
     @FXML
-    private TextField titreTF;
-    @FXML
-    private ImageView picIV;
-    @FXML
     private DatePicker startDP;
     @FXML
-    private DatePicker endDP;
-    @FXML
     private TextField priceTF;
+
     @FXML
-    private TextArea descriptionTA;
-
-    private String imageFile;
-    private String imageName;
-
+    private DatePicker startDP1;
+    @FXML
+    private TextField houreStartTF;
+    @FXML
+    private TextField houreEndTF1;
+    @FXML
+    private TextField fromTF;
+    @FXML
+    private TextField toTF;
+    @FXML
+    private TextField nbEscTF;
     private static int userId;
 
     /**
@@ -59,14 +66,13 @@ public class AddAgenceOfferController implements Initializable {
         // TODO
     }
 
-    @FXML
-    private void choosePic(MouseEvent event) throws MalformedURLException {
+    /* private void choosePic(MouseEvent event) throws MalformedURLException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files",
                         "*.bmp", "*.png", "*.jpg", "*.gif")); // limit fileChooser options to image files
-        File selectedFile = fileChooser.showOpenDialog(titreTF.getScene().getWindow());
+        File selectedFile = fileChooser.showOpenDialog(startDP.getScene().getWindow());
 
         if (selectedFile != null) {
 
@@ -77,9 +83,7 @@ public class AddAgenceOfferController implements Initializable {
         } else {
             //fileSelected.setText("Image file selection cancelled.");
         }
-
-    }
-
+    }*/
     @FXML
     private void submit(ActionEvent event) {
 
@@ -87,7 +91,16 @@ public class AddAgenceOfferController implements Initializable {
         boolean result = false;
         if (validateData()) {
 
-            result = service.addOfferToHotel(new AgenceOffer(0, titreTF.getText(), imageName, descriptionTA.getText(), startDP.getValue().toString(), endDP.getValue().toString(), priceTF.getText(), userId));
+            result = service.addVolToAgency(new Vol(0,
+                    Integer.parseInt(nbEscTF.getText()),
+                    priceTF.getText(),
+                    fromTF.getText(),
+                    toTF.getText(),
+                    houreStartTF.getText(),
+                    houreEndTF1.getText(),
+                    startDP.getValue().toString(),
+                    startDP1.getValue().toString(),
+                    userId));
         }
 
         if (result) {
@@ -111,6 +124,16 @@ public class AddAgenceOfferController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, text, ButtonType.OK);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.show();
+    }
+
+    @FXML
+    private void back(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/AgenceHomeScreen.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = priceTF.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
 }

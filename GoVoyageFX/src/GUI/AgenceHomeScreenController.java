@@ -29,15 +29,16 @@ public class AgenceHomeScreenController implements Initializable {
 
     @FXML
     private TextField hotelNameTF;
-    private static String agenceName;
-    private static int idAgence;
+    public static String agenceName;
+    public static int idAgence;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        hotelNameTF.setText(agenceName);
     }
 
     @FXML
@@ -51,11 +52,10 @@ public class AgenceHomeScreenController implements Initializable {
 
     @FXML
     private void myOffers(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/ConsultationVol.fxml"));
+        System.out.println(idAgence);
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AgenceOfferListScreen.fxml"));
         Parent root = (Parent) loader.load();
         Scene scene = new Scene(root);
-        //AddAgenceOfferController controller = loader.getController();
-        //controller.setUserId(idAgence);
         Scene currentScene = hotelNameTF.getScene();
         Stage primStage = (Stage) currentScene.getWindow();
         primStage.setScene(scene);
@@ -79,7 +79,6 @@ public class AgenceHomeScreenController implements Initializable {
         agenceName = agence.getNom_agence();
         idAgence = agence.getId_agence();
         hotelNameTF.setText(agenceName);
-
     }
 
 }

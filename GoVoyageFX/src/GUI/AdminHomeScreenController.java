@@ -40,11 +40,23 @@ public class AdminHomeScreenController implements Initializable {
     }
 
     @FXML
-    private void hotelCheck(ActionEvent event) {
+    private void hotelCheck(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = volBtn.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
     @FXML
-    private void volCheck(ActionEvent event) {
+    private void volCheck(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = volBtn.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
     @FXML

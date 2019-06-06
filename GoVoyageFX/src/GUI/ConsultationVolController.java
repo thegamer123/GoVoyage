@@ -80,10 +80,8 @@ public class ConsultationVolController implements Initializable {
             Vol vol1 = new Vol();
             int id_vol = v.getId_vol();
             // id_vol=v.getId_vol();  
-            String type_Vol = v.getType_vol();
             String origine = v.getOrigine();
             vol1.setId_vol(id_vol);
-            vol1.setType_vol(type_Vol);
             vol1.setOrigine(origine);
             String destination = v.getDestination();
             vol1.setDestination(destination);
@@ -91,10 +89,8 @@ public class ConsultationVolController implements Initializable {
             vol1.setHeureDepart(heureDepart);
             String heureArrive = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
-            Float prix = v.getPrix();
+            String prix = v.getPrix();
             vol1.setPrix(prix);
-            int nbpassagers = v.getNb_pax_max();
-            vol1.setNb_pax_max(nbpassagers);
             int nbEscales = v.getNb_escale();
             vol1.setNb_escale(nbEscales);
             String heureDep = v.getHeureDepart();
@@ -149,10 +145,8 @@ public class ConsultationVolController implements Initializable {
             Vol vol1 = new Vol();
             int id_vol = v.getId_vol();
             // id_vol=v.getId_vol();  
-            String type_Vol = v.getType_vol();
             String origine = v.getOrigine();
             vol1.setId_vol(id_vol);
-            vol1.setType_vol(type_Vol);
             vol1.setOrigine(origine);
             String destination = v.getDestination();
             vol1.setDestination(destination);
@@ -160,10 +154,8 @@ public class ConsultationVolController implements Initializable {
             vol1.setHeureDepart(heureDepart);
             String heureArrive = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
-            Float prix = v.getPrix();
+            String prix = v.getPrix();
             vol1.setPrix(prix);
-            int nbpassagers = v.getNb_pax_max();
-            vol1.setNb_pax_max(nbpassagers);
             int nbEscales = v.getNb_escale();
             vol1.setNb_escale(nbEscales);
             String heureDep = v.getHeureDepart();
@@ -193,10 +185,8 @@ public class ConsultationVolController implements Initializable {
             Vol vol1 = new Vol();
             int id_vol = v.getId_vol();
             // id_vol=v.getId_vol();  
-            String type_Vol = v.getType_vol();
             String origine = v.getOrigine();
             vol1.setId_vol(id_vol);
-            vol1.setType_vol(type_Vol);
             vol1.setOrigine(origine);
             String destination = v.getDestination();
             vol1.setDestination(destination);
@@ -204,10 +194,8 @@ public class ConsultationVolController implements Initializable {
             vol1.setHeureDepart(heureDepart);
             String heureArrive = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
-            Float prix = v.getPrix();
+            String prix = v.getPrix();
             vol1.setPrix(prix);
-            int nbpassagers = v.getNb_pax_max();
-            vol1.setNb_pax_max(nbpassagers);
             int nbEscales = v.getNb_escale();
             vol1.setNb_escale(nbEscales);
             String heureDep = v.getHeureDepart();
@@ -242,10 +230,9 @@ public class ConsultationVolController implements Initializable {
             Vol vol1 = new Vol();
             int id_vol = v.getId_vol();
             // id_vol=v.getId_vol();  
-            String type_Vol = v.getType_vol();
             String origine = v.getOrigine();
             vol1.setId_vol(id_vol);
-            vol1.setType_vol(type_Vol);
+           
             vol1.setOrigine(origine);
             String destination = v.getDestination();
             vol1.setDestination(destination);
@@ -253,10 +240,8 @@ public class ConsultationVolController implements Initializable {
             vol1.setHeureDepart(heureDepart);
             String heureArrive = v.getHeureArrive();
             vol1.setHeureArrive(heureArrive);
-            Float prix = v.getPrix();
+            String prix = v.getPrix();
             vol1.setPrix(prix);
-            int nbpassagers = v.getNb_pax_max();
-            vol1.setNb_pax_max(nbpassagers);
             int nbEscales = v.getNb_escale();
             vol1.setNb_escale(nbEscales);
             String heureDep = v.getHeureDepart();

@@ -5,7 +5,6 @@
  */
 package service;
 
-
 import entite.RepondReclamation;
 import Interface.I_Reclamation;
 import java.sql.PreparedStatement;
@@ -24,18 +23,20 @@ import utils.DataSource;
  *
  * @author omar
  */
-public class RepondReclamationService implements I_Reclamation<RepondReclamation>{
- DataSource ds;
+public class RepondReclamationService implements I_Reclamation<RepondReclamation> {
+
+    DataSource ds;
     PreparedStatement ste;
 
     public RepondReclamationService() {
-         ds = DataSource.getInstance();
+        ds = DataSource.getInstance();
     }
-   public void addRec(RepondReclamation t) {
-      try {
-            String req ="INSERT INTO repondreclamation(emailD,description,sujet,date,etat) VALUES(?,?,?,?,?)";
+
+    public void addRec(RepondReclamation t) {
+        try {
+            String req = "INSERT INTO repondreclamation(emailD,description,sujet,date,etat) VALUES(?,?,?,?,?)";
             ste = ds.getConnection().prepareStatement(req);
-            ste.setString(1, t.getEmailD()); 
+            ste.setString(1, t.getEmailD());
             ste.setString(2, t.getDescription());
             ste.setString(3, t.getSujet());
             ste.setTimestamp(4, Timestamp.from(t.getDate().toInstant(ZoneOffset.ofHours(0))));
@@ -48,10 +49,10 @@ public class RepondReclamationService implements I_Reclamation<RepondReclamation
 
     @Override
     public void deleteRec(int id) {
-         try {
-            String req ="DELETE FROM repondreclamation WHERE id=?";
+        try {
+            String req = "DELETE FROM repondreclamation WHERE id_repondre=?";
             ste = ds.getConnection().prepareStatement(req);
-            ste.setInt(1,id);
+            ste.setInt(1, id);
             ste.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ReclamationService.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,94 +63,89 @@ public class RepondReclamationService implements I_Reclamation<RepondReclamation
     public void updateRec(int id, RepondReclamation t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
- 
 
     @Override
     public List<RepondReclamation> getAll() {
-      List<RepondReclamation> list =new ArrayList<RepondReclamation>();
-    try {
-              String req ="SELECT * FROM repondreclamation ";
-             ste = ds.getConnection().prepareStatement(req);
-             
-              ResultSet rs =ste.executeQuery();
-              while(rs.next()){
-                  
-                   list.add(new RepondReclamation(rs.getInt("id"), rs.getString("description"), rs.getString("sujet"), rs.getString("emailD"), rs.getTimestamp("date").toLocalDateTime(), rs.getString("etat")));
-              }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(ReclamationService.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }   
-    return list;
- }
-    
-    
-    public List<RepondReclamation> getSome(String txtSearch){
-        List<RepondReclamation> list =new ArrayList<>();
-    try {
-              String req ="SELECT *"
-                    + " FROM repondreclamation where sujet like '%"+txtSearch+"%' order by date desc";
-             ste = ds.getConnection().prepareStatement(req);
-             
-              ResultSet rs =ste.executeQuery();
-              while(rs.next()){
-                  
-                   list.add(new RepondReclamation(rs.getInt("id"), rs.getString("description"), rs.getString("sujet"), rs.getString("emailD"), rs.getTimestamp("date").toLocalDateTime(), rs.getString("etat")));
+        List<RepondReclamation> list = new ArrayList<RepondReclamation>();
+        try {
+            String req = "SELECT * FROM repondreclamation ";
+            ste = ds.getConnection().prepareStatement(req);
 
-              }
-            
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()) {
+
+                list.add(new RepondReclamation(rs.getInt("id_repondre"), rs.getString("description"), rs.getString("sujet"), rs.getString("emailD"), rs.getTimestamp("date").toLocalDateTime(), rs.getString("etat")));
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(ReclamationService.class.getName()).log(Level.SEVERE, null, ex);
-         
-        }   
-    
-    return list;
+
+        }
+        return list;
     }
-    
-    
+
+    public List<RepondReclamation> getSome(String txtSearch) {
+        List<RepondReclamation> list = new ArrayList<>();
+        try {
+            String req = "SELECT *"
+                    + " FROM repondreclamation where sujet like '%" + txtSearch + "%' order by date desc";
+            ste = ds.getConnection().prepareStatement(req);
+
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()) {
+
+                list.add(new RepondReclamation(rs.getInt("id_repondre"), rs.getString("description"), rs.getString("sujet"), rs.getString("emailD"), rs.getTimestamp("date").toLocalDateTime(), rs.getString("etat")));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ReclamationService.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+        return list;
+    }
+
 //   -------------------------------------------Statitstique-------- 
-    
-    
     public int Calculertotal() {
         String req = "SELECT COUNT(*) FROM repondreclamation ";
         RepondReclamation etat = null;
         int nombreLignes = 0;
         try {
-             ste = ds.getConnection().prepareStatement(req);
-           // ps = connection.prepareStatement(req);
+            ste = ds.getConnection().prepareStatement(req);
+            // ps = connection.prepareStatement(req);
             ResultSet resultSet = ste.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 nombreLignes = resultSet.getInt(1);
             }
 
-           // resultSet.last();
+            // resultSet.last();
             //on récupère le numéro de la ligne 
-           // nombreLignes = resultSet.getRow();
+            // nombreLignes = resultSet.getRow();
             //on replace le curseur avant la première ligne 
-           // resultSet.beforeFirst();
-
+            // resultSet.beforeFirst();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return nombreLignes;
     }
-     public int Calculer(String etat) {
+
+    public int Calculer(String etat) {
         String req = "SELECT COUNT(*) AS count FROM repondreclamation where etat =?";
-       RepondReclamation u = null;
+        RepondReclamation u = null;
         int nombreLignes = 0;
         try {
-              ste = ds.getConnection().prepareStatement(req);;
+            ste = ds.getConnection().prepareStatement(req);;
             ste.setString(1, etat);
             ResultSet resultSet = ste.executeQuery();
             while (resultSet.next()) {
                 nombreLignes = resultSet.getInt(1);
             }
-        //  resultSet.last(); 
+            //  resultSet.last(); 
 //            //on récupère le numéro de la ligne 
-          // nombreLignes = resultSet.getRow(); 
+            // nombreLignes = resultSet.getRow(); 
 //            //on replace le curseur avant la première ligne 
-          // resultSet.beforeFirst(); 
+            // resultSet.beforeFirst(); 
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -157,50 +153,45 @@ public class RepondReclamationService implements I_Reclamation<RepondReclamation
         return nombreLignes;
     }
 
-  
-
-    
-    
-    
-      public int Calculertotal2() {
+    public int Calculertotal2() {
         String req = "SELECT COUNT(*) FROM reclamation ";
         RepondReclamation etat = null;
         int nombreLignes = 0;
         try {
-             ste = ds.getConnection().prepareStatement(req);
-           // ps = connection.prepareStatement(req);
+            ste = ds.getConnection().prepareStatement(req);
+            // ps = connection.prepareStatement(req);
             ResultSet resultSet = ste.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 nombreLignes = resultSet.getInt(1);
             }
 
-           // resultSet.last();
+            // resultSet.last();
             //on récupère le numéro de la ligne 
-           // nombreLignes = resultSet.getRow();
+            // nombreLignes = resultSet.getRow();
             //on replace le curseur avant la première ligne 
-           // resultSet.beforeFirst();
-
+            // resultSet.beforeFirst();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return nombreLignes;
     }
-     public int Calculer2(String etat) {
+
+    public int Calculer2(String etat) {
         String req = "SELECT COUNT(*) AS count FROM reclamation where type =?";
-       RepondReclamation u = null;
+        RepondReclamation u = null;
         int nombreLignes = 0;
         try {
-              ste = ds.getConnection().prepareStatement(req);;
+            ste = ds.getConnection().prepareStatement(req);;
             ste.setString(1, etat);
             ResultSet resultSet = ste.executeQuery();
             while (resultSet.next()) {
                 nombreLignes = resultSet.getInt(1);
             }
-        //  resultSet.last(); 
+            //  resultSet.last(); 
 //            //on récupère le numéro de la ligne 
-          // nombreLignes = resultSet.getRow(); 
+            // nombreLignes = resultSet.getRow(); 
 //            //on replace le curseur avant la première ligne 
-          // resultSet.beforeFirst(); 
+            // resultSet.beforeFirst(); 
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -208,16 +199,4 @@ public class RepondReclamationService implements I_Reclamation<RepondReclamation
         return nombreLignes;
     }
 
-
-     
-     
-     
-     
-     
-     
-    
-    
 }
- 
-    
-

@@ -21,6 +21,9 @@ public class Hotel {
     private String prix_hotel;
     private String img_hotel;
 
+    public Hotel() {
+    }
+
     public Hotel(int id_hotel, String nom_hotel, int id_user, int is_available_hotel, String Adresse_hotel, String stars_hotel, int chambre_hotel, String prix_hotel, String img_hotel) {
         this.id_hotel = id_hotel;
         this.nom_hotel = nom_hotel;
@@ -41,8 +44,6 @@ public class Hotel {
         this.img_hotel = img_hotel;
     }
 
-    
-    
     public int getId_hotel() {
         return id_hotel;
     }

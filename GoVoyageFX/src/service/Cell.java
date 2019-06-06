@@ -100,7 +100,7 @@ private final GridPane gridPane = new GridPane();
             heure.setText("("+item.getHeureDepart()+" - "+ item.getHeureArrive()+")");
   //          brandIcon.setImage(img); 
             volIcon.setImage(img); 
-            descriptionLabel.setText(String.format(", %d Stops, %d Passagers", item.getNb_escale(), item.getNb_pax_max())); 
+            //descriptionLabel.setText(String.format(", %d Stops, %d Passagers", item.getNb_escale(), item.getNb_pax_max())); 
  
             setText(null); 
             setGraphic(content); 

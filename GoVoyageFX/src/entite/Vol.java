@@ -3,114 +3,87 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package entite;
-
-
 
 /**
  *
  * @author admin
  */
 public class Vol {
-    int id_vol ;
-    String type_vol;
-   int nb_escale;
-   float prix;
-   int nb_pax_max;
-   String origine;
-   String destination;
-   String heureDepart;
-   String heureArrive;
-   String depart;
-   public Vol(){
-       
-   }
 
-    public Vol(int id_vol, String type_vol, int nb_escale, float prix, int nb_pax_max, String origine, String destination, String heureDepart, String heureArrive, String depart) {
+    int id_vol;
+    int nb_escale;
+    String prix;
+    String origine;
+    String destination;
+    String heureDepart;
+    String heureArrive;
+    String depart;
+    String arrivee;
+    int id_agence;
+
+    public Vol(int id_vol, int nb_escale, String prix, String origine, String destination, String heureDepart, String heureArrive, String depart, String arrivee, int id_agence) {
         this.id_vol = id_vol;
-        this.type_vol = type_vol;
         this.nb_escale = nb_escale;
         this.prix = prix;
-        this.nb_pax_max = nb_pax_max;
         this.origine = origine;
         this.destination = destination;
         this.heureDepart = heureDepart;
         this.heureArrive = heureArrive;
         this.depart = depart;
+        this.arrivee = arrivee;
+        this.id_agence = id_agence;
     }
 
-    public Vol(int id_vol, String type_vol, int nb_escale, float prix, int nb_pax_max, String origine, String destination, String heureDepart, String heureArrive) {
-        this.id_vol = id_vol;
-        this.type_vol = type_vol;
-        this.nb_escale = nb_escale;
-        this.prix = prix;
-        this.nb_pax_max = nb_pax_max;
-        this.origine = origine;
-        this.destination = destination;
-        this.heureDepart = heureDepart;
-        this.heureArrive = heureArrive;
+    public Vol() {
+    }
+    
+    
+
+    public String getPrix() {
+        return prix;
     }
 
-    public Vol(int id_vol, String type_vol, int nb_escale, float prix, int nb_pax_max, String origine, String destination) {
-        this.id_vol = id_vol;
-        this.type_vol = type_vol;
-        this.nb_escale = nb_escale;
+    public void setPrix(String prix) {
         this.prix = prix;
-        this.nb_pax_max = nb_pax_max;
-        this.origine = origine;
-        this.destination = destination;
     }
 
- 
-   
-    public Vol(int id_vol, String type_vol, int nb_escale, float prix, int nb_pax_max) {
-        this.id_vol = id_vol;
-        this.type_vol = type_vol;
-        this.nb_escale = nb_escale;
-        this.prix = prix;
-        this.nb_pax_max = nb_pax_max;
-       
+    public int getId_agence() {
+        return id_agence;
+    }
+
+    public void setId_agence(int id_agence) {
+        this.id_agence = id_agence;
+    }
+
+
+    
+    
+    
+    
+    
+    public String getArrivee() {
+        return arrivee;
+    }
+
+    public void setArrivee(String arrivee) {
+        this.arrivee = arrivee;
     }
 
     public int getId_vol() {
         return id_vol;
     }
 
-    public String getType_vol() {
-        return type_vol;
-    }
-
     public int getNb_escale() {
         return nb_escale;
-    }
-
-    public float getPrix() {
-        return prix;
-    }
-
-    public int getNb_pax_max() {
-        return nb_pax_max;
     }
 
     public void setId_vol(int id_vol) {
         this.id_vol = id_vol;
     }
 
-    public void setType_vol(String type_vol) {
-        this.type_vol = type_vol;
-    }
-
     public void setNb_escale(int nb_escale) {
         this.nb_escale = nb_escale;
-    }
-
-    public void setPrix(float prix) {
-        this.prix = prix;
-    }
-
-    public void setNb_pax_max(int nb_pax_max) {
-        this.nb_pax_max = nb_pax_max;
     }
 
     public String getOrigine() {
@@ -153,6 +126,4 @@ public class Vol {
         this.depart = depart;
     }
 
- 
-  
 }
