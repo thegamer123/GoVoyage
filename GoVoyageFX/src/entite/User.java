@@ -47,6 +47,12 @@ public class User {
         this.is_client = is_client;
     }
 
+    public User(int id_user, String nom_user, String prenom_user) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+    }
+
     public int getId_user() {
         return id_user;
     }

@@ -218,4 +218,12 @@ public class ConsultationHotelController implements Initializable {
             }
         });*/
     }
+
+    @FXML
+    private void lireParCritereRecherche(ActionEvent event) {
+    }
+
+    @FXML
+    private void lireParStars(ActionEvent event) {
+    }
 }

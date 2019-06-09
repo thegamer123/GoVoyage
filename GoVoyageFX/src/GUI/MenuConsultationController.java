@@ -66,29 +66,46 @@ public class MenuConsultationController implements Initializable {
         if (butHotel.isSelected()) {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ConsultationHotel.fxml"));
             Scene scene = new Scene(root);
-            Scene currentScene = butSearch.getScene();
-            Stage primStage = (Stage) currentScene.getWindow();
+            //Scene currentScene = butSearch.getScene();
+            // Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
             primStage.setScene(scene);
+            primStage.show();
 
         } else if (butFlights.isSelected()) {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ConsultationVol.fxml"));
             Scene scene = new Scene(root);
-            Scene currentScene = butSearch.getScene();
-            Stage primStage = (Stage) currentScene.getWindow();
+            //Scene currentScene = butSearch.getScene();
+            //Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
             primStage.setScene(scene);
+            primStage.show();
 
         }
     }
 
     @FXML
     private void nav(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ConsultationOffre.fxml"));
+        Parent root;
+        if (butFlights.isSelected()) {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ClientVolOffersScreen.fxml"));
+        } else {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelOfferListScreen.fxml"));
+        }
+
         Scene scene = new Scene(root);
 //          Image image = new Image("/image/govoyage.jpg");
 //     img_govoyage.setImage(image);
-        Scene currentScene = ButDeals.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
+        // Scene currentScene = ButDeals.getScene();
+        // Stage primStage = (Stage) currentScene.getWindow();
+        // primStage.setScene(scene);
+        Stage primStage = new Stage();
         primStage.setScene(scene);
+        primStage.show();
     }
 
 }

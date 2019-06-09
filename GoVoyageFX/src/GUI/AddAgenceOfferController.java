@@ -11,8 +11,16 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,6 +39,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import service.ServiceAgence;
 import service.ServiceHotel;
+import utils.CountriesList;
 
 /**
  * FXML Controller class
@@ -58,11 +67,25 @@ public class AddAgenceOfferController implements Initializable {
     private TextField nbEscTF;
     private static int userId;
 
+    private final ExecutorService executorService = Executors.newCachedThreadPool();
+    private ObservableList<Map<String,String>> listOfPeople;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        CountriesList getCountries = new CountriesList();
+        executorService.submit(getCountries.fetchList);
+
+        getCountries.fetchList.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent t) {
+                listOfPeople = FXCollections.observableArrayList(getCountries.fetchList.getValue());
+                System.out.println(listOfPeople);
+            }
+        });
+
         // TODO
     }
 
