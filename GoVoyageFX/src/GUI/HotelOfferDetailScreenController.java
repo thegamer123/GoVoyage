@@ -119,9 +119,12 @@ public class HotelOfferDetailScreenController implements Initializable {
     private void AddRec(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
         Scene scene = new Scene(root);
-        Scene currentScene = reclamationbBT.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
+//        Scene currentScene = reclamationbBT.getScene();
+//        Stage primStage = (Stage) currentScene.getWindow();
+//        primStage.setScene(scene);
+        Stage primStage = new Stage();
         primStage.setScene(scene);
+        primStage.show();
     }
 
 }

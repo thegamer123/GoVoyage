@@ -36,7 +36,6 @@ public class HotelHomeScreenController implements Initializable {
     public static String hotelTitle;
     @FXML
     private Button rec;
-    
 
     /**
      * Initializes the controller class.
@@ -93,9 +92,12 @@ public class HotelHomeScreenController implements Initializable {
     private void ReclamationAction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
         Scene scene = new Scene(root);
-        Scene currentScene = hotelNameTF.getScene();
-        Stage primStage = (Stage) currentScene.getWindow();
+        // Scene currentScene = hotelNameTF.getScene();
+        //Stage primStage = (Stage) currentScene.getWindow();
+        // primStage.setScene(scene);
+        Stage primStage = new Stage();
         primStage.setScene(scene);
+        primStage.show();
     }
 
 }

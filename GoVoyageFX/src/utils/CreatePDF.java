@@ -52,7 +52,8 @@ public class CreatePDF {
         contentStream.close();
 
         //Saving the document
-        //document.save(new File("C:/PdfBox_Examples/new.pdf"));
+        //documen0t
+        document.save(new File("C:/PdfBox_Examples/new.pdf"));
         //Closing the document  
         document.close();
     }

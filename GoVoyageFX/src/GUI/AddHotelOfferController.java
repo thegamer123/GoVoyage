@@ -31,6 +31,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import service.ServiceHotel;
+import sun.net.www.http.HttpClient;
 
 /**
  * FXML Controller class
@@ -114,6 +115,8 @@ public class AddHotelOfferController implements Initializable {
             imageName = selectedFile.getName();
             Image image = new Image(imageFile);
             picIV.setImage(image);
+            
+            
         } else {
             //fileSelected.setText("Image file selection cancelled.");
         }
