@@ -142,7 +142,7 @@ public class ServiceVol {
         return list;
     }
 
-    public List<Vol> lireParCritereRecherche(String origine, String destination, int datedeprt) {
+    public List<Vol> lireParCritereRecherche(String origine, String destination, String datedeprt) {
 
         List<Vol> list = new ArrayList<>();
         try {

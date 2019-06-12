@@ -11,7 +11,7 @@ import service.Cell;
 import service.CellHotel;
 
 import service.ServiceRenseigtHotel;
-import com.GoVoyage.utiles.ConersionDate;
+import utils.ConersionDate;
 import entite.Hotel;
 import entite.HotelOffer;
 import java.io.IOException;

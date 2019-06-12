@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.GoVoyage.utiles;
+package utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +41,7 @@ public class ConersionDate {
         return null;
         
   }
-   public int convertirDateToString(DatePicker date){
+   public String convertirDateToString(DatePicker date){
       String date1 = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));  
        String an=date1.substring(0, 4);
        System.out.println("an = "+ an);
@@ -49,10 +49,11 @@ public class ConersionDate {
        System.out.println("mm = "+ mm);
         String jj=date1.substring(8, 10);
         System.out.println("jj = "+ jj);
-        String datefinal=an+mm+jj;
-        int dt=Integer.valueOf(datefinal);
+        //String datefinal=an+mm+jj;
+        String datefinal=jj+"/"+mm+"/"+an;
+        //int dt=Integer.valueOf(datefinal);
         System.out.println("datefin = "+ datefinal);
-       return dt;
+       return datefinal;
         
 
 }

@@ -8,7 +8,7 @@ package GUI;
 import entite.Vol;
 import service.Cell;
 import service.ServiceVol;
-import com.GoVoyage.utiles.ConersionDate;
+import utils.ConersionDate;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -218,7 +218,8 @@ public class ConsultationVolController implements Initializable {
 
     public void lireParCritereRecherche() {
         ConersionDate sr = new ConersionDate();
-        int date = sr.convertirDateToString(DateDeparture);
+       // int date = sr.convertirDateToString(DateDeparture);
+       String date = sr.convertirDateToString(DateDeparture);
         System.out.println("FieldFrom.getText() = " + FieldFrom.getText());
         System.out.println("FieldDestination.getText() = " + FieldDestination.getText());
         System.out.println("Le résultat est = " + date);
