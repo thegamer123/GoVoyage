@@ -46,7 +46,7 @@ public class ListCommentaireViewController implements Initializable {
     }
 
     private void getAllCommentaire() {
-        List<Commentaire> commentaires = serviceCommentaire.findAllCommentairesByOffre(1);
+        List<Commentaire> commentaires = serviceCommentaire.findAllCommentairesByOffre(HotelDetailOfferClientScreenController.currentOffer.getId_offre_hotel());
         commentaires.forEach(commentaire -> {
             try {
                 FXMLLoader loader = new FXMLLoader();

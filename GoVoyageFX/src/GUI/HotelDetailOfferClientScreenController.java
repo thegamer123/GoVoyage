@@ -48,7 +48,7 @@ public class HotelDetailOfferClientScreenController implements Initializable {
     private Button reclamationbBT;
     @FXML
     private TextField priceTF;
-    
+
     public static HotelOffer currentOffer;
 
     /**
@@ -83,7 +83,14 @@ public class HotelDetailOfferClientScreenController implements Initializable {
     }
 
     @FXML
-    private void Commentaire(ActionEvent event) {
+    private void Commentaire(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/commentaire/ListCommentaireView.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = reclamationbBT.getScene();
+        Stage primStage = new Stage();
+        primStage.setScene(scene);
+        primStage.show();
     }
 
     public void setHotelOfferData(HotelOffer offer) {
