@@ -94,7 +94,7 @@ public class MenuConsultationController implements Initializable {
         if (butFlights.isSelected()) {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ClientVolOffersScreen.fxml"));
         } else {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelOfferListScreen.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/ConsultationOffre.fxml"));
         }
 
         Scene scene = new Scene(root);
