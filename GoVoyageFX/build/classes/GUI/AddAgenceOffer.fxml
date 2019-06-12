@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;https://media.phillyvoice.com/media/images/021919-virgin-atlantic-plane.2e16d0ba.fill-735x490.png&quot;);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddAgenceOfferController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;file:///C:/Users/Lenovo/Desktop/plane_back.png&quot;)url(&quot;file:///C:/Users/Lenovo/Desktop/plane_back.png&quot;);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddAgenceOfferController">
    <children>
       <Label layoutX="32.0" layoutY="74.0" text="De :" />
       <TextField fx:id="fromTF" layoutX="137.0" layoutY="74.0" prefHeight="25.0" prefWidth="261.0" promptText="De :" />

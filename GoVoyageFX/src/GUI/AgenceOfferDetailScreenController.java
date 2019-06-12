@@ -109,7 +109,12 @@ public class AgenceOfferDetailScreenController implements Initializable {
 
     @FXML
     private void reclamation(ActionEvent event) throws IOException {
-
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/Reclamation/HelloReclamation.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = reclamationbBT.getScene();
+        Stage primStage = new Stage();
+        primStage.setScene(scene);
+        primStage.show();
     }
 
     @FXML

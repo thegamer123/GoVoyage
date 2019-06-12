@@ -16,6 +16,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.WorkerStateEvent;
@@ -40,6 +44,7 @@ import javafx.stage.Stage;
 import service.ServiceAgence;
 import service.ServiceHotel;
 import utils.CountriesList;
+import utils.Time24HoursValidator;
 
 /**
  * FXML Controller class
@@ -68,25 +73,36 @@ public class AddAgenceOfferController implements Initializable {
     private static int userId;
 
     private final ExecutorService executorService = Executors.newCachedThreadPool();
-    private ObservableList<Map<String,String>> listOfPeople;
+    private ObservableList<Map<String, String>> listOfPeople;
+
+    Time24HoursValidator hoursValidator;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CountriesList getCountries = new CountriesList();
-        executorService.submit(getCountries.fetchList);
+        // TODO
+        hoursValidator = new Time24HoursValidator();
 
-        getCountries.fetchList.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+        priceTF.textProperty().addListener(new ChangeListener<String>() {
             @Override
-            public void handle(WorkerStateEvent t) {
-                listOfPeople = FXCollections.observableArrayList(getCountries.fetchList.getValue());
-                System.out.println(listOfPeople);
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    priceTF.setText(oldValue);
+                }
             }
         });
 
-        // TODO
+        nbEscTF.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    nbEscTF.setText(oldValue);
+                }
+            }
+        });
+
     }
 
     /* private void choosePic(MouseEvent event) throws MalformedURLException {
@@ -136,6 +152,31 @@ public class AddAgenceOfferController implements Initializable {
 
     private boolean validateData() {
 
+        if (fromTF.getText().equals("")) {
+            showAlert("De : champs obligatoire");
+            return false;
+        }
+        if (toTF.getText().equals("")) {
+            showAlert("A : champs obligatoire");
+            return false;
+        }
+
+        if (nbEscTF.getText().equals("")) {
+            showAlert("nombre d'escale est obligatoire");
+            return false;
+        }
+        if (priceTF.getText().equals("")) {
+            showAlert("le prix est obligatoire");
+            return false;
+        }
+        if (hoursValidator.validate(houreStartTF.getText())) {
+            showAlert("Validé l'heure de départ");
+            return false;
+        }
+        if (hoursValidator.validate(houreEndTF1.getText())) {
+            showAlert("Validé l'heure de l'arrivée");
+            return false;
+        }
         return true;
     }
 
