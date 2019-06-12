@@ -14,7 +14,7 @@
          <children>
             <ImageView fx:id="img_govoyage" fitHeight="81.0" fitWidth="500.0" layoutX="80.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../image/govoyage1.png" />
+                  <Image url="@../pkgimages/govoyage1.png" />
                </image></ImageView>
          </children>
       </Pane>
