@@ -96,7 +96,7 @@ private final GridPane gridPane = new GridPane();
         if (!empty && item != null) { 
             brandLabel.setText(String.valueOf(item.getPrix()+"€")); 
             modelLabel.setText(item.getOrigine()+" To " +item.getDestination()); 
-            Image img=new Image("/image/vol.png");
+            Image img=new Image("/pkgimages/vol.png");
             heure.setText("("+item.getHeureDepart()+" - "+ item.getHeureArrive()+")");
   //          brandIcon.setImage(img); 
             volIcon.setImage(img); 
