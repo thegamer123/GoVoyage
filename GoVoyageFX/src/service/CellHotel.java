@@ -8,6 +8,7 @@ package service;
 
 import entite.Hotel;
 import entite.Renseignement;
+import java.awt.Rectangle;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.ContentDisplay;
@@ -27,7 +28,7 @@ import javafx.scene.layout.RowConstraints;
  *
  * @author ASUS
  */
-public class CellHotel extends ListCell<Hotel>{
+public class CellHotel extends ListCell<Renseignement>{
     private final GridPane gridPane = new GridPane(); 
     private final ImageView brandIcon = new ImageView(); 
     private final Label brandLabel = new Label(); 
@@ -111,9 +112,11 @@ public class CellHotel extends ListCell<Hotel>{
     } 
 
 
+
+
   
   
-    protected void updateItem(Hotel item, boolean empty) { 
+    protected void updateItem(Renseignement item, boolean empty) { 
         super.updateItem(item, empty); 
         setGraphic(null); 
         setText(null); 
@@ -125,14 +128,14 @@ public class CellHotel extends ListCell<Hotel>{
             modelLabel.setText("Hotel "+item.getNom_hotel()); 
             String image=item.getNom_hotel();
             System.out.println("image"+image);
-            Image img=new Image("/png/"+item.getImg_hotel());
+            Image img=new Image("/image/"+item.getImg_hotel()+".jpg");
             carte.setText("Show on Map");
-            classe.setText(String.format("%d Stars", item.getStars_hotel()));
-            prix.setText("Price/night: "+String.valueOf(item.getPrix_hotel())+"€");
+            classe.setText(String.format("%d Stars", item.getNbr_etoile_class()));
+            prix.setText("Price/night: "+String.valueOf(item.getPrix())+"€");
          //  brandIcon.setImage(img); 
             volIcon.setImage(img); 
-           descriptionLabel.setText(item.getAdresse_hotel()); 
-           room.setText(item.getChambre_hotel()+" Room");
+           descriptionLabel.setText(item.getAdr_hotel()); 
+           room.setText(item.getDescrip_categorie()+" Room");
  
             setText(null); 
             setGraphic(content); 
