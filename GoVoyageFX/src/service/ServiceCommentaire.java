@@ -31,7 +31,7 @@ public class ServiceCommentaire {
         try {
             ste = con.createStatement();
             String query = "INSERT INTO `Commentaire` (`id_commentaire`, `corps`, `id_offre`, `id_user`)"
-                    + " VALUES (NULL, '" + c.getCorps() + "', " + c.getId_offre() + ", " + c.getId_user() + ")";
+                    + " VALUES (NULL, '" + c.getCorps() + "', " + c.getId_offre() + ", " + c.getId_user() + ");";
             int va = ste.executeUpdate(query);
             if (va > 0) {
                 com = true;
