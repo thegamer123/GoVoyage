@@ -51,7 +51,7 @@ public class ListCommentaireViewController implements Initializable {
 
     private void getAllCommentaire() {
         
-        List<Commentaire> commentaires = serviceCommentaire.findMyCommentairesByOffre(HotelDetailOfferClientScreenController.currentOffer.getId_offre_hotel(), LoginController.result.getId_user());
+        List<Commentaire> commentaires = serviceCommentaire.findAllCommentairesByOffre(HotelDetailOfferClientScreenController.currentOffer.getId_offre_hotel());
         List<Pane> panes = new ArrayList<>();
         commentaires.forEach(commentaire -> {
             try {
