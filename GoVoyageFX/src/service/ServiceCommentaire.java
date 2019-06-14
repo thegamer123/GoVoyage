@@ -147,12 +147,12 @@ public class ServiceCommentaire {
         return list;
     }
 
-    public List<Commentaire> findAllCommentairesByOffre(int Offre) {
+    public List<Commentaire> findMyCommentairesByOffre(int Offre,int id_user) {
         List<Commentaire> list = new ArrayList<>();
 
         try {
             ste = con.createStatement();
-            ResultSet reseSet = ste.executeQuery("select * from Commentaire WHERE id_offre=" + Offre);
+            ResultSet reseSet = ste.executeQuery("select * from Commentaire WHERE id_offre=" + Offre+" and id_user="+ id_user);
 
             while (reseSet.next()) {
                 int commentaire = reseSet.getInt("id_commentaire");
