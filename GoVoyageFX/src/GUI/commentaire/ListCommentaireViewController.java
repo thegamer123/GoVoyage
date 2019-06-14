@@ -8,7 +8,6 @@ package GUI;
 import entite.Commentaire;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -47,11 +46,7 @@ public class ListCommentaireViewController implements Initializable {
     }
 
     private void getAllCommentaire() {
-
         List<Commentaire> commentaires = serviceCommentaire.findAllCommentairesByOffre(HotelDetailOfferClientScreenController.currentOffer.getId_offre_hotel());
-
-        List<Pane> panes = new ArrayList<>();
-
         commentaires.forEach(commentaire -> {
             try {
                 FXMLLoader loader = new FXMLLoader();
