@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="888.0" prefWidth="1780.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reclamation.ConsulterReclamationController">
+   <children>
+      <TabPane layoutX="7.0" layoutY="34.0" prefHeight="888.0" prefWidth="1792.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="List réclamation ">
+               <content>
+                  <AnchorPane fx:id="admin" prefHeight="880.0" prefWidth="1802.0">
+                     <children>
+                        <TableView fx:id="listR" layoutX="14.0" layoutY="97.0" onKeyPressed="#rechercheReclamation" onKeyReleased="#rechercheReclamation" prefHeight="686.0" prefWidth="801.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="supp" layoutX="115.0" layoutY="26.0" mnemonicParsing="false" onAction="#supprimerAction" prefHeight="36.0" prefWidth="39.0">
+                           <graphic>
+                              <ImageView fx:id="del" fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/delete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="rechbtn" layoutX="217.0" layoutY="34.0" onKeyPressed="#rechercheReclamation" onKeyReleased="#rechercheReclamation" prefHeight="26.0" prefWidth="202.0" promptText="Search" />
+                        <AnchorPane fx:id="details" layoutX="856.0" layoutY="62.0" prefHeight="824.0" prefWidth="543.0">
+                           <children>
+                              <ImageView fx:id="imgVw" fitHeight="285.0" fitWidth="342.0" layoutX="91.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="email2" layoutX="70.0" layoutY="99.0" prefHeight="36.0" prefWidth="401.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER" textFill="#1c1919">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="sujet2" layoutX="70.0" layoutY="319.0" prefHeight="35.0" prefWidth="402.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="262.0" layoutY="11.0" prefHeight="82.0" prefWidth="14.0" text="/" textFill="GAINSBORO">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txt_img_name" layoutX="32.0" layoutY="777.0" visible="false" />
+                              <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="1.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pkgimages/userProfilPicture.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="52.0" fitWidth="53.0" layoutX="3.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pkgimages/images.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="61.0" fitWidth="55.0" layoutX="3.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pkgimages/Users-icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="46.0" fitWidth="73.0" layoutX="2.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/download.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="1.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pkgimages/billet-reclamoscope1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="52.0" fitWidth="55.0" layoutX="10.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pkgimages/Messaging-Moved-Topic-icon.png" />
+                                 </image>
+                              </ImageView>
+                              <TextArea fx:id="description2" layoutX="75.0" layoutY="378.0" prefHeight="131.0" prefWidth="401.0" style="-fx-background-color: #DCDCDC;" />
+                              <Label fx:id="type2" layoutX="70.0" layoutY="171.0" prefHeight="36.0" prefWidth="398.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="tel" layoutX="70.0" layoutY="241.0" prefHeight="36.0" prefWidth="401.0" style="-fx-background-color: #DCDCDC;" text="Label" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nom" layoutX="70.0" layoutY="34.0" prefHeight="36.0" prefWidth="188.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="prenom" layoutX="284.0" layoutY="34.0" prefHeight="36.0" prefWidth="188.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="2.0" layoutY="82.0" prefHeight="3.0" prefWidth="467.0" />
+                              <Separator layoutX="4.0" layoutY="154.0" prefHeight="3.0" prefWidth="467.0" />
+                              <Separator layoutX="6.0" layoutY="229.0" prefHeight="3.0" prefWidth="467.0" />
+                              <Separator layoutX="4.0" layoutY="300.0" prefHeight="3.0" prefWidth="467.0" />
+                              <Separator layoutX="-2.0" layoutY="370.0" prefHeight="0.0" prefWidth="476.0" />
+                           </children>
+                        </AnchorPane>
+                        <Separator layoutX="834.0" layoutY="81.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="2.0" />
+                        <AnchorPane fx:id="re" layoutX="1425.0" layoutY="80.0" prefHeight="684.0" prefWidth="350.0">
+                           <children>
+                              <TextField fx:id="email" layoutX="41.0" layoutY="60.0" prefHeight="26.0" prefWidth="278.0" promptText="To" />
+                              <TextField fx:id="sujet" layoutX="41.0" layoutY="132.0" prefHeight="26.0" prefWidth="279.0" promptText="Sujet" />
+                              <TextArea fx:id="description" layoutX="41.0" layoutY="208.0" prefHeight="200.0" prefWidth="278.0" promptText="Description" />
+                              <RadioButton fx:id="ntr" layoutX="245.0" layoutY="437.0" mnemonicParsing="false" text="Non Traiter" />
+                              <Button fx:id="repondR" layoutX="242.0" layoutY="525.0" mnemonicParsing="false" onAction="#repondAction" prefHeight="32.0" prefWidth="88.0" text="Envoyer" />
+                              <RadioButton fx:id="tr" layoutX="80.0" layoutY="437.0" mnemonicParsing="false" text="Traiter" />
+                              <ImageView fitHeight="36.0" fitWidth="46.0" layoutX="202.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/sad.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="35.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/smile.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="28.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/hqdefault.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="btnRefresh" layoutX="52.0" layoutY="26.0" mnemonicParsing="false" onAction="#refreshAction" prefHeight="36.0" prefWidth="39.0" />
+                        <ImageView fx:id="btn" fitHeight="28.0" fitWidth="26.0" layoutX="57.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../pkgimages/refresh.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="961.0" layoutY="30.0" prefHeight="27.0" prefWidth="294.0" text="DETAILS INFORMATION">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="1413.0" layoutY="116.0" orientation="VERTICAL" prefHeight="682.0" prefWidth="12.0" />
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Mes Réponses">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="858.0" prefWidth="1833.0">
+                     <children>
+                        <TableView fx:id="mesList" layoutX="31.0" layoutY="72.0" prefHeight="526.0" prefWidth="913.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="rechMe" layoutX="267.0" layoutY="29.0" onKeyPressed="#rechercheRep" onKeyReleased="#rechercheRep" prefHeight="26.0" prefWidth="234.0" promptText="Search .." />
+                        <Button fx:id="supp2" layoutX="126.0" layoutY="24.0" mnemonicParsing="false" onAction="#supprimer2Action" prefHeight="32.0" prefWidth="51.0" text="Supp" />
+                        <Button fx:id="ref2" layoutX="50.0" layoutY="24.0" mnemonicParsing="false" onAction="#refrech2Action" prefHeight="32.0" prefWidth="52.0" text="Ref" />
+                        <Separator layoutX="955.0" layoutY="60.0" orientation="VERTICAL" prefHeight="738.0" prefWidth="12.0" />
+                        <Separator layoutX="985.0" layoutY="397.0" prefHeight="18.0" prefWidth="860.0" />
+                        <PieChart fx:id="pieChart" layoutX="956.0" layoutY="411.0" prefHeight="384.0" prefWidth="412.0" />
+                        <AnchorPane fx:id="detailsM" layoutX="967.0" layoutY="29.0" prefHeight="366.0" prefWidth="818.0">
+                           <children>
+                              <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="23.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/billet-reclamoscope1.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="sujetM" layoutX="142.0" layoutY="23.0" prefHeight="34.0" prefWidth="270.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="446.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/time.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="dateM" layoutX="537.0" layoutY="23.0" prefHeight="34.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="23.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/images.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="emailM" layoutX="129.0" layoutY="111.0" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="446.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/avis-clients-2.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="etatM" layoutX="537.0" layoutY="111.0" prefHeight="34.0" prefWidth="254.0" style="-fx-background-color: #DCDCDC;" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="60.0" fitWidth="73.0" layoutX="23.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/Messaging-Moved-Topic-icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="descriptionM" layoutX="113.0" layoutY="217.0" prefHeight="80.0" prefWidth="690.0" style="-fx-background-color: #DCDCDC;">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="417.0" layoutY="86.0" prefHeight="1.0" prefWidth="360.0" />
+                              <Separator layoutY="85.0" prefHeight="0.0" prefWidth="421.0" />
+                              <Separator layoutX="6.0" layoutY="178.0" prefHeight="4.0" prefWidth="412.0" />
+                              <Separator layoutX="415.0" layoutY="175.0" prefHeight="10.0" prefWidth="370.0" />
+                              <Separator layoutX="417.0" layoutY="2.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="6.0" />
+                           </children>
+                        </AnchorPane>
+                        <Separator layoutX="1363.0" layoutY="397.0" orientation="VERTICAL" prefHeight="458.0" prefWidth="16.0" />
+                        <PieChart fx:id="typerec" layoutX="1374.0" layoutY="409.0" prefHeight="407.0" prefWidth="418.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="histo" text="Historique">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" onKeyPressed="#rechercherhisto" onKeyReleased="#rechercherhisto" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="his" layoutX="65.0" layoutY="86.0" prefHeight="480.0" prefWidth="565.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="serchhis" layoutX="314.0" layoutY="33.0" prefHeight="26.0" prefWidth="293.0" promptText="Search .." />
+                        <Button fx:id="supphi" layoutX="199.0" layoutY="34.0" mnemonicParsing="false" onAction="#supprimer3Action" text="Supp" />
+                        <Button fx:id="refhis" layoutX="97.0" layoutY="34.0" mnemonicParsing="false" onAction="#refrech3Action" text="Ref" />
+                        <Separator layoutX="708.0" layoutY="60.0" orientation="VERTICAL" prefHeight="498.0" prefWidth="11.0" />
+                        <AnchorPane fx:id="hi" layoutX="738.0" layoutY="69.0" prefHeight="326.0" prefWidth="883.0">
+                           <children>
+                              <ImageView fitHeight="84.0" fitWidth="101.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/userProfilPicture.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="84.0" fitWidth="101.0" layoutX="14.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pkgimages/call-to-action-buttons-on-e-commerce-site.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="84.0" fitWidth="101.0" layoutX="471.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pkgimages/Users-icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="84.0" fitWidth="101.0" layoutX="471.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../pkgimages/time.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="loghis" layoutX="132.0" layoutY="45.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                              <Separator layoutX="444.0" layoutY="21.0" orientation="VERTICAL" prefHeight="200.0" />
+                              <Separator layoutX="14.0" layoutY="121.0" prefHeight="0.0" prefWidth="847.0" />
+                              <Label fx:id="actionhis" layoutX="132.0" layoutY="168.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                              <Label fx:id="typehis" layoutX="584.0" layoutY="45.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="datehis" layoutX="584.0" layoutY="168.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: #DCDCDC;" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Arc fill="WHITE" layoutX="993.0" layoutY="20.0" length="270.0" radiusX="12.0" radiusY="9.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+      <Text fill="#e81414" fontSmoothingType="LCD" layoutX="802.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Verdana;" text="BBACKOFFICE " wrappingWidth="218.5999755859375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#e20e0e" fontSmoothingType="LCD" layoutX="1011.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Verdana;" text="Go Voyage" wrappingWidth="149.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="log" layoutX="1725.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logoutActionR" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #c71111;" text="Logout" textFill="#131212" />
+      <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="1675.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../pkgimages/logoutRed.png" />
+         </image>
+      </ImageView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</AnchorPane>

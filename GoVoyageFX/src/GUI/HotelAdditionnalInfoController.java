@@ -1,0 +1,107 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package GUI;
+
+import entite.Hotel;
+import entite.User;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+import javafx.stage.Stage;
+import service.ServiceHotel;
+import service.ServiceUser;
+
+/**
+ * FXML Controller class
+ *
+ * @author Lenovo
+ */
+public class HotelAdditionnalInfoController implements Initializable {
+
+    @FXML
+    private TextField nameTF;
+    @FXML
+    private TextField adrTF;
+    @FXML
+    private TextField startTF;
+    @FXML
+    private TextField roomTF;
+    @FXML
+    private TextField prixTF;
+
+    public static int id_user;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+
+    @FXML
+    private void submitBtn(ActionEvent event) throws IOException {
+
+        ServiceHotel service = new ServiceHotel();
+        int result = -1;
+        if (validateData()) {
+            result = service.addHotel(new Hotel(0, nameTF.getText(), id_user, 0, adrTF.getText(), startTF.getText(), Integer.parseInt(roomTF.getText()), prixTF.getText(),""));
+            if (result > -1) {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelHomeScreen.fxml"));
+                Scene scene = new Scene(root);
+                Scene currentScene = nameTF.getScene();
+                Stage primStage = (Stage) currentScene.getWindow();
+                primStage.setScene(scene);
+            } else {
+                showAlert("Problème de connexion");
+            }
+        }
+
+    }
+
+    private boolean validateData() {
+
+        if (nameTF.getText().equals((""))) {
+            showAlert("le champ Nom est obligatoire");
+            return false;
+        } else if (adrTF.getText().equals((""))) {
+            showAlert("le champ Adresse est obligatoire");
+            return false;
+        } else if (startTF.getText().equals((""))) {
+            showAlert("le champ étoile est obligatoire");
+            return false;
+        } else if (roomTF.getText().equals((""))) {
+            showAlert("le champ chambre est obligatoire");
+            return false;
+        } else if (prixTF.getText().equals((""))) {
+            showAlert("le champ prix est obligatoire");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void showAlert(String text) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, text, ButtonType.OK);
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.show();
+    }
+
+    public void setIdUser(int id) {
+        id_user = id;
+    }
+
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="666.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminHomeScreenController">
+   <children>
+      <Button fx:id="hotelBtn" layoutX="282.0" layoutY="80.0" mnemonicParsing="false" onAction="#hotelCheck" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Hotels" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="volBtn" layoutX="31.0" layoutY="80.0" mnemonicParsing="false" onAction="#volCheck" prefHeight="0.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Vols" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="33.0" layoutY="621.0" mnemonicParsing="false" onAction="#logout" prefHeight="14.0" prefWidth="147.0" style="-fx-background-color: #000a12;" text="Déconnecter" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="reclamation" layoutX="532.0" layoutY="80.0" maxWidth="-Infinity" minWidth="14.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="39.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Réclamations" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="246.0" layoutY="29.0" text="Espace Administrateur">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="509.0" layoutY="617.0" mnemonicParsing="false" onAction="#exportToPdfAction" prefHeight="39.0" prefWidth="228.0" style="-fx-background-color: #000a12;" text="Envoyer pdf par email" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Pane fx:id="pdfPane" layoutX="6.0" layoutY="181.0" prefHeight="373.0" prefWidth="755.0">
+         <children>
+            <ScatterChart fx:id="reservationScatterChart" layoutX="86.0" prefHeight="163.0" prefWidth="185.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </ScatterChart>
+            <BarChart fx:id="barChart" layoutX="86.0" layoutY="187.0" prefHeight="163.0" prefWidth="200.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <AreaChart fx:id="AreaChart" layoutX="392.0" layoutY="187.0" prefHeight="163.0" prefWidth="209.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </AreaChart>
+            <LineChart fx:id="evolutionLineChart" layoutX="392.0" prefHeight="163.0" prefWidth="209.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
