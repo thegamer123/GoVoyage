@@ -128,7 +128,7 @@ public class CellHotel extends ListCell<Renseignement>{
             modelLabel.setText("Hotel "+item.getNom_hotel()); 
             String image=item.getNom_hotel();
             System.out.println("image"+image);
-            Image img=new Image("/image/"+item.getImg_hotel()+".jpg");
+            Image img=new Image("/pkgimages/"+item.getImg_hotel()+".jpg");
             carte.setText("Show on Map");
             classe.setText(String.format("%d Stars", item.getNbr_etoile_class()));
             prix.setText("Price/night: "+String.valueOf(item.getPrix())+"€");
