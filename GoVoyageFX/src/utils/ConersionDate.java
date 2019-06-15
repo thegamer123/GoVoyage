@@ -57,4 +57,19 @@ public class ConersionDate {
         
 
 }
+        public int convertirDateToInt(DatePicker date){
+      String date1 = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));  
+       String an=date1.substring(0, 4);
+       System.out.println("an = "+ an);
+       String mm=date1.substring(5, 7);
+       System.out.println("mm = "+ mm);
+        String jj=date1.substring(8, 10);
+        System.out.println("jj = "+ jj);
+        String datefinal=an+mm+jj;
+        int dt=Integer.valueOf(datefinal);
+        System.out.println("datefin = "+ datefinal);
+       return dt;
+        
+
+}
 }
