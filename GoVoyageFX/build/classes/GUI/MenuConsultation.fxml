@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="307.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuConsultationController">
+   <children>
+      <Pane prefHeight="165.0" prefWidth="608.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fx:id="img_govoyage" fitHeight="81.0" fitWidth="500.0" layoutX="80.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pkgimages/govoyage1.png" />
+               </image></ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="12.0" layoutY="165.0" prefHeight="156.0" prefWidth="584.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <RadioButton fx:id="butHotel" layoutX="176.0" layoutY="38.0" mnemonicParsing="false" text="Hotels">
+               <toggleGroup>
+                  <ToggleGroup fx:id="mygroup" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="butFlights" layoutX="270.0" layoutY="38.0" mnemonicParsing="false" text="Flights" toggleGroup="$mygroup" />
+            <Button fx:id="butSearch" layoutX="361.0" layoutY="28.0" mnemonicParsing="false" onAction="#Appel" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: #008000;" text="Search" textFill="#f5f4f4" />
+            <Button fx:id="ButDeals" layoutX="222.0" layoutY="86.0" mnemonicParsing="false" onAction="#nav" prefHeight="37.0" prefWidth="175.0" style="-fx-background-color: #008000;" text="View Deals" textFill="#fcf7f7" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

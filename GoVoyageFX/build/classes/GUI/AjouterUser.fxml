@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #263238;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterUserController">
+    <stylesheets>
+        <URL value="@ajouteruser.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="validerBTN" layoutX="212.0" layoutY="360.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #000a12;" text="Valider" textFill="WHITE" />
+      <Label fx:id="user_name" layoutX="97.0" layoutY="60.0" prefHeight="17.0" prefWidth="96.0" text="Nom" textFill="WHITE" />
+      <Label layoutX="97.0" layoutY="93.0" text="Prenom" textFill="WHITE" />
+      <TextField fx:id="nameTF" layoutX="209.0" layoutY="56.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: #4f5b62; -fx-background-color: transparent;" styleClass="text-field" />
+      <TextField fx:id="prenomTF" layoutX="209.0" layoutY="89.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: #4f5b62; -fx-background-color: transparent;" styleClass="text-field" />
+      <TextField fx:id="telTF" layoutX="210.0" layoutY="195.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: #4f5b62; -fx-background-color: transaprent;" styleClass="text-field" />
+      <Label layoutX="98.0" layoutY="166.0" text="Date de naissance" textFill="WHITE" />
+      <DatePicker fx:id="naissanceDP" layoutX="210.0" layoutY="162.0" style="-fx-background-color: transparent; -fx-border-color: #4f5b62;" styleClass="text-field" />
+      <Label fx:id="t" layoutX="97.0" layoutY="199.0" text="Télèphone" textFill="WHITE" />
+      <Label fx:id="t1" layoutX="99.0" layoutY="153.0" />
+      <Label layoutX="96.0" layoutY="29.0" text="login" textFill="WHITE" />
+      <TextField fx:id="loginTF" layoutX="209.0" layoutY="25.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: #4f5b62; -fx-background-color: transparent;" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <Button fx:id="validerBTN1" layoutX="17.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #000a12;" text="Retour" textFill="WHITE" />
+      <Label fx:id="t21" layoutX="98.0" layoutY="242.0" text="Position" textFill="WHITE" />
+      <ImageView fx:id="gpsIV" fitHeight="27.0" fitWidth="27.0" layoutX="213.0" layoutY="237.0" onMouseClicked="#goToGps" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../png/gps.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="97.0" layoutY="279.0" text="Type" textFill="WHITE" />
+      <ComboBox fx:id="compteTypeCB" layoutX="213.0" layoutY="275.0" prefHeight="25.0" prefWidth="176.0" />
+      <PasswordField fx:id="passTF1" layoutX="213.0" layoutY="315.0" prefHeight="25.0" prefWidth="176.0" style="-fx-border-color: #4f5b62; -fx-background-color: transparent;" stylesheets="@ajouteruser.css" />
+      <Label layoutX="96.0" layoutY="315.0" text="Mot de passe" textFill="WHITE" />
+      <Label layoutX="99.0" layoutY="129.0" text="Email" textFill="WHITE" />
+      <TextField fx:id="emailTF" layoutX="209.0" layoutY="124.0" prefHeight="27.0" prefWidth="176.0" style="-fx-border-color: #4f5b62; -fx-background-color: transparent;" styleClass="text-field" />
+   </children>
+</AnchorPane>
