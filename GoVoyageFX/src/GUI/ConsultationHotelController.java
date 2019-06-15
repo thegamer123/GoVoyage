@@ -150,8 +150,8 @@ listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, L
     @FXML
     public void lireParCritereRecherche(){
     ConersionDate sr=new ConersionDate();
-    String dateIn=sr.convertirDateToString(date_checkIn);
-    String dateOut=sr.convertirDateToString(date_checkout);
+    int dateIn=sr.convertirDateToInt(date_checkIn);
+    int dateOut=sr.convertirDateToInt(date_checkout);
  
           controleSearch();  
      ObservableList<Renseignement> volList=FXCollections .observableArrayList();
