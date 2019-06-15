@@ -256,4 +256,34 @@ public class ServiceVol {
         }
         return true;
     }
+    
+      public int getVolCount() {
+        String req = "SELECT COUNT(*) AS count FROM vol";
+        int nombreLignes = 0;
+        try {
+            ste = con.prepareStatement(req);
+            ResultSet resultSet = ste.executeQuery(req);
+            while (resultSet.next()) {
+                nombreLignes = resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombreLignes;
+    }
+
+        public int getVolReservationCount() {
+        String req = "SELECT COUNT(*) AS count FROM vol_reservation";
+        int nombreLignes = 0;
+        try {
+            ste = con.prepareStatement(req);
+            ResultSet resultSet = ste.executeQuery(req);
+            while (resultSet.next()) {
+                nombreLignes = resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombreLignes;
+    }
 }

@@ -7,6 +7,7 @@ package service;
 
 import entite.Hotel;
 import entite.HotelOffer;
+import entite.RepondReclamation;
 
 import utils.DataSource;
 import java.sql.Connection;
@@ -208,4 +209,34 @@ public class ServiceHotel {
         return list;
     }
 
+    public int getHotelCount() {
+        String req = "SELECT COUNT(*) AS count FROM hotel_offre";
+        int nombreLignes = 0;
+        try {
+            ste = con.prepareStatement(req);
+            ResultSet resultSet = ste.executeQuery(req);
+            while (resultSet.next()) {
+                nombreLignes = resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombreLignes;
+    }
+
+        public int getHotelReservationCount() {
+        String req = "SELECT COUNT(*) AS count FROM hotel_reservation";
+        int nombreLignes = 0;
+        try {
+            ste = con.prepareStatement(req);
+            ResultSet resultSet = ste.executeQuery(req);
+            while (resultSet.next()) {
+                nombreLignes = resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombreLignes;
+    }
+    
 }
