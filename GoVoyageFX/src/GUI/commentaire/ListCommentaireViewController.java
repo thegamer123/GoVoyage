@@ -3,17 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI.commentaire;
+package GUI;
 
-import GUI.HotelDetailOfferClientScreenController;
-import GUI.LoginController;
 import entite.Commentaire;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,9 +46,7 @@ public class ListCommentaireViewController implements Initializable {
     }
 
     private void getAllCommentaire() {
-        
-        List<Commentaire> commentaires = serviceCommentaire.findMyCommentairesByOffre(HotelDetailOfferClientScreenController.currentOffer.getId_offre_hotel(), LoginController.result.getId_user());
-        List<Pane> panes = new ArrayList<>();
+        List<Commentaire> commentaires = serviceCommentaire.findAllCommentairesByOffre(HotelDetailOfferClientScreenController.currentOffer.getId_offre_hotel());
         commentaires.forEach(commentaire -> {
             try {
                 FXMLLoader loader = new FXMLLoader();
@@ -60,17 +54,16 @@ public class ListCommentaireViewController implements Initializable {
                 CommentaireViewController controller = (CommentaireViewController) loader.getController();
                 controller.setCommentaire(commentaire);
                 controller.setInView();
-                panes.add(loader.getRoot());
+                commentListView.getItems().add(loader.getRoot());
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         });
-        commentListView.setItems( FXCollections.observableArrayList(panes));
     }
 
     @FXML
     private void insertCommentAction(ActionEvent event) {
-        Commentaire commentaire = new Commentaire(0, commentTextArea.getText(), HotelDetailOfferClientScreenController.currentOffer.getId_offre_hotel(), LoginController.result.getId_user());
+        Commentaire commentaire = new Commentaire(0, commentTextArea.getText(), 1, LoginController.result.getId_user());
         serviceCommentaire.ajouterCommentaire(commentaire);
         getAllCommentaire();
     }

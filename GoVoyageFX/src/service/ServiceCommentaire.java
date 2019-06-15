@@ -31,7 +31,7 @@ public class ServiceCommentaire {
         try {
             ste = con.createStatement();
             String query = "INSERT INTO `Commentaire` (`id_commentaire`, `corps`, `id_offre`, `id_user`)"
-                    + " VALUES (NULL, '" + c.getCorps() + "', " + c.getId_offre() + ", " + c.getId_user() + ")";
+                    + " VALUES (NULL, '" + c.getCorps() + "', " + c.getId_offre() + ", " + c.getId_user() + ");";
             int va = ste.executeUpdate(query);
             if (va > 0) {
                 com = true;
@@ -147,12 +147,12 @@ public class ServiceCommentaire {
         return list;
     }
 
-    public List<Commentaire> findMyCommentairesByOffre(int Offre,int id_user) {
+    public List<Commentaire> findAllCommentairesByOffre(int Offre) {
         List<Commentaire> list = new ArrayList<>();
 
         try {
             ste = con.createStatement();
-            ResultSet reseSet = ste.executeQuery("select * from Commentaire WHERE id_offre=" + Offre+" and id_user="+ id_user);
+            ResultSet reseSet = ste.executeQuery("select * from Commentaire WHERE id_offre=" + Offre);
 
             while (reseSet.next()) {
                 int commentaire = reseSet.getInt("id_commentaire");
