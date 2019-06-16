@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.SecondStepReservationController">
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="645.0" style="-fx-background-image: url('file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/ho.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.SecondStepReservationController">
    <children>
       <ImageView fitHeight="454.0" fitWidth="635.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
