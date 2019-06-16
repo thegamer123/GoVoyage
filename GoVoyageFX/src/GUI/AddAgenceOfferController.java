@@ -43,6 +43,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import service.ServiceAgence;
 import service.ServiceHotel;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 import utils.CountriesList;
 import utils.Time24HoursValidator;
 
@@ -140,12 +142,14 @@ public class AddAgenceOfferController implements Initializable {
                     startDP.getValue().toString(),
                     startDP1.getValue().toString(),
                     userId));
-        }
 
-        if (result) {
-            showAlert("offre ajouté avec succès");
-        } else {
-            showAlert("Erreur dans l'opération");
+            if (result) {
+                showAlert("offre ajouté avec succès");
+                closeScreen();
+
+            } else {
+                showAlert("Erreur dans l'opération");
+            }
         }
 
     }
@@ -169,11 +173,11 @@ public class AddAgenceOfferController implements Initializable {
             showAlert("le prix est obligatoire");
             return false;
         }
-        if (hoursValidator.validate(houreStartTF.getText())) {
+        if (!hoursValidator.validate(houreStartTF.getText())) {
             showAlert("Validé l'heure de départ");
             return false;
         }
-        if (hoursValidator.validate(houreEndTF1.getText())) {
+        if (!hoursValidator.validate(houreEndTF1.getText())) {
             showAlert("Validé l'heure de l'arrivée");
             return false;
         }
@@ -184,7 +188,15 @@ public class AddAgenceOfferController implements Initializable {
         userId = userID;
     }
 
+    private void closeScreen() {
+        TrayNotification tn = new TrayNotification("Offre", "Votre Offre a été ajouté avec succèes", NotificationType.SUCCESS);
+        tn.showAndWait();
+        Stage stage = (Stage) priceTF.getScene().getWindow();
+        stage.close();
+    }
+
     private void showAlert(String text) {
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION, text, ButtonType.OK);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.show();

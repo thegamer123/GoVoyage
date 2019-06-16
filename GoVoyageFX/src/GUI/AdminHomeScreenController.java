@@ -5,11 +5,13 @@
  */
 package GUI;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
@@ -25,11 +28,17 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.crypto.NullCipher;
+import javax.imageio.ImageIO;
 import service.ServiceHotel;
 import service.ServiceVol;
+import utils.CreatePDF;
 
 /**
  * FXML Controller class
@@ -52,12 +61,16 @@ public class AdminHomeScreenController implements Initializable {
     private final ObservableList<PieChart.Data> user = FXCollections.observableArrayList();
     @FXML
     private PieChart pieChartVol;
+    @FXML
+    private ImageView exportIV;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        exportIV.setImage(new Image(Utility.path + "exportPdf.png"));
         final NumberAxis xAxis = new NumberAxis(0, 10, 1);
         final NumberAxis yAxis = new NumberAxis(-100, 500, 100);
         ServiceHotel service = new ServiceHotel();
@@ -131,7 +144,18 @@ public class AdminHomeScreenController implements Initializable {
     }
 
     @FXML
-    private void exportToPdfAction(ActionEvent event) {
+    private void exportToPdfAction(MouseEvent event) throws IOException {
+
+        WritableImage nodeshot = pdfPane.snapshot(new SnapshotParameters(), null);
+        File file = new File("chart.png");
+
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(nodeshot, null), "png", file);
+        } catch (IOException e) {
+
+        }
+
+        CreatePDF.viewToPdf("C:\\Users\\Lenovo\\Desktop\\libMap", "chart", "", file.getAbsolutePath(), "C:/Users/Lenovo/Desktop/logo_transparent.png");
     }
 
 }

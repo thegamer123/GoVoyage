@@ -37,6 +37,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -128,8 +130,7 @@ public class ConsultationVolController implements Initializable {
             alert.setContentText(" Please enter a valid city.");
             // list.add( alert);
             alert.showAndWait();
-        }
-      else if (FieldDestination.getText().equals("")) {
+        } else if (FieldDestination.getText().equals("")) {
             labelFrom.textProperty().bind(FieldFrom.textProperty());
             Alert alert1 = new Alert(AlertType.INFORMATION);
 
@@ -139,9 +140,8 @@ public class ConsultationVolController implements Initializable {
             // list.add( alert1);
 
             alert1.showAndWait();
-        }
-       else if((DateDeparture.getValue() == null || DateDeparture.getValue().toString().isEmpty())  ){
-                       Alert alert1 = new Alert(AlertType.INFORMATION);
+        } else if ((DateDeparture.getValue() == null || DateDeparture.getValue().toString().isEmpty())) {
+            Alert alert1 = new Alert(AlertType.INFORMATION);
 
             // alert.setTitle("No Selection");
             //alert1.setHeaderText("No city Selected");
@@ -149,7 +149,7 @@ public class ConsultationVolController implements Initializable {
             // list.add( alert1);
 
             alert1.showAndWait();
-       }
+        }
 
     }
 
@@ -237,14 +237,14 @@ public class ConsultationVolController implements Initializable {
 
     @FXML
     public void lireParCritereRecherche() {
-          controleSearch();
+        controleSearch();
         ConersionDate sr = new ConersionDate();
-       // int date = sr.convertirDateToString(DateDeparture);
-       String date = sr.convertirDateToString(DateDeparture);
+        // int date = sr.convertirDateToString(DateDeparture);
+        String date = sr.convertirDateToString(DateDeparture);
         System.out.println("FieldFrom.getText() = " + FieldFrom.getText());
         System.out.println("FieldDestination.getText() = " + FieldDestination.getText());
         System.out.println("Le résultat est = " + date);
-      
+
         ObservableList<Vol> volList = FXCollections.observableArrayList();
         ServiceVol vol = new ServiceVol();
         List<Vol> list = vol.lireParCritereRecherche(FieldFrom.getText(), FieldDestination.getText(), date);
@@ -254,7 +254,7 @@ public class ConsultationVolController implements Initializable {
             // id_vol=v.getId_vol();  
             String origine = v.getOrigine();
             vol1.setId_vol(id_vol);
-           
+
             vol1.setOrigine(origine);
             String destination = v.getDestination();
             vol1.setDestination(destination);
@@ -286,27 +286,35 @@ public class ConsultationVolController implements Initializable {
 
     @FXML
     private void rollBack(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
-            Scene scene = new Scene(root);
-            //Scene currentScene = butSearch.getScene();
-            // Stage primStage = (Stage) currentScene.getWindow();
-            //primStage.setScene(scene);
+        // Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
+        // Scene scene = new Scene(root);
+        //Scene currentScene = butSearch.getScene();
+        // Stage primStage = (Stage) currentScene.getWindow();
+        //primStage.setScene(scene);
 
-            Stage primStage = new Stage();
-            primStage.setScene(scene);
-            primStage.show();
+        //Stage primStage = new Stage();
+        //primStage.setScene(scene);
+        //primStage.show();
+        closeScreen();
+
+    }
+
+    private void closeScreen() {
+
+        Stage stage = (Stage) listViewVol.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void deconnecter(ActionEvent event) throws IOException {
-                           Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
-            Scene scene = new Scene(root);
-            //Scene currentScene = butSearch.getScene();
-            // Stage primStage = (Stage) currentScene.getWindow();
-            //primStage.setScene(scene);
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+        Scene scene = new Scene(root);
+        //Scene currentScene = butSearch.getScene();
+        // Stage primStage = (Stage) currentScene.getWindow();
+        //primStage.setScene(scene);
 
-            Stage primStage = new Stage();
-            primStage.setScene(scene);
-            primStage.show();
+        Stage primStage = new Stage();
+        primStage.setScene(scene);
+        primStage.show();
     }
 }
