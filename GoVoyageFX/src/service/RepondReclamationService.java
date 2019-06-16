@@ -61,7 +61,6 @@ public class RepondReclamationService implements I_Reclamation<RepondReclamation
 
     @Override
     public void updateRec(int id, RepondReclamation t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

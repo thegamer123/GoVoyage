@@ -366,7 +366,8 @@ public class ConsulterReclamationController implements Initializable {
         });
 
     }
-
+//---------Statistique des réclamations traités et non traités-----------//
+    
     public void stat() {
         user.clear();
         RepondReclamationService rp = new RepondReclamationService();
@@ -381,6 +382,7 @@ public class ConsulterReclamationController implements Initializable {
         pieChart.setLabelsVisible(true);
 
     }
+//---------Statistique par type de réclamations-----------//
 
     public void stat2() {
         user2.clear();
@@ -428,13 +430,11 @@ public class ConsulterReclamationController implements Initializable {
         mesList.setItems(data1);
         mesList.getColumns().addAll(Sujet_D, Description_D, emailD, date, etatD);
 
-        mesList.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        mesList.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {//!!!!!!!!!!!!!!!!
             if (newSelection != null) {
-//               supp2.setVisible(true);
                 detailsM.setVisible(true);
 
                 RepondReclamation r = (RepondReclamation) mesList.getSelectionModel().getSelectedItem();
-//               ClientService us=new ClientService();
 
                 sujetM.setText(r.getSujet());
                 descriptionM.setText(r.getDescription());
