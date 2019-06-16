@@ -53,7 +53,7 @@
                            <font>
                               <Font size="14.0" />
                            </font></Button>
-                        <Button fx:id="btndecon" mnemonicParsing="false" onAction="#deconnecter" prefHeight="25.0" prefWidth="110.0" text="Déconnecter" />
+                        <Button fx:id="btndecon" mnemonicParsing="false" onAction="#deconnecter" prefHeight="25.0" prefWidth="110.0" text="Déconnecter" visible="false" />
                     </items>
                   </ToolBar>
                   <ListView fx:id="listViewVol" layoutX="7.0" layoutY="56.0" prefHeight="514.0" prefWidth="524.0" />

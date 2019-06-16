@@ -1,1 +1,6 @@
 /GoVoyageFX/dist/
+*.properties
+GoVoyageFX/nbproject/private/private.properties
+GoVoyageFX/nbproject/project.properties
+GoVoyageFX/build/classes/utils/CountriesList.class
+GoVoyageFX/build/classes/entite/CellHotelReservation.class

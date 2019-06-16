@@ -141,54 +141,52 @@ public class LoginController implements Initializable {
     @FXML
     private void signup(ActionEvent event) throws IOException {
 //
-//        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/AjouterUser.fxml"));
-//        Scene scene = new Scene(root);
-//        Scene currentScene = loginTF.getScene();
-//        Stage primStage = (Stage) currentScene.getWindow();
-//        primStage.setScene(scene);
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/AjouterUser.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = loginTF.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
 
-        try {
-            CreatePDF.create("C:\\Users\\Lenovo\\Desktop\\libMap", "test", "hello", "C:/Users/Lenovo/Desktop/logo_transparent.png");
-
-//            final String username = "govoyage2020@gmail.com";
-//            final String password = "Go@@voyage2020";
+//        try {
+//            CreatePDF.create("C:\\Users\\Lenovo\\Desktop\\libMap", "test", "hello", "C:/Users/Lenovo/Desktop/logo_transparent.png");
 //
-//            Properties props = new Prope rties();
-//            props.put("mail.smtp.auth", "true");
-//            props.put("mail.smtp.starttls.enable", "true");
-//            props.put("mail.smtp.host", "smtp.gmail.com");
-//            props.put("mail.smtp.port", "587");
+////            final String username = "govoyage2020@gmail.com";
+////            final String password = "Go@@voyage2020";
+////
+////            Properties props = new Prope rties();
+////            props.put("mail.smtp.auth", "true");
+////            props.put("mail.smtp.starttls.enable", "true");
+////            props.put("mail.smtp.host", "smtp.gmail.com");
+////            props.put("mail.smtp.port", "587");
+////
+////            Session session = Session.getInstance(props,
+////                    new javax.mail.Authenticator() {
+////                protected PasswordAuthentication getPasswordAuthentication() {
+////                    return new PasswordAuthentication(username, password);
+////                }
+////            });
+////
+////
+////                Multipart multipart = new MimeMultipart();
+////                MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+////                attachmentBodyPart.attachFile(new File("C:/Users/Lenovo/Desktop/libMaptest.pdf"));
+////                multipart.addBodyPart(attachmentBodyPart);
+////
+////                Message message = new MimeMessage(session);
+////                message.setFrom(new InternetAddress("govoyage2020@gmail.com"));
+////                message.setRecipients(Message.RecipientType.TO,
+////                        InternetAddress.parse("bouraoui.mansouri@gmail.com"));
+////                message.setSubject("pdf demander");
+////                message.setText("GoVoyage service mail");
+////                
+////                message.setContent(multipart);
+////
+////                Transport.send(message);
+////
+////                System.out.println("Done");
 //
-//            Session session = Session.getInstance(props,
-//                    new javax.mail.Authenticator() {
-//                protected PasswordAuthentication getPasswordAuthentication() {
-//                    return new PasswordAuthentication(username, password);
-//                }
-//            });
-//
-//
-//                Multipart multipart = new MimeMultipart();
-//                MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-//                attachmentBodyPart.attachFile(new File("C:/Users/Lenovo/Desktop/libMaptest.pdf"));
-//                multipart.addBodyPart(attachmentBodyPart);
-//
-//                Message message = new MimeMessage(session);
-//                message.setFrom(new InternetAddress("govoyage2020@gmail.com"));
-//                message.setRecipients(Message.RecipientType.TO,
-//                        InternetAddress.parse("bouraoui.mansouri@gmail.com"));
-//                message.setSubject("pdf demander");
-//                message.setText("GoVoyage service mail");
-//                
-//                message.setContent(multipart);
-//
-//                Transport.send(message);
-//
-//                System.out.println("Done");
-
-            } catch (Exception ex) {
-                Logger.getLogger(ConsulterReclamationController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//            } catch (Exception ex) {
+//                Logger.getLogger(ConsulterReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
     }
-
-
+}

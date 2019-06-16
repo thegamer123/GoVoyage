@@ -48,12 +48,12 @@ public class ClientVolOffersScreenController implements Initializable, IRefreshL
     public void bindView() {
         ServiceVol service = new ServiceVol();
         System.out.println(AgenceHomeScreenController.idAgence);
-        ObservableList<Vol> listR = FXCollections.observableArrayList(service.readAllByAgenceId(String.valueOf(AgenceHomeScreenController.idAgence)));
+        ObservableList<Vol> listR = FXCollections.observableArrayList(service.readAll());
 
         lsitViewHotel.setItems(listR);
         lsitViewHotel.setOnMouseClicked((MouseEvent event) -> {
             System.out.println("clicked on " + lsitViewHotel.getSelectionModel().getSelectedItem());
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AgenceOfferDetailScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/ClientVolOfferDetailScreen.fxml"));
             Parent root = null;
             try {
                 root = (Parent) loader.load();
@@ -77,11 +77,18 @@ public class ClientVolOffersScreenController implements Initializable, IRefreshL
 
     @FXML
     private void back(ActionEvent event) {
+        closeScreen();
     }
 
     @Override
     public void refreshListOnBack() {
         bindView();
+    }
+
+    private void closeScreen() {
+
+        Stage stage = (Stage) lsitViewHotel.getScene().getWindow();
+        stage.close();
     }
 
 }

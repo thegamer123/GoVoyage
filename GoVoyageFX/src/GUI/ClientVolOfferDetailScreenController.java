@@ -44,7 +44,7 @@ public class ClientVolOfferDetailScreenController implements Initializable {
     private TextField nbEscaleTF;
     @FXML
     private TextField priceTF;
-        public static Vol currentVol;
+    public static Vol currentVol;
     public static IRefreshList callback;
 
     /**
@@ -53,9 +53,7 @@ public class ClientVolOfferDetailScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
-
+    }
 
     @FXML
     private void reservation(ActionEvent event) {
@@ -68,8 +66,8 @@ public class ClientVolOfferDetailScreenController implements Initializable {
     @FXML
     private void commentaire(ActionEvent event) {
     }
-    
-      public void setAgenceOffer(Vol vol, IRefreshList mCallback) {
+
+    public void setAgenceOffer(Vol vol, IRefreshList mCallback) {
 
         currentVol = vol;
         callback = mCallback;
@@ -85,5 +83,5 @@ public class ClientVolOfferDetailScreenController implements Initializable {
         Image img = new Image(Utility.path + "Vol.png");
         profilePictureIV.setImage(img);
     }
-    
+
 }
