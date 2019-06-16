@@ -6,6 +6,7 @@
 package GUI;
 
 import entite.Vol;
+import java.io.IOException;
 import service.Cell;
 import service.ServiceVol;
 import utils.ConersionDate;
@@ -16,8 +17,12 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -30,6 +35,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
@@ -58,14 +64,16 @@ public class ConsultationVolController implements Initializable {
     @FXML
     private Label labelDep;
     @FXML
-    private Label LabelRet;
-    @FXML
     private ListView<Vol> listViewVol;
     Image profile = new Image(Utility.path + "vol.png");
     @FXML
     private Button btnbest;
     @FXML
     private Button btncheap;
+    @FXML
+    private Button btnBack;
+    @FXML
+    private Button btndecon;
 
     /**
      * Initializes the controller class.
@@ -110,7 +118,6 @@ public class ConsultationVolController implements Initializable {
         });
     }
 
-    @FXML
     public void controleSearch() {
         List<Alert> list = new ArrayList<Alert>();
         if (FieldFrom.getText().equals("")) {
@@ -146,6 +153,7 @@ public class ConsultationVolController implements Initializable {
 
     }
 
+    @FXML
     public void trierParPrix() {
 
         ObservableList<Vol> volList = FXCollections.observableArrayList();
@@ -186,6 +194,7 @@ public class ConsultationVolController implements Initializable {
         });
     }
 
+    @FXML
     public void trierParPrixDsc() {
 
         ObservableList<Vol> volList = FXCollections.observableArrayList();
@@ -226,6 +235,7 @@ public class ConsultationVolController implements Initializable {
         });
     }
 
+    @FXML
     public void lireParCritereRecherche() {
           controleSearch();
         ConersionDate sr = new ConersionDate();
@@ -272,5 +282,31 @@ public class ConsultationVolController implements Initializable {
                 return new Cell();
             }
         });
+    }
+
+    @FXML
+    private void rollBack(ActionEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
+            Scene scene = new Scene(root);
+            //Scene currentScene = butSearch.getScene();
+            // Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
+            primStage.setScene(scene);
+            primStage.show();
+    }
+
+    @FXML
+    private void deconnecter(ActionEvent event) throws IOException {
+                           Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+            Scene scene = new Scene(root);
+            //Scene currentScene = butSearch.getScene();
+            // Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
+            primStage.setScene(scene);
+            primStage.show();
     }
 }
