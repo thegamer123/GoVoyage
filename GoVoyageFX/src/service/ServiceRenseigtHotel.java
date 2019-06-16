@@ -65,7 +65,7 @@ public class ServiceRenseigtHotel {
     
     return list;
     }
-           public List <Renseignement> lireParCritereRecherche( String destination, String datedebut,String datefin)
+           public List <Renseignement> lireParCritereRecherche( String destination, int datedebut,int datefin)
     {
         
        List<Renseignement> list=new ArrayList<>();

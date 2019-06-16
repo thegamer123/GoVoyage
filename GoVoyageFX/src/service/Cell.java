@@ -39,6 +39,7 @@ private final GridPane gridPane = new GridPane();
     private final Rectangle colorRect = new Rectangle(10, 10); 
     private final Label descriptionLabel = new Label(); 
     private final ImageView volIcon = new ImageView(); 
+    private final Label prix = new Label();
     private final AnchorPane content = new AnchorPane(); 
   
     public Cell() { 
@@ -69,6 +70,10 @@ private final GridPane gridPane = new GridPane();
        // descriptionLabel.setGraphic(colorRect); 
         GridPane.setConstraints(descriptionLabel, 1, 1); 
         GridPane.setColumnSpan(descriptionLabel, Integer.MAX_VALUE); 
+        
+         prix.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.75;"); 
+        GridPane.setConstraints(prix, 2, 2); 
+        GridPane.setValignment(prix, VPos.CENTER); 
         //         
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.LEFT, true)); 
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true)); 
@@ -79,7 +84,7 @@ private final GridPane gridPane = new GridPane();
         gridPane.getRowConstraints().add(new RowConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, VPos.CENTER, true)); 
         gridPane.setHgap(6); 
         gridPane.setVgap(6); 
-        gridPane.getChildren().setAll(volIcon, modelLabel, brandLabel, brandIcon, descriptionLabel,heure); 
+        gridPane.getChildren().setAll(volIcon, modelLabel, brandLabel, brandIcon, descriptionLabel,heure,prix); 
         AnchorPane.setTopAnchor(gridPane, 0d); 
         AnchorPane.setLeftAnchor(gridPane, 0d); 
         AnchorPane.setBottomAnchor(gridPane, 0d); 
@@ -94,14 +99,14 @@ private final GridPane gridPane = new GridPane();
         setText(null); 
         setContentDisplay(ContentDisplay.LEFT); 
         if (!empty && item != null) { 
-            brandLabel.setText(String.valueOf(item.getPrix()+"€")); 
+            //brandLabel.setText(String.valueOf(item.getPrix()+"€")); 
             modelLabel.setText(item.getOrigine()+" To " +item.getDestination()); 
             Image img=new Image("/pkgimages/vol.png");
             heure.setText("("+item.getHeureDepart()+" - "+ item.getHeureArrive()+")");
   //          brandIcon.setImage(img); 
             volIcon.setImage(img); 
             descriptionLabel.setText(String.format("%d Stops", item.getNb_escale())); 
- 
+           prix.setText(String.valueOf(item.getPrix()+"€"));
             setText(null); 
             setGraphic(content); 
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY); 

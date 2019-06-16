@@ -5,17 +5,19 @@
  */
 package GUI.Reclamation;
 
+import GUI.HotelOfferDetailScreenController;
 import GUI.LoginController;
+import entite.ControleSaisie;
 import service.ReclamationService;
 import entite.Reclamation;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +25,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -48,7 +52,7 @@ public class HelloReclamationController implements Initializable {
     private RadioButton qualiteBR;
     @FXML
     private RadioButton autresBR;
-    private ToggleGroup groupe = new ToggleGroup();
+    private final ToggleGroup groupe = new ToggleGroup();
     @FXML
     private TextField referenceTF;
     @FXML
@@ -62,7 +66,7 @@ public class HelloReclamationController implements Initializable {
     @FXML
     private TextField imageURL;
     @FXML
-    private static ImageView imageview;
+    private ImageView imageview;
     static String selectedRadioButton;
     @FXML
     private Button pr;
@@ -74,25 +78,72 @@ public class HelloReclamationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        referenceTF.setText(String.valueOf(HotelOfferDetailScreenController.offerId));
+    }
+
+    @FXML
+    private void addRec(ActionEvent event) throws IOException, SQLException {
+        prixBR.setToggleGroup(groupe);
+        qualiteBR.setToggleGroup(groupe);
+        autresBR.setToggleGroup(groupe);
+        RadioButton radio = (RadioButton) groupe.getSelectedToggle();
+        Reclamation r = new Reclamation(radio.getText(), referenceTF.getText(), descriptionTA.getText(), LoginController.result.getId_user(), sujetTF.getText(), imageURL.getText());
+
+        ReclamationService rc = new ReclamationService();
+
+        if (ControleSaisie.isString(referenceTF.getText()) == false || ControleSaisie.isString(sujetTF.getText()) == false
+                || ControleSaisie.isString(descriptionTA.getText()) == false) {
+            Alert a1 = new Alert(Alert.AlertType.ERROR);
+            a1.setTitle("Erreur Réclamtion");
+            if (ControleSaisie.isString(referenceTF.getText()) == false && ControleSaisie.isString(sujetTF.getText()) == false
+                    && ControleSaisie.isString(descriptionTA.getText()) == false) {
+                a1.setContentText("verifier les troix champs");
+            } else if (!ControleSaisie.isString(referenceTF.getText())) {
+                a1.setContentText("Vérifier champ référence");
+            }
+            if (!ControleSaisie.isString(sujetTF.getText())) {
+                a1.setContentText("Vérifier champ sujet");
+            } else {
+                a1.setContentText("Vérifier champ description");
+            }
+            a1.show();
+            referenceTF.setText("");
+            sujetTF.setText("");
+            descriptionTA.setText("");
+
+        } else {
+
+            rc.addRec(r);
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("message informatif");
+            alert.setContentText("Votre réclamation a été ajouté avec succès");
+            alert.showAndWait();
+
+        }
 
     }
 
     @FXML
     //Ajout reclamation user
-    private void addRec(ActionEvent event) throws IOException {
-        prixBR.setToggleGroup(groupe);
-        qualiteBR.setToggleGroup(groupe);
-        autresBR.setToggleGroup(groupe);
+//    private void addRec(ActionEvent event) throws IOException {
+////        prixBR.setToggleGroup(groupe);
+////        qualiteBR.setToggleGroup(groupe);
+////        autresBR.setToggleGroup(groupe);
+////
+////        RadioButton radio = (RadioButton) groupe.getSelectedToggle();
+////        Reclamation r = new Reclamation(radio.getText(), referenceTF.getText(), descriptionTA.getText(), LoginController.result.getId_user(), sujetTF.getText(), imageURL.getText());
+////        System.out.println(LoginController.result.getId_user());
+////        ReclamationService rc = new ReclamationService();
+////       
+////        rc.addRec(r);
+////        Alert alert = new Alert(AlertType.INFORMATION);
+////        alert.setTitle("message informatif");
+////        alert.setContentText("Votre réclamation a été ajouté avec succès");
+////        alert.showAndWait();
+//
+//    }
 
-        RadioButton radio = (RadioButton) groupe.getSelectedToggle();
-        Reclamation r = new Reclamation(radio.getText(), referenceTF.getText(), descriptionTA.getText(), LoginController.id, sujetTF.getText(), imageURL.getText());
-
-        ReclamationService rc = new ReclamationService();
-        rc.addRec(r);
-
-    }
-
-    @FXML
+//    @FXML
     //telecharger une image user 
     private void parcourirAction(ActionEvent event) {
         try {
@@ -101,7 +152,6 @@ public class HelloReclamationController implements Initializable {
             //Set extension filter
             FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
             FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
-//        FileChooser.ExtensionFilter extFilterTout = new FileChooser.ExtensionFilter("All files (*.*)", "*.*");
             FileChooser.ExtensionFilter extFilterJPEG = new FileChooser.ExtensionFilter("GPEG files (*.jpeg)", "*.JPEG");
             fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG, extFilterJPEG);
             //Show open file dialog
@@ -112,7 +162,8 @@ public class HelloReclamationController implements Initializable {
 
             try {
                 BufferedImage bufferedImage = ImageIO.read(file);
-                Image image1 = SwingFXUtils.toFXImage(bufferedImage, null);
+                // Image image1 = SwingFXUtils.toFXImage(bufferedImage, null);
+                Image image1 = new Image(file.toURI().toURL().toString());
                 imageview.setImage(image1);
 
             } catch (IOException ex) {
@@ -129,6 +180,7 @@ public class HelloReclamationController implements Initializable {
         referenceTF.setText("");
         sujetTF.setText("");
         descriptionTA.setText("");
+
     }
 
     public void setSelectedValue(String value) {
@@ -136,9 +188,7 @@ public class HelloReclamationController implements Initializable {
         selectedRadioButton = value;
     }
 
-    @FXML
-    private void FindIMG(KeyEvent event) {
-    }
+   
 
     @FXML
     //Se rediriger vers le home 
@@ -146,7 +196,7 @@ public class HelloReclamationController implements Initializable {
         try {
 
             Parent page1;
-            page1 = FXMLLoader.load(getClass().getResource("/GUI/AgenceHomeScreen.fxml"));
+            page1 = FXMLLoader.load(getClass().getResource("/GUI/HotelDetailOfferClientScreen.fxml"));
             Scene scene1 = new Scene(page1);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene1);

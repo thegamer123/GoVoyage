@@ -89,7 +89,9 @@ public class ConsultationHotelController implements Initializable {
     @FXML
     private Pane PaneHotel;
     @FXML
-    private MenuButton ButStars;
+    private Button btnBack;
+    @FXML
+    private Button btndecont;
   
 
     /**
@@ -145,15 +147,35 @@ listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, L
         list.add(alert);
         alert.showAndWait();
     }   
+           else if((date_checkIn.getValue() == null || date_checkIn.getValue().toString().isEmpty())  ){
+                       Alert alert1 = new Alert(AlertType.INFORMATION);
+
+            // alert.setTitle("No Selection");
+            //alert1.setHeaderText("No city Selected");
+            alert1.setContentText(" Please enter a valid date.");
+            // list.add( alert1);
+
+            alert1.showAndWait();
+       }
+           else if((date_checkout.getValue() == null || date_checkout.getValue().toString().isEmpty())  ){
+                       Alert alert1 = new Alert(AlertType.INFORMATION);
+
+            // alert.setTitle("No Selection");
+            //alert1.setHeaderText("No city Selected");
+            alert1.setContentText(" Please enter a valid date.");
+            // list.add( alert1);
+
+            alert1.showAndWait();
+       }
 
 } 
     @FXML
     public void lireParCritereRecherche(){
+                controleSearch(); 
     ConersionDate sr=new ConersionDate();
-    String dateIn=sr.convertirDateToString(date_checkIn);
-    String dateOut=sr.convertirDateToString(date_checkout);
- 
-          controleSearch();  
+    int dateIn=sr.convertirDateToInt(date_checkIn);
+    int dateOut=sr.convertirDateToInt(date_checkout);
+  
      ObservableList<Renseignement> volList=FXCollections .observableArrayList();
                 ServiceRenseigtHotel service=new ServiceRenseigtHotel();
     List<Renseignement> listR=service.lireParCritereRecherche(fldDestination.getText(), dateIn, dateOut);
@@ -221,4 +243,30 @@ listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, L
     } 
 });
 }    
+
+    @FXML
+    private void rollBack(ActionEvent event) throws IOException {
+                   Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
+            Scene scene = new Scene(root);
+            //Scene currentScene = butSearch.getScene();
+            // Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
+            primStage.setScene(scene);
+            primStage.show();
+    }
+
+    @FXML
+    private void deconnecter(ActionEvent event) throws IOException {
+                                   Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+            Scene scene = new Scene(root);
+            //Scene currentScene = butSearch.getScene();
+            // Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
+            primStage.setScene(scene);
+            primStage.show();
+    }
     }

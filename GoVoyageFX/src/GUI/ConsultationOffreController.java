@@ -9,23 +9,23 @@ import entite.CellHotelOffer;
 import entite.HotelOffer;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.ServiceHotel;
 
@@ -37,11 +37,8 @@ import service.ServiceHotel;
 public class ConsultationOffreController implements Initializable {
 
     @FXML
-    private ImageView image;
-    @FXML
     private ListView<HotelOffer> lsitViewHotel;
 
-    @FXML
 
     /**
      * Initializes the controller class.
@@ -95,6 +92,15 @@ public class ConsultationOffreController implements Initializable {
                 return new CellHotelOffer();
             }
         });
+    }
+
+    @FXML
+    private void checkMyFavorites(ActionEvent event) {
+        try {
+            Pane pane = FXMLLoader.load(getClass().getResource("ConsulterFavorisView.fxml"));
+            ((Button) event.getSource()).getScene().setRoot(pane);
+        } catch (IOException ex) {
+        }
     }
 
 }
