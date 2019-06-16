@@ -145,15 +145,35 @@ listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, L
         list.add(alert);
         alert.showAndWait();
     }   
+           else if((date_checkIn.getValue() == null || date_checkIn.getValue().toString().isEmpty())  ){
+                       Alert alert1 = new Alert(AlertType.INFORMATION);
+
+            // alert.setTitle("No Selection");
+            //alert1.setHeaderText("No city Selected");
+            alert1.setContentText(" Please enter a valid date.");
+            // list.add( alert1);
+
+            alert1.showAndWait();
+       }
+           else if((date_checkout.getValue() == null || date_checkout.getValue().toString().isEmpty())  ){
+                       Alert alert1 = new Alert(AlertType.INFORMATION);
+
+            // alert.setTitle("No Selection");
+            //alert1.setHeaderText("No city Selected");
+            alert1.setContentText(" Please enter a valid date.");
+            // list.add( alert1);
+
+            alert1.showAndWait();
+       }
 
 } 
     @FXML
     public void lireParCritereRecherche(){
+                controleSearch(); 
     ConersionDate sr=new ConersionDate();
     int dateIn=sr.convertirDateToInt(date_checkIn);
     int dateOut=sr.convertirDateToInt(date_checkout);
- 
-          controleSearch();  
+  
      ObservableList<Renseignement> volList=FXCollections .observableArrayList();
                 ServiceRenseigtHotel service=new ServiceRenseigtHotel();
     List<Renseignement> listR=service.lireParCritereRecherche(fldDestination.getText(), dateIn, dateOut);

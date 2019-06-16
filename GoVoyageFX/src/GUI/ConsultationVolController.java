@@ -122,7 +122,7 @@ public class ConsultationVolController implements Initializable {
             // list.add( alert);
             alert.showAndWait();
         }
-        if (FieldDestination.getText().equals("")) {
+      else if (FieldDestination.getText().equals("")) {
             labelFrom.textProperty().bind(FieldFrom.textProperty());
             Alert alert1 = new Alert(AlertType.INFORMATION);
 
@@ -133,6 +133,16 @@ public class ConsultationVolController implements Initializable {
 
             alert1.showAndWait();
         }
+       else if((DateDeparture.getValue() == null || DateDeparture.getValue().toString().isEmpty())  ){
+                       Alert alert1 = new Alert(AlertType.INFORMATION);
+
+            // alert.setTitle("No Selection");
+            //alert1.setHeaderText("No city Selected");
+            alert1.setContentText(" Please enter a valid date.");
+            // list.add( alert1);
+
+            alert1.showAndWait();
+       }
 
     }
 
@@ -217,13 +227,14 @@ public class ConsultationVolController implements Initializable {
     }
 
     public void lireParCritereRecherche() {
+          controleSearch();
         ConersionDate sr = new ConersionDate();
        // int date = sr.convertirDateToString(DateDeparture);
        String date = sr.convertirDateToString(DateDeparture);
         System.out.println("FieldFrom.getText() = " + FieldFrom.getText());
         System.out.println("FieldDestination.getText() = " + FieldDestination.getText());
         System.out.println("Le résultat est = " + date);
-        controleSearch();
+      
         ObservableList<Vol> volList = FXCollections.observableArrayList();
         ServiceVol vol = new ServiceVol();
         List<Vol> list = vol.lireParCritereRecherche(FieldFrom.getText(), FieldDestination.getText(), date);
