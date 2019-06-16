@@ -153,7 +153,7 @@ public class LoginController implements Initializable {
 //            final String username = "govoyage2020@gmail.com";
 //            final String password = "Go@@voyage2020";
 //
-//            Properties props = new Properties();
+//            Properties props = new Prope rties();
 //            props.put("mail.smtp.auth", "true");
 //            props.put("mail.smtp.starttls.enable", "true");
 //            props.put("mail.smtp.host", "smtp.gmail.com");
