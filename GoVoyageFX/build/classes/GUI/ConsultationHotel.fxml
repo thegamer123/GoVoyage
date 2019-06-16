@@ -33,17 +33,24 @@
                   <DatePicker fx:id="date_checkIn" layoutX="19.0" layoutY="180.0" prefHeight="26.0" prefWidth="196.0" />
                   <DatePicker fx:id="date_checkout" layoutX="16.0" layoutY="250.0" prefHeight="26.0" prefWidth="196.0" />
                   <Button fx:id="butSearch" layoutX="139.0" layoutY="343.0" mnemonicParsing="false" onAction="#lireParCritereRecherche" prefHeight="32.0" prefWidth="71.0" text="Search" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pkgimages/govvvvvvvv.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="12.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="Back" />
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
                   <ToolBar layoutX="3.0" layoutY="6.0" prefHeight="45.0" prefWidth="519.0">
                      <items>
-                        <ComboBox fx:id="box_Stars" onAction="#lireParStars" prefHeight="27.0" prefWidth="259.0" />
-                        <ImageView fitHeight="34.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true">
+                        <ComboBox fx:id="box_Stars" onAction="#lireParStars" prefHeight="27.0" prefWidth="182.0" />
+                        <ImageView fitHeight="34.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../pkgimages/enjoy.png" />
                            </image>
                         </ImageView>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Déconnecter" />
                      </items></ToolBar>
                   <ListView fx:id="listViewHotel" layoutY="58.0" prefHeight="372.0" prefWidth="530.0" />
                   <Pane fx:id="PaneHotel" layoutX="14.0" layoutY="252.0" prefHeight="200.0" prefWidth="505.0" />
