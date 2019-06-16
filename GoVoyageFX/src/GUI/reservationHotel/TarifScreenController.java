@@ -85,6 +85,7 @@ public class TarifScreenController implements Initializable {
     }
 
     void closeScreen() {
+        
         TrayNotification tn = new TrayNotification("Réservation", "Réservation envoyée avec succèes", NotificationType.SUCCESS);
         tn.showAndWait();
         Stage stage = (Stage) chmF1.getScene().getWindow();
