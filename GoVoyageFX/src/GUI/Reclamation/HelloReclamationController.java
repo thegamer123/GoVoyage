@@ -73,20 +73,23 @@ public class HelloReclamationController implements Initializable {
     @FXML
     private Button log;
 
+    RadioButton radio;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         referenceTF.setText(String.valueOf(HotelOfferDetailScreenController.offerId));
+        prixBR.setToggleGroup(groupe);
+        qualiteBR.setToggleGroup(groupe);
+        autresBR.setToggleGroup(groupe);
+        radio = (RadioButton) groupe.getSelectedToggle();
     }
 
     @FXML
     private void addRec(ActionEvent event) throws IOException, SQLException {
-        prixBR.setToggleGroup(groupe);
-        qualiteBR.setToggleGroup(groupe);
-        autresBR.setToggleGroup(groupe);
-        RadioButton radio = (RadioButton) groupe.getSelectedToggle();
+
         Reclamation r = new Reclamation(radio.getText(), referenceTF.getText(), descriptionTA.getText(), LoginController.result.getId_user(), sujetTF.getText(), imageURL.getText());
 
         ReclamationService rc = new ReclamationService();
@@ -123,7 +126,7 @@ public class HelloReclamationController implements Initializable {
 
     }
 
-    @FXML
+    //@FXML
     //Ajout reclamation user
 //    private void addRec(ActionEvent event) throws IOException {
 ////        prixBR.setToggleGroup(groupe);
@@ -142,8 +145,7 @@ public class HelloReclamationController implements Initializable {
 ////        alert.showAndWait();
 //
 //    }
-
-//    @FXML
+    @FXML
     //telecharger une image user 
     private void parcourirAction(ActionEvent event) {
         try {
@@ -180,6 +182,10 @@ public class HelloReclamationController implements Initializable {
         referenceTF.setText("");
         sujetTF.setText("");
         descriptionTA.setText("");
+        imageview.setImage(null);
+        prixBR.setSelected(false);
+        qualiteBR.setSelected(false);
+        autresBR.setSelected(false);
 
     }
 
@@ -188,24 +194,30 @@ public class HelloReclamationController implements Initializable {
         selectedRadioButton = value;
     }
 
-   
-
     @FXML
     //Se rediriger vers le home 
     private void previousAction(ActionEvent event) {
-        try {
+//        try {
+//
+//            Parent page1;
+//            page1 = FXMLLoader.load(getClass().getResource("/GUI/HotelDetailOfferClientScreen.fxml"));
+//            Scene scene1 = new Scene(page1);
+//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stage.setScene(scene1);
+//            stage.show();
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(HelloReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
-            Parent page1;
-            page1 = FXMLLoader.load(getClass().getResource("/GUI/HotelDetailOfferClientScreen.fxml"));
-            Scene scene1 = new Scene(page1);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene1);
-            stage.show();
+        closeScreen();
 
-        } catch (IOException ex) {
-            Logger.getLogger(HelloReclamationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
 
+    private void closeScreen() {
+
+        Stage stage = (Stage) referenceTF.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
