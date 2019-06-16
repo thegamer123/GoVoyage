@@ -89,7 +89,9 @@ public class ConsultationHotelController implements Initializable {
     @FXML
     private Pane PaneHotel;
     @FXML
-    private MenuButton ButStars;
+    private Button btnBack;
+    @FXML
+    private Button btndecont;
   
 
     /**
@@ -241,4 +243,30 @@ listViewHotel.setCellFactory(new javafx.util.Callback<ListView<Renseignement>, L
     } 
 });
 }    
+
+    @FXML
+    private void rollBack(ActionEvent event) throws IOException {
+                   Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
+            Scene scene = new Scene(root);
+            //Scene currentScene = butSearch.getScene();
+            // Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
+            primStage.setScene(scene);
+            primStage.show();
+    }
+
+    @FXML
+    private void deconnecter(ActionEvent event) throws IOException {
+                                   Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+            Scene scene = new Scene(root);
+            //Scene currentScene = butSearch.getScene();
+            // Stage primStage = (Stage) currentScene.getWindow();
+            //primStage.setScene(scene);
+
+            Stage primStage = new Stage();
+            primStage.setScene(scene);
+            primStage.show();
+    }
     }
