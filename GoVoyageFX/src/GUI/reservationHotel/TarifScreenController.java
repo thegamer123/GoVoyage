@@ -63,6 +63,7 @@ public class TarifScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         tarif.setText(HotelDetailOfferClientScreenController.currentOffer.getPrix());
         chmF.setText(String.valueOf(FirstStepReservationHotelController.reservation.getEnfant_hotel_reservation()));
         chmF1.setText(String.valueOf(FirstStepReservationHotelController.reservation.getAdulte_hotel_reservation()));
@@ -141,7 +142,8 @@ public class TarifScreenController implements Initializable {
 
     @FXML
     private void annuler(ActionEvent event) {
-        closeScreen();
+           Stage stage = (Stage) chmF1.getScene().getWindow();
+        stage.close();
     }
 
     void closeScreen() {
@@ -151,5 +153,7 @@ public class TarifScreenController implements Initializable {
         Stage stage = (Stage) chmF1.getScene().getWindow();
         stage.close();
     }
+    
+    
 
 }
