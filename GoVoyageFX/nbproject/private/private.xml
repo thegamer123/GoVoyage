@@ -12,11 +12,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/ClientVolOffersScreenController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/ClientVolOfferDetailScreenController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/MenuConsultationController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/GUI/ConsultationHotelController.java</file>
-            <file>file:/C:/Users/Lenovo/Desktop/desktop%20ico/Bob/Esprit%201ere/GoVoyage/GoVoyage/GoVoyageFX/src/service/ServiceVol.java</file>
+            <file>file:/C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/src/GUI/reservationHotel/TarifScreenController.java</file>
+            <file>file:/C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/src/GUI/reservationHotel/FirstStepReservationHotelController.java</file>
+            <file>file:/C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/src/GUI/reservationHotel/SecondStepReservation.fxml</file>
         </group>
     </open-files>
 </project-private>
