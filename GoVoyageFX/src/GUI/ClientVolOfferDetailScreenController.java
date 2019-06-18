@@ -55,9 +55,6 @@ public class ClientVolOfferDetailScreenController implements Initializable {
         // TODO
     }
 
-    @FXML
-    private void reservation(ActionEvent event) {
-    }
 
     @FXML
     private void reclamation(ActionEvent event) {
@@ -82,6 +79,14 @@ public class ClientVolOfferDetailScreenController implements Initializable {
         priceTF.setText(currentVol.getPrix());
         Image img = new Image(Utility.path + "Vol.png");
         profilePictureIV.setImage(img);
+    }
+
+    @FXML
+    private void supprimer(ActionEvent event) {
+    }
+
+    @FXML
+    private void Reserver(ActionEvent event) {
     }
 
 }

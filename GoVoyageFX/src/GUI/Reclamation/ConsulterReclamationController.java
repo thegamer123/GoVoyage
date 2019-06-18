@@ -315,6 +315,7 @@ public class ConsulterReclamationController implements Initializable {
         type.setMinWidth(250);
 
         TableColumn sujet = new TableColumn("sujet");
+        //Définition des cellules
         sujet.setCellValueFactory(new PropertyValueFactory("sujet"));
         sujet.setMinWidth(130);
 
@@ -330,7 +331,7 @@ public class ConsulterReclamationController implements Initializable {
         listR.getColumns().clear();
         listR.setItems(data);
         listR.getColumns().addAll(reference, type, sujet, description, date);
-
+//Séléctione d'une ligne de la listView
         listR.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
 

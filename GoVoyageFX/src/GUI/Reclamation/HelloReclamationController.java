@@ -189,26 +189,12 @@ public class HelloReclamationController implements Initializable {
 
     }
 
-    public void setSelectedValue(String value) {
-
-        selectedRadioButton = value;
-    }
+ 
 
     @FXML
     //Se rediriger vers le home 
     private void previousAction(ActionEvent event) {
-//        try {
-//
-//            Parent page1;
-//            page1 = FXMLLoader.load(getClass().getResource("/GUI/HotelDetailOfferClientScreen.fxml"));
-//            Scene scene1 = new Scene(page1);
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.setScene(scene1);
-//            stage.show();
-//
-//        } catch (IOException ex) {
-//            Logger.getLogger(HelloReclamationController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
 
         closeScreen();
 
