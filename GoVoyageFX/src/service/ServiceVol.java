@@ -6,7 +6,6 @@
 package service;
 
 import entite.AgenceReservationFullModel;
-import entite.Hotel;
 import entite.Vol;
 import entite.VolReservation;
 import utils.DataSource;

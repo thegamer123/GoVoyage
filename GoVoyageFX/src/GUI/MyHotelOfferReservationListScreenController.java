@@ -29,11 +29,7 @@ import javafx.stage.Stage;
 import service.ReservationHotelService;
 import service.ServiceHotel;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
 public class MyHotelOfferReservationListScreenController implements Initializable {
 
     @FXML
@@ -61,6 +57,7 @@ public class MyHotelOfferReservationListScreenController implements Initializabl
                 return new CellHotelReservation();
             }
         });
+        
     }
 
 }
