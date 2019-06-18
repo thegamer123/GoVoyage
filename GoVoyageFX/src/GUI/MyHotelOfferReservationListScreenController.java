@@ -29,11 +29,7 @@ import javafx.stage.Stage;
 import service.ReservationHotelService;
 import service.ServiceHotel;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
 public class MyHotelOfferReservationListScreenController implements Initializable {
 
     @FXML
@@ -52,20 +48,7 @@ public class MyHotelOfferReservationListScreenController implements Initializabl
         lsitViewHotel.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                /* System.out.println("clicked on " + lsitViewHotel.getSelectionModel().getSelectedItem());
-                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/HotelOfferDetailScreen.fxml"));
-                Parent root = null;
-                try {
-                    root = (Parent) loader.load();
-                } catch (IOException ex) {
-                    Logger.getLogger(ConsultationOffreController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                Scene scene = new Scene(root);
-                //HotelOfferDetailScreenController controller = loader.getController();
-                //controller.setHotelOfferData(lsitViewHotel.getSelectionModel().getSelectedItem());
-                Stage primStage = new Stage();
-                primStage.setScene(scene);
-                primStage.show();*/
+               
             }
         });
         lsitViewHotel.setCellFactory(new javafx.util.Callback<ListView<HotelReservation>, ListCell<HotelReservation>>() {
@@ -74,6 +57,7 @@ public class MyHotelOfferReservationListScreenController implements Initializabl
                 return new CellHotelReservation();
             }
         });
+        
     }
 
 }

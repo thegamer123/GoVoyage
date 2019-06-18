@@ -18,10 +18,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.util.Matrix;
 
-/**
- *
- * @author Lenovo
- */
+
 public class CreatePDF {
 
     public static void create(String path, String fileName, String textToAdd, String logo) throws IOException {

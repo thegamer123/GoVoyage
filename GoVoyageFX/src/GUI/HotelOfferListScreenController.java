@@ -26,11 +26,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import service.ServiceHotel;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
+
 public class HotelOfferListScreenController implements Initializable {
 
     @FXML
