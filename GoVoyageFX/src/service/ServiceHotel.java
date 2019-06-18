@@ -92,8 +92,8 @@ public class ServiceHotel {
         try {
 
             String query = "INSERT INTO hotel"
-                    + "(nom_hotel,id_user,is_available_hotel ,Adresse_hotel ,stars_hotel,chambre_hotel,prix_hotel)"
-                    + " VALUES(?,?,?,?,?,?,?)";
+                    + "(nom_hotel,id_user,is_available_hotel ,Adresse_hotel ,stars_hotel,chambre_hotel,img_hotel,prix_hotel)"
+                    + " VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, hotel.getNom_hotel());
             preparedStatement.setInt(2, hotel.getId_user());
@@ -101,7 +101,8 @@ public class ServiceHotel {
             preparedStatement.setString(4, hotel.getAdresse_hotel());
             preparedStatement.setString(5, hotel.getStars_hotel());
             preparedStatement.setInt(6, hotel.getChambre_hotel());
-            preparedStatement.setString(7, hotel.getPrix_hotel());
+            preparedStatement.setString(7, hotel.getImg_hotel());
+            preparedStatement.setString(8, hotel.getPrix_hotel());
             int va = preparedStatement.executeUpdate();
             if (va > 0) {
                 ResultSet generatedKeys = preparedStatement.getGeneratedKeys();

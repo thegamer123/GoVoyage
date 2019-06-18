@@ -5,6 +5,9 @@
  */
 package service;
 
+import GUI.HotelOfferDetailScreenController;
+import GUI.LoginController;
+import GUI.Reclamation.HelloReclamationController;
 import entite.RepondReclamation;
 import Interface.I_Reclamation;
 import java.sql.PreparedStatement;
@@ -34,11 +37,16 @@ public class RepondReclamationService implements I_Reclamation<RepondReclamation
 
     public void addRec(RepondReclamation t) {
         try {
+
             String req = "INSERT INTO repondreclamation(emailD,description,sujet,date,etat) VALUES(?,?,?,?,?)";
+            
+            
             ste = ds.getConnection().prepareStatement(req);
-            ste.setString(1, t.getEmailD());
+            ste.setString(1, LoginController.result.getEmail_user());
+
             ste.setString(2, t.getDescription());
-            ste.setString(3, t.getSujet());
+
+       ste.setString(3, t.getSujet());
             ste.setTimestamp(4, Timestamp.from(t.getDate().toInstant(ZoneOffset.ofHours(0))));
             ste.setString(5, t.getEtat());
             ste.executeUpdate();

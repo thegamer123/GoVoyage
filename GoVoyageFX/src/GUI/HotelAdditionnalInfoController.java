@@ -5,11 +5,16 @@
  */
 package GUI;
 
+import GUI.Reclamation.HelloReclamationController;
 import entite.Hotel;
 import entite.User;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,10 +22,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import service.ServiceHotel;
 import service.ServiceUser;
 
@@ -43,6 +53,12 @@ public class HotelAdditionnalInfoController implements Initializable {
     private TextField prixTF;
 
     public static int id_user;
+    @FXML
+    private Button parcourirBT;
+    @FXML
+    private ImageView imageH;
+    @FXML
+    private TextField imageURLTF;
 
     /**
      * Initializes the controller class.
@@ -58,9 +74,9 @@ public class HotelAdditionnalInfoController implements Initializable {
         ServiceHotel service = new ServiceHotel();
         int result = -1;
         if (validateData()) {
-            result = service.addHotel(new Hotel(0, nameTF.getText(), id_user, 0, adrTF.getText(), startTF.getText(), Integer.parseInt(roomTF.getText()), prixTF.getText(),""));
+            result = service.addHotel(new Hotel(0, nameTF.getText(), id_user, 0, adrTF.getText(), startTF.getText(), Integer.parseInt(roomTF.getText()),prixTF.getText(), imageURLTF.getText()));
             if (result > -1) {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/HotelHomeScreen.fxml"));
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
                 Scene scene = new Scene(root);
                 Scene currentScene = nameTF.getScene();
                 Stage primStage = (Stage) currentScene.getWindow();
@@ -102,6 +118,38 @@ public class HotelAdditionnalInfoController implements Initializable {
 
     public void setIdUser(int id) {
         id_user = id;
+    }
+
+    @FXML
+   
+        private void parcourirAction(ActionEvent event) {
+        try {
+            FileChooser fileChooser = new FileChooser();
+
+            //Set extension filter
+            FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+            FileChooser.ExtensionFilter extFilterJPEG = new FileChooser.ExtensionFilter("GPEG files (*.jpeg)", "*.JPEG");
+            fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG, extFilterJPEG);
+            //Show open file dialog
+            File file = fileChooser.showOpenDialog(null);
+            String x = file.toPath().toAbsolutePath().toString();
+            System.out.println(x);
+            imageURLTF.setText(x.toString());
+
+            try {
+                BufferedImage bufferedImage = ImageIO.read(file);
+                // Image image1 = SwingFXUtils.toFXImage(bufferedImage, null);
+                Image image1 = new Image(file.toURI().toURL().toString());
+                imageH.setImage(image1);
+
+            } catch (IOException ex) {
+                Logger.getLogger(HelloReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (Exception e) {
+            System.out.println("");
+        }
+    
     }
 
 }

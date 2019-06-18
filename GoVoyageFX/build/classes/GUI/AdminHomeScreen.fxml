@@ -9,37 +9,37 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="666.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminHomeScreenController">
+<AnchorPane id="AnchorPane" prefHeight="666.0" prefWidth="763.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin30.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminHomeScreenController">
    <children>
-      <Button fx:id="hotelBtn" layoutX="282.0" layoutY="80.0" mnemonicParsing="false" onAction="#hotelCheck" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Hotels" textFill="WHITE">
+      <Button fx:id="hotelBtn" layoutX="282.0" layoutY="80.0" mnemonicParsing="false" onAction="#hotelCheck" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: #341b1b;" text="Hotels" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="volBtn" layoutX="31.0" layoutY="80.0" mnemonicParsing="false" onAction="#volCheck" prefHeight="0.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Vols" textFill="WHITE">
+      <Button fx:id="volBtn" layoutX="31.0" layoutY="80.0" mnemonicParsing="false" onAction="#volCheck" prefHeight="0.0" prefWidth="175.0" style="-fx-background-color: #341b1b;" text="Vols" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="31.0" layoutY="606.0" mnemonicParsing="false" onAction="#logout" prefHeight="14.0" prefWidth="147.0" style="-fx-background-color: #000a12;" text="Déconnecter" textFill="WHITE">
+      <Button layoutX="31.0" layoutY="606.0" mnemonicParsing="false" onAction="#logout" prefHeight="14.0" prefWidth="147.0" style="-fx-background-color: #341b1b;" text="Déconnecter" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="reclamation" layoutX="532.0" layoutY="80.0" maxWidth="-Infinity" minWidth="14.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="39.0" prefWidth="175.0" style="-fx-background-color: #000a12;" text="Réclamations" textFill="WHITE">
+      <Button fx:id="reclamation" layoutX="532.0" layoutY="80.0" maxWidth="-Infinity" minWidth="14.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="39.0" prefWidth="175.0" style="-fx-background-color: #341b1b;" text="Réclamations" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
       <Label layoutX="246.0" layoutY="29.0" text="Espace Administrateur">
          <font>
-            <Font size="25.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
       <Pane fx:id="pdfPane" layoutX="6.0" layoutY="181.0" prefHeight="373.0" prefWidth="755.0">
          <children>
-            <PieChart fx:id="pieChartAdmin" layoutX="54.0" layoutY="54.0" prefHeight="265.0" prefWidth="300.0" />
-            <PieChart fx:id="pieChartVol" layoutX="424.0" layoutY="54.0" prefHeight="265.0" prefWidth="300.0" />
+            <PieChart fx:id="pieChartAdmin" layoutX="7.0" prefHeight="265.0" prefWidth="300.0" />
+            <PieChart fx:id="pieChartVol" layoutX="455.0" prefHeight="265.0" prefWidth="300.0" />
          </children>
       </Pane>
       <ImageView fx:id="exportIV" fitHeight="79.0" fitWidth="165.0" layoutX="668.0" layoutY="573.0" onMouseClicked="#exportToPdfAction" pickOnBounds="true" preserveRatio="true">

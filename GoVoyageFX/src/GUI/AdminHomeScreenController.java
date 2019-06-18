@@ -59,6 +59,8 @@ public class AdminHomeScreenController implements Initializable {
     @FXML
     private PieChart pieChartAdmin;
     private final ObservableList<PieChart.Data> user = FXCollections.observableArrayList();
+    private final ObservableList<PieChart.Data> user2 = FXCollections.observableArrayList();
+
     @FXML
     private PieChart pieChartVol;
     @FXML
@@ -80,16 +82,16 @@ public class AdminHomeScreenController implements Initializable {
         );
 
         pieChartAdmin.setData(user);
-        pieChartAdmin.setTitle("Réservation Hotel / Offres Hotel");
+
         pieChartAdmin.setLegendSide(Side.BOTTOM);
         pieChartAdmin.setLabelsVisible(true);
 
-        user.addAll(new PieChart.Data("Offre vol", serviceVol.getVolCount()),
+        user2.addAll(new PieChart.Data("Offre vol", serviceVol.getVolCount()),
                 new PieChart.Data("Réservation vol", serviceVol.getVolReservationCount())
         );
 
-        pieChartVol.setData(user);
-        pieChartVol.setTitle("Réservations vol / Offres vol");
+        pieChartVol.setData(user2);
+        pieChartVol.setStyle("CHART_COLOR_1: #ff0000 ; CHART_COLOR_2: #0000FF ;");
         pieChartVol.setLegendSide(Side.BOTTOM);
         pieChartVol.setLabelsVisible(true);
 

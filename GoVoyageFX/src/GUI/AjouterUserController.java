@@ -115,8 +115,9 @@ public class AjouterUserController implements Initializable {
                             Integer.parseInt(telTF.getText()), "", "", 0, 0, 0, 0, 1));
 
                     if (result > -1) {
+                        showAlert("Profil crée avec succès");
 
-                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
                         Scene scene = new Scene(root);
                         Scene currentScene = user_name.getScene();
                         Stage primStage = (Stage) currentScene.getWindow();
@@ -209,6 +210,9 @@ public class AjouterUserController implements Initializable {
             showAlert("le champ mot de passe est obligatoire");
             return false;
         } else if (telTF.getText().equals("")) {
+            showAlert("le champ telephone est obligatoire");
+            return false;}
+            else if (emailTF.getText().equals("")) {
             showAlert("le champ telephone est obligatoire");
             return false;
         }
