@@ -36,11 +36,7 @@ import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import utils.CreatePDF;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
 public class TarifScreenController implements Initializable {
 
     @FXML

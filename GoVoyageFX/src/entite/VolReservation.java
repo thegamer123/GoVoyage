@@ -5,10 +5,7 @@
  */
 package entite;
 
-/**
- *
- * @author Lenovo
- */
+
 public class VolReservation {
 
     private int id_vol_reservation;

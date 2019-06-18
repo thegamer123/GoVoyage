@@ -18,10 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.DataSource;
 
-/**
- *
- * @author Lenovo
- */
+
 public class ReservationHotelService {
 
     Connection con = DataSource.getInstance().getConnection();
