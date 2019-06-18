@@ -31,7 +31,7 @@ public class RepondReclamationService implements I_Reclamation<RepondReclamation
     public RepondReclamationService() {
         ds = DataSource.getInstance();
     }
-
+   //Définition des réponses
     public void addRec(RepondReclamation t) {
         try {
             String req = "INSERT INTO repondreclamation(emailD,description,sujet,date,etat) VALUES(?,?,?,?,?)";

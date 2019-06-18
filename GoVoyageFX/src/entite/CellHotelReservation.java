@@ -23,10 +23,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 
-/**
- *
- * @author Lenovo
- */
 public class CellHotelReservation extends ListCell<HotelReservation> {
 
     private final GridPane gridPane = new GridPane();

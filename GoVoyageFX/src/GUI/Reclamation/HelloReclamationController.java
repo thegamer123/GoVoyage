@@ -187,12 +187,14 @@ public class HelloReclamationController implements Initializable {
         qualiteBR.setSelected(false);
         autresBR.setSelected(false);
 
+
     }
 
     public void setSelectedValue(String value) {
 
-        selectedRadioButton = value;
+
     }
+
 
     @FXML
     //Se rediriger vers le home 
@@ -213,6 +215,19 @@ public class HelloReclamationController implements Initializable {
         closeScreen();
 
     }
+
+
+ 
+
+    @FXML
+    //Se rediriger vers le home 
+    private void previousAction(ActionEvent event) {
+
+
+        closeScreen();
+
+    }
+
 
     private void closeScreen() {
 

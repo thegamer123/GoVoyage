@@ -5,10 +5,7 @@
  */
 package GUI;
 
-/**
- *
- * @author Lenovo
- */
+
 public class Utility {
 
     public static String path = "file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/";

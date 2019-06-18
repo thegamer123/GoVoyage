@@ -35,11 +35,6 @@ import service.ServiceVol;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
 public class AgenceReservationListScreenController implements Initializable, DeleteInterface {
 
     @FXML

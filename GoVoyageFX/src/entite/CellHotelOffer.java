@@ -27,10 +27,9 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 import service.FavorisService;
 
-/**
- *
- * @author Lenovo
- */
+
+
+
 public class CellHotelOffer extends ListCell<HotelOffer> {
 
     private final GridPane gridPane = new GridPane();

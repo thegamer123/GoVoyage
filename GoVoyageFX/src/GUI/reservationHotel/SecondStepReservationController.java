@@ -23,11 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
 public class SecondStepReservationController implements Initializable {
 
     @FXML

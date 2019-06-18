@@ -36,11 +36,7 @@ import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import utils.CreatePDF;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
 public class TarifScreenController implements Initializable {
 
     @FXML
@@ -87,6 +83,7 @@ public class TarifScreenController implements Initializable {
             try {
                 txt1  = "Tarif:" + tarif.getText()+ "\n"+ "Chambre adulte:" + chmF1.getText() + "\n" + "Chambre enfant:" +chmF.getText() + "\n"+ "Nuits:" + jourF.getText();
                 System.out.println(txt1);
+
             CreatePDF.create("C:\\Users\\Yosr Hafsi\\Desktop\\hello", "test", txt1 , "C:/Users/Yosr Hafsi/Desktop/logo.png");
 
             final String username = "govoyage2020@gmail.com";
@@ -123,6 +120,44 @@ public class TarifScreenController implements Initializable {
                 Transport.send(message);
 
                 System.out.println("Done");
+
+            CreatePDF.create("C:\\Users\\Yosr Hafsi\\Desktop\\hello", "hello", txt1 , "C:/Users/Yosr Hafsi/Desktop/logo.png");
+
+//            final String username = "govoyage2020@gmail.com";
+//            final String password = "Go@@voyage2020";
+//
+//            Properties props = new Properties();
+//            props.put("mail.smtp.auth", "true");
+//            props.put("mail.smtp.starttls.enable", "true");
+//            props.put("mail.smtp.host", "smtp.gmail.com");
+//            props.put("mail.smtp.port", "587");
+//
+//            Session session = Session.getInstance(props,
+//                    new javax.mail.Authenticator() {
+//                protected PasswordAuthentication getPasswordAuthentication() {
+//                    return new PasswordAuthentication(username, password);
+//                }
+//            });
+//
+//
+//                Multipart multipart = new MimeMultipart();
+//                MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+//                attachmentBodyPart.attachFile(new File("C:/Users/Yosr Hafsi/Desktop/hellotest.pdf"));
+//                multipart.addBodyPart(attachmentBodyPart);
+//
+//                Message message = new MimeMessage(session);
+//                message.setFrom(new InternetAddress("govoyage2020@gmail.com"));
+//                message.setRecipients(Message.RecipientType.TO,
+//                        InternetAddress.parse("hafsi.yoser@gmail.com"));
+//                message.setSubject("pdf demander");
+//                message.setText("GoVoyage service mail");
+//                
+//                message.setContent(multipart);
+//
+//                Transport.send(message);
+//
+//                System.out.println("Done");
+
 
             } catch (Exception ex) {
                 Logger.getLogger(ConsulterReclamationController.class.getName()).log(Level.SEVERE, null, ex);

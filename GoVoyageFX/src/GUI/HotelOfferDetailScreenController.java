@@ -27,11 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import service.ServiceHotel;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
 public class HotelOfferDetailScreenController implements Initializable {
 
     @FXML
