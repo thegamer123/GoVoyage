@@ -23,10 +23,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 
-/**
- *
- * @author Lenovo
- */
 public class CellHotelReservation extends ListCell<HotelReservation> {
 
     private final GridPane gridPane = new GridPane();
@@ -116,7 +112,7 @@ public class CellHotelReservation extends ListCell<HotelReservation> {
         AnchorPane.setRightAnchor(gridPane, 0d);
         content.getChildren().add(gridPane);
     }
-
+//yosr
     protected void updateItem(HotelReservation item, boolean empty) {
         super.updateItem(item, empty);
         setGraphic(null);

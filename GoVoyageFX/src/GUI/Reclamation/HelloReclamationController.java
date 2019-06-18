@@ -170,12 +170,14 @@ viderChamps();
         prixBR.setSelected(false);
         qualiteBR.setSelected(false);
         autresBR.setSelected(false);
+
     }
 
     public void setSelectedValue(String value) {
 
-        selectedRadioButton = value;
+
     }
+
 
     @FXML
     //Se rediriger vers le home 
@@ -196,6 +198,19 @@ viderChamps();
         closeScreen();
 
     }
+
+
+ 
+
+    @FXML
+    //Se rediriger vers le home 
+    private void previousAction(ActionEvent event) {
+
+
+        closeScreen();
+
+    }
+
 
     private void closeScreen() {
 

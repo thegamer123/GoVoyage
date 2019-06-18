@@ -18,10 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.DataSource;
 
-/**
- *
- * @author Lenovo
- */
+
 public class ReservationHotelService {
 
     Connection con = DataSource.getInstance().getConnection();
@@ -51,20 +48,7 @@ public class ReservationHotelService {
         return test;
     }
 
-    public boolean deleteRservation(int id) {
-        try {
-            String query = "DELETE FROM hotel_reservation WHERE id_hotel_reservation=?";
-            PreparedStatement preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1, id);
-            int result = preparedStatement.executeUpdate();
-            if (result > 0) {
-                return true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ReclamationService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
+    
 
     public List<HotelReservation> readAllOffersByHotelId(String id_hotel_offre) {
         List<HotelReservation> list = new ArrayList<>();

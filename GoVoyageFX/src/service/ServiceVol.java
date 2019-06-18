@@ -6,6 +6,7 @@
 package service;
 
 import entite.AgenceReservationFullModel;
+import entite.Hotel;
 import entite.Vol;
 import entite.VolReservation;
 import utils.DataSource;
@@ -270,6 +271,38 @@ public class ServiceVol {
             e.printStackTrace();
         }
         return nombreLignes;
+    }
+      public int addReservationVol(VolReservation reservation) {
+        int test = -1;
+        try {
+
+            String query = "INSERT INTO vol_reservation"
+                    + "(id_user,id_vol,date_depart_vol_reservation ,date_arrivée_hotel_reservation ,heure_dapart_hotel_reservation,heure_arrivee_hotel_reservation)"
+                    + " VALUES(?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, reservation.getId_user());
+            preparedStatement.setInt(2, reservation.getId_vol());
+            preparedStatement.setString(3, reservation.getDate_depart_vol_reservation());
+            preparedStatement.setString(4, reservation.getDate_arrivée_hotel_reservation());
+            preparedStatement.setString(5, reservation.getHeure_dapart_hotel_reservation());
+            preparedStatement.setString(6, reservation.getHeure_arrivee_hotel_reservation());
+            
+           
+            int va = preparedStatement.executeUpdate();
+            if (va > 0) {
+                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    test = generatedKeys.getInt(1);
+                    System.out.println(test);
+                } else {
+                    throw new SQLException("Creating failed, no ID obtained.");
+                }
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return test;
     }
 
         public int getVolReservationCount() {

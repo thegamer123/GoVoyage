@@ -37,11 +37,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
+
 public class FirstStepReservationHotelController implements Initializable {
 
     @FXML

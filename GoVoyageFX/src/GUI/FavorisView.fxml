@@ -23,7 +23,7 @@
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="file:/C:/Users/admin/Desktop/Clean%20Version/GoVoyageFx/src/Resource/delete.png" />
+                        <Image url="file:/C:/Users/admin/Desktop/GoVoyage/GoVoyageFX/src/pkgimages/deleteF.png" />
                      </image>
                   </ImageView>
                </graphic>

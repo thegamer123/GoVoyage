@@ -50,7 +50,10 @@ public class MenuConsultationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+        if (LoginController.result.getIs_admin_user() == 1) {
+            ButDeals.setVisible(false);
+            ButDeals1.setVisible(false);
+        }
     }
 
     private void navigation(ActionEvent event) throws IOException {
