@@ -5,9 +5,14 @@
  */
 package entite;
 
+import GUI.LoginController;
 import GUI.Utility;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -20,6 +25,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
+import service.FavorisService;
 
 /**
  *
@@ -32,7 +38,7 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
     private final Label brandLabel = new Label();
     private final Label modelLabel = new Label();
     private final Label idhotel = new Label();
- 
+    private FavorisService favorisService = new FavorisService();
     private final Label descriptionLabel = new Label();
     private final ImageView volIcon = new ImageView();
     private final Hyperlink carte = new Hyperlink();
@@ -42,10 +48,21 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
     private final Label room = new Label();
     private final Label dateDebut = new Label();
     private final Label dateFin = new Label();
+    private final Hyperlink favoris = new Hyperlink();
 
     public CellHotelOffer() {
         volIcon.setFitWidth(150);
         volIcon.setPreserveRatio(true);
+        favoris.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Favoris favoris = new Favoris();
+                favoris.setId_offre(getItem().getId_offre_hotel());
+                favoris.setId_user(LoginController.result.getId_user());
+                favorisService.ajouterFavoris(favoris);
+                ((Hyperlink)event.getSource()).setVisible(false);
+            }
+        });
         GridPane.setConstraints(volIcon, 0, 0, 1, 3);
         GridPane.setValignment(volIcon, VPos.CENTER);
         // 
@@ -63,6 +80,9 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
         carte.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.5;");
         GridPane.setConstraints(carte, 3, 0);
         // 
+        favoris.setStyle("-fx-font-size: 0.9em; -fx-font-style: italic; -fx-opacity: 0.5;");
+        GridPane.setConstraints(favoris, 4, 0);
+
         brandIcon.setFitWidth(22);
         brandIcon.setPreserveRatio(true);
         GridPane.setConstraints(brandIcon, 3, 0);
@@ -70,6 +90,9 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
 
         GridPane.setConstraints(carte, 3, 0);
         GridPane.setValignment(carte, VPos.CENTER);
+
+        GridPane.setConstraints(favoris, 4, 0);
+        GridPane.setValignment(favoris, VPos.CENTER);
 
         // 
         //colorRect.setStroke(Color.BLACK); 
@@ -102,12 +125,13 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.LEFT, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.LEFT, true));
+        gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.LEFT, true));
         gridPane.getRowConstraints().add(new RowConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, VPos.CENTER, true));
         gridPane.getRowConstraints().add(new RowConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, VPos.CENTER, true));
         gridPane.getRowConstraints().add(new RowConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, VPos.CENTER, true));
         gridPane.setHgap(6);
         gridPane.setVgap(6);
-        gridPane.getChildren().setAll(volIcon, modelLabel, brandLabel, brandIcon, descriptionLabel, idhotel, carte, classe, prix, room, dateDebut, dateFin);
+        gridPane.getChildren().setAll(volIcon, modelLabel, brandLabel, brandIcon, descriptionLabel, idhotel, carte, classe, prix, room, dateDebut, dateFin, favoris);
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
         AnchorPane.setBottomAnchor(gridPane, 0d);
@@ -136,7 +160,12 @@ public class CellHotelOffer extends ListCell<HotelOffer> {
             //room.setText(item.getDescription_offre_hotel() + " Room");
             dateDebut.setText("Date début : " + item.getDate_debut_dispo());
             dateFin.setText("Date fin : " + item.getDate_fin_dispo());
-
+            favoris.setText("Add as favorite");
+            if (favorisService.checkIfOffreIsInMyFavorited(item.getId_offre_hotel(), LoginController.result.getId_user())) {
+                favoris.setVisible(false);
+            } else {
+                favoris.setVisible(true);
+            }
             setText(null);
             setGraphic(content);
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);

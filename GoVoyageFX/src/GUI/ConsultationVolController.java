@@ -6,6 +6,7 @@
 package GUI;
 
 import entite.Vol;
+import java.io.IOException;
 import service.Cell;
 import service.ServiceVol;
 import utils.ConersionDate;
@@ -16,8 +17,12 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -30,7 +35,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -58,14 +66,16 @@ public class ConsultationVolController implements Initializable {
     @FXML
     private Label labelDep;
     @FXML
-    private Label LabelRet;
-    @FXML
     private ListView<Vol> listViewVol;
     Image profile = new Image(Utility.path + "vol.png");
     @FXML
     private Button btnbest;
     @FXML
     private Button btncheap;
+    @FXML
+    private Button btnBack;
+    @FXML
+    private Button btndecon;
 
     /**
      * Initializes the controller class.
@@ -110,7 +120,6 @@ public class ConsultationVolController implements Initializable {
         });
     }
 
-    @FXML
     public void controleSearch() {
         List<Alert> list = new ArrayList<Alert>();
         if (FieldFrom.getText().equals("")) {
@@ -121,8 +130,7 @@ public class ConsultationVolController implements Initializable {
             alert.setContentText(" Please enter a valid city.");
             // list.add( alert);
             alert.showAndWait();
-        }
-        if (FieldDestination.getText().equals("")) {
+        } else if (FieldDestination.getText().equals("")) {
             labelFrom.textProperty().bind(FieldFrom.textProperty());
             Alert alert1 = new Alert(AlertType.INFORMATION);
 
@@ -132,10 +140,20 @@ public class ConsultationVolController implements Initializable {
             // list.add( alert1);
 
             alert1.showAndWait();
+        } else if ((DateDeparture.getValue() == null || DateDeparture.getValue().toString().isEmpty())) {
+            Alert alert1 = new Alert(AlertType.INFORMATION);
+
+            // alert.setTitle("No Selection");
+            //alert1.setHeaderText("No city Selected");
+            alert1.setContentText(" Please enter a valid date.");
+            // list.add( alert1);
+
+            alert1.showAndWait();
         }
 
     }
 
+    @FXML
     public void trierParPrix() {
 
         ObservableList<Vol> volList = FXCollections.observableArrayList();
@@ -176,6 +194,7 @@ public class ConsultationVolController implements Initializable {
         });
     }
 
+    @FXML
     public void trierParPrixDsc() {
 
         ObservableList<Vol> volList = FXCollections.observableArrayList();
@@ -216,14 +235,16 @@ public class ConsultationVolController implements Initializable {
         });
     }
 
+    @FXML
     public void lireParCritereRecherche() {
+        controleSearch();
         ConersionDate sr = new ConersionDate();
-       // int date = sr.convertirDateToString(DateDeparture);
-       String date = sr.convertirDateToString(DateDeparture);
+        // int date = sr.convertirDateToString(DateDeparture);
+        String date = sr.convertirDateToString(DateDeparture);
         System.out.println("FieldFrom.getText() = " + FieldFrom.getText());
         System.out.println("FieldDestination.getText() = " + FieldDestination.getText());
         System.out.println("Le résultat est = " + date);
-        controleSearch();
+
         ObservableList<Vol> volList = FXCollections.observableArrayList();
         ServiceVol vol = new ServiceVol();
         List<Vol> list = vol.lireParCritereRecherche(FieldFrom.getText(), FieldDestination.getText(), date);
@@ -233,7 +254,7 @@ public class ConsultationVolController implements Initializable {
             // id_vol=v.getId_vol();  
             String origine = v.getOrigine();
             vol1.setId_vol(id_vol);
-           
+
             vol1.setOrigine(origine);
             String destination = v.getDestination();
             vol1.setDestination(destination);
@@ -261,5 +282,39 @@ public class ConsultationVolController implements Initializable {
                 return new Cell();
             }
         });
+    }
+
+    @FXML
+    private void rollBack(ActionEvent event) throws IOException {
+        // Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/MenuConsultation.fxml"));
+        // Scene scene = new Scene(root);
+        //Scene currentScene = butSearch.getScene();
+        // Stage primStage = (Stage) currentScene.getWindow();
+        //primStage.setScene(scene);
+
+        //Stage primStage = new Stage();
+        //primStage.setScene(scene);
+        //primStage.show();
+        closeScreen();
+
+    }
+
+    private void closeScreen() {
+
+        Stage stage = (Stage) listViewVol.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void deconnecter(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+        Scene scene = new Scene(root);
+        //Scene currentScene = butSearch.getScene();
+        // Stage primStage = (Stage) currentScene.getWindow();
+        //primStage.setScene(scene);
+
+        Stage primStage = new Stage();
+        primStage.setScene(scene);
+        primStage.show();
     }
 }

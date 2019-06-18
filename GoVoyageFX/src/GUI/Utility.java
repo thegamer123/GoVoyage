@@ -11,6 +11,6 @@ package GUI;
  */
 public class Utility {
 
-    public static String path = "file:///C:/Users/Lenovo/Desktop/desktop ico//Bob/Esprit 1ere/GoVoyage/GoVoyage/GoVoyageFX/png/";
+    public static String path = "file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/";
 
 }

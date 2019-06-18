@@ -57,6 +57,10 @@ public class Reclamation {
         this.image=image;
     }
 
+    public Reclamation(String text, String text0, int id_user, String text1, String text2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_reclamation() {
         return id_reclamation;
     }

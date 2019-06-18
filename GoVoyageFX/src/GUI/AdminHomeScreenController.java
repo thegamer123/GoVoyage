@@ -5,25 +5,40 @@
  */
 package GUI;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.crypto.NullCipher;
+import javax.imageio.ImageIO;
+import service.ServiceHotel;
+import service.ServiceVol;
+import utils.CreatePDF;
 
 /**
  * FXML Controller class
@@ -40,60 +55,44 @@ public class AdminHomeScreenController implements Initializable {
     private Button reclamation;
     @FXML
     private Pane pdfPane;
+
     @FXML
-    private ScatterChart<Number, Number> reservationScatterChart;
+    private PieChart pieChartAdmin;
+    private final ObservableList<PieChart.Data> user = FXCollections.observableArrayList();
     @FXML
-    private BarChart<?, ?> barChart;
+    private PieChart pieChartVol;
     @FXML
-    private AreaChart<?, ?> AreaChart;
-    @FXML
-    private LineChart<?, ?> evolutionLineChart;
+    private ImageView exportIV;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        exportIV.setImage(new Image(Utility.path + "exportPdf.png"));
         final NumberAxis xAxis = new NumberAxis(0, 10, 1);
         final NumberAxis yAxis = new NumberAxis(-100, 500, 100);
-        reservationScatterChart = new ScatterChart<Number, Number>(xAxis, yAxis);
-        
-        xAxis.setLabel("Age (years)");
-        yAxis.setLabel("Returns to date");
-        reservationScatterChart.setTitle("Investment Overview");
+        ServiceHotel service = new ServiceHotel();
+        ServiceVol serviceVol = new ServiceVol();
+        user.addAll(new PieChart.Data("Offre hotel", service.getHotelCount()),
+                new PieChart.Data("Réservation hotel", service.getHotelReservationCount())
+        );
 
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("Equities");
-        series1.getData().add(new XYChart.Data(4.2, 193.2));
-        series1.getData().add(new XYChart.Data(2.8, 33.6));
-        series1.getData().add(new XYChart.Data(6.2, 24.8));
-        series1.getData().add(new XYChart.Data(1, 14));
-        series1.getData().add(new XYChart.Data(1.2, 26.4));
-        series1.getData().add(new XYChart.Data(4.4, 114.4));
-        series1.getData().add(new XYChart.Data(8.5, 323));
-        series1.getData().add(new XYChart.Data(6.9, 289.8));
-        series1.getData().add(new XYChart.Data(9.9, 287.1));
-        series1.getData().add(new XYChart.Data(0.9, -9));
-        series1.getData().add(new XYChart.Data(3.2, 150.8));
-        series1.getData().add(new XYChart.Data(4.8, 20.8));
-        series1.getData().add(new XYChart.Data(7.3, -42.3));
-        series1.getData().add(new XYChart.Data(1.8, 81.4));
-        series1.getData().add(new XYChart.Data(7.3, 110.3));
-        series1.getData().add(new XYChart.Data(2.7, 41.2));
+        pieChartAdmin.setData(user);
+        pieChartAdmin.setTitle("Réservation Hotel / Offres Hotel");
+        pieChartAdmin.setLegendSide(Side.BOTTOM);
+        pieChartAdmin.setLabelsVisible(true);
 
-        XYChart.Series series2 = new XYChart.Series();
-        series2.setName("Mutual funds");
-        series2.getData().add(new XYChart.Data(5.2, 229.2));
-        series2.getData().add(new XYChart.Data(2.4, 37.6));
-        series2.getData().add(new XYChart.Data(3.2, 49.8));
-        series2.getData().add(new XYChart.Data(1.8, 134));
-        series2.getData().add(new XYChart.Data(3.2, 236.2));
-        series2.getData().add(new XYChart.Data(7.4, 114.1));
-        series2.getData().add(new XYChart.Data(3.5, 323));
-        series2.getData().add(new XYChart.Data(9.3, 29.9));
-        series2.getData().add(new XYChart.Data(8.1, 287.4));
+        user.addAll(new PieChart.Data("Offre vol", serviceVol.getVolCount()),
+                new PieChart.Data("Réservation vol", serviceVol.getVolReservationCount())
+        );
 
-        reservationScatterChart.getData().addAll(series1, series2);
+        pieChartVol.setData(user);
+        pieChartVol.setTitle("Réservations vol / Offres vol");
+        pieChartVol.setLegendSide(Side.BOTTOM);
+        pieChartVol.setLabelsVisible(true);
+
     }
 
     @FXML
@@ -145,7 +144,18 @@ public class AdminHomeScreenController implements Initializable {
     }
 
     @FXML
-    private void exportToPdfAction(ActionEvent event) {
+    private void exportToPdfAction(MouseEvent event) throws IOException {
+
+        WritableImage nodeshot = pdfPane.snapshot(new SnapshotParameters(), null);
+        File file = new File("chart.png");
+
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(nodeshot, null), "png", file);
+        } catch (IOException e) {
+
+        }
+
+        CreatePDF.viewToPdf("C:\\Users\\Lenovo\\Desktop\\libMap", "chart", "", file.getAbsolutePath(), "C:/Users/Lenovo/Desktop/logo_transparent.png");
     }
 
 }

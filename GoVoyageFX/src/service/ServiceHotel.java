@@ -7,6 +7,7 @@ package service;
 
 import entite.Hotel;
 import entite.HotelOffer;
+import entite.RepondReclamation;
 
 import utils.DataSource;
 import java.sql.Connection;
@@ -58,33 +59,6 @@ public class ServiceHotel {
 
         return list;
     }
-//     public List<Reservation> read() throws SQLException{
-//         List<Reservation> list=new ArrayList<>();
-//         ste=con.createStatement();
-////   String Requete = "SELECT Demande_Intervention.ID_Demande, Demande_Intervention.DateDemande, Criticite.Libelle_Criticite, Etat.Libelle_Etat " +
-////					"FROM Demande_Intervention, Criticite, Etat " +
-////					"WHERE Demande_Intervention.ID_Utilisateur = '1' AND Demande_Intervention.ID_Criticite=Criticite.ID_Criticite AND Demande_Intervention.ID_Etat=Etat.ID_Etat" +
-////					"ORDER BY Demande_Intervention.ID_Demande DESC LIMIT 20";
-//           
-//			// Execution et recupération du résultat
-//                        String Requete="SELECT hotel.id_hotel, hotel.nom_hotel,hotel.adr_hotel,hotel.img_hotel,";
-//			ResultSet mon_resultat = ste.executeQuery("Requete");
-//                        int i=0;
-//			// Traitemant du résultat
-//			//if(!mon_resultat.wasNull()){
-//				while (mon_resultat.next()) {
-//					list.get(i)[1] = mon_resultat.getInt("id_hotel");
-//					list.get(i)[2] = "";
-//					list.get(i)[3] = mon_resultat.getString(1);
-// 
-//					list.get(i)[4] = mon_resultat.getString(3);
-// 
-//					list.get(i)[5] = mon_resultat.getString(4);
-//					i++;
-//				}
-//			//}
-//        return list;
-//     }
 
     public int addHotel(Hotel hotel) {
         int test = -1;
@@ -183,6 +157,22 @@ public class ServiceHotel {
         }
         return true;
     }
+     public boolean deleteReservationHotel(int reservationId) {
+        try {
+            String deleteSQL = "DELETE FROM hotel_reservation WHERE id_hotel_reservation = ?";
+            PreparedStatement pstmt = con.prepareStatement(deleteSQL);
+            pstmt.setInt(1, reservationId);
+            // execute delete SQL stetement
+            pstmt.executeUpdate();
+            System.out.println("Record is deleted!");
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
 
     public List<HotelOffer> readAllOffersByHotelId(String hotelId) {
         List<HotelOffer> list = new ArrayList<>();
@@ -208,4 +198,34 @@ public class ServiceHotel {
         return list;
     }
 
+    public int getHotelCount() {
+        String req = "SELECT COUNT(*) AS count FROM hotel_offre";
+        int nombreLignes = 0;
+        try {
+            ste = con.prepareStatement(req);
+            ResultSet resultSet = ste.executeQuery(req);
+            while (resultSet.next()) {
+                nombreLignes = resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombreLignes;
+    }
+
+        public int getHotelReservationCount() {
+        String req = "SELECT COUNT(*) AS count FROM hotel_reservation";
+        int nombreLignes = 0;
+        try {
+            ste = con.prepareStatement(req);
+            ResultSet resultSet = ste.executeQuery(req);
+            while (resultSet.next()) {
+                nombreLignes = resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nombreLignes;
+    }
+    
 }

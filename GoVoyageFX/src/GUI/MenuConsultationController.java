@@ -41,6 +41,8 @@ public class MenuConsultationController implements Initializable {
     private Button butSearch;
     @FXML
     private Button ButDeals;
+    @FXML
+    private Button ButDeals1;
 
     /**
      * Initializes the controller class.
@@ -48,7 +50,10 @@ public class MenuConsultationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+        if (LoginController.result.getIs_admin_user() == 1) {
+            ButDeals.setVisible(false);
+            ButDeals1.setVisible(false);
+        }
     }
 
     private void navigation(ActionEvent event) throws IOException {
@@ -106,6 +111,16 @@ public class MenuConsultationController implements Initializable {
         Stage primStage = new Stage();
         primStage.setScene(scene);
         primStage.show();
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
+        Scene scene = new Scene(root);
+        Scene currentScene = butSearch.getScene();
+        Stage primStage = (Stage) currentScene.getWindow();
+        primStage.setScene(scene);
     }
 
 }

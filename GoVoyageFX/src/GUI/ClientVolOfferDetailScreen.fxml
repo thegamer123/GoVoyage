@@ -12,10 +12,10 @@
       <TextField fx:id="originTF" editable="false" layoutX="272.0" layoutY="31.0" prefHeight="38.0" prefWidth="420.0" promptText="origine" />
       <TextField fx:id="destinatonTF" editable="false" layoutX="272.0" layoutY="81.0" prefHeight="38.0" prefWidth="420.0" promptText="destination" />
       <TextField fx:id="depTF" editable="false" layoutX="272.0" layoutY="130.0" prefHeight="38.0" prefWidth="420.0" promptText="date départ" />
-      <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Supprimer" />
-      <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#reservation" prefHeight="46.0" prefWidth="219.0" text="Liste des reservations" />
-      <Button fx:id="reclamationbBT" layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="46.0" prefWidth="99.0" text="Réclamation" />
-      <Button layoutX="361.0" layoutY="448.0" mnemonicParsing="false" onAction="#commentaire" prefHeight="46.0" prefWidth="99.0" text="Commentaire" />
+      <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Supprimer" visible="false" />
+      <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="46.0" prefWidth="219.0" text="Reserver" />
+      <Button fx:id="reclamationbBT" layoutX="594.0" layoutY="448.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="46.0" prefWidth="99.0" text="Réclamation" />
+      <Button layoutX="457.0" layoutY="448.0" mnemonicParsing="false" onAction="#commentaire" prefHeight="46.0" prefWidth="99.0" text="Commentaire" />
       <TextField fx:id="dateArrTF" editable="false" layoutX="272.0" layoutY="178.0" prefHeight="38.0" prefWidth="420.0" promptText="date arrivée" />
       <TextField fx:id="heureDepDP" editable="false" layoutX="273.0" layoutY="240.0" prefHeight="38.0" prefWidth="420.0" promptText="heure départ" />
       <TextField fx:id="heureArrDep" editable="false" layoutX="273.0" layoutY="290.0" prefHeight="38.0" prefWidth="420.0" promptText="heure Arrivéé" />
@@ -27,4 +27,3 @@
       <Label layoutX="31.0" layoutY="398.0" text="prix" />
    </children>
 </AnchorPane>
-

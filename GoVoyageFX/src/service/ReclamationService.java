@@ -41,7 +41,8 @@ public class ReclamationService implements I_Reclamation<Reclamation> {
 
     public void addRec(Reclamation r) {
         try {
-            String req = "INSERT INTO reclamation(id_reclamation,type,reference,id_user,etat,description,sujet,date,image) VALUES(?,?,?,?,?,?,?,?,?)";
+//            String req = "INSERT INTO reclamation(id_reclamation,type,reference,etat,description,sujet,date,image) VALUES(?,?,?,?,?,?,?,?)";
+        String req = "INSERT INTO reclamation(id_reclamation,type,reference,id_user,etat,description,sujet,date,image) VALUES(?,?,?,?,?,?,?,?,?)";
             ste = DS.getConnection().prepareStatement(req);
 
             ste.setInt(1, r.getId_reclamation());
