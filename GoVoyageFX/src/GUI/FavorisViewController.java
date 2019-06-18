@@ -14,10 +14,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import org.controlsfx.control.Notifications;
 import service.FavorisService;
 import service.HotelOfferService;
 
@@ -65,6 +67,15 @@ public class FavorisViewController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        delete_Favoris();
+    }
+    private  void delete_Favoris(){
+                Notifications.create()
+                .title("**Notification**")
+                .text(" Favoris Deleted!")
+                .darkStyle()
+                .position(Pos.BOTTOM_RIGHT)
+                .showInformation();
     }
 
 }

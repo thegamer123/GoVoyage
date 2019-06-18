@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.geometry.Pos;
+import org.controlsfx.control.Notifications;
 import utils.DataSource;
 
 /**
@@ -36,9 +38,17 @@ public class FavorisService {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        add_Favoris();
         return test;
     }
-
+private  void add_Favoris(){
+                Notifications.create()
+                .title("**Notification**")
+                .text(" Favoris added!")
+                .darkStyle()
+                .position(Pos.BOTTOM_RIGHT)
+                .showInformation();
+    }
     public boolean supprimerFavoris(Favoris f) {
         try {
             ste = con.createStatement();
