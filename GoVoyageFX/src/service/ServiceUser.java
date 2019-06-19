@@ -33,6 +33,7 @@ public class ServiceUser {
                     + " login_user, "
                     + " nom_user, "
                     + "prenom_user,"
+                    + " email_user,"
                     + " date_naissance_user,"
                     + " password_user,"
                     + "tel_user,"
@@ -42,20 +43,21 @@ public class ServiceUser {
                     + "is_hotel,"
                     + "is_agency,"
                     + "is_client)"
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, r.getLogin_user());
             preparedStatement.setString(2, r.getNom_user());
             preparedStatement.setString(3, r.getPrenom_user());
-            preparedStatement.setString(4, r.getDate_naissance_user());
-            preparedStatement.setString(5, r.getPassword_user());
-            preparedStatement.setInt(6, r.getTel_user());
-            preparedStatement.setString(7, r.getLongitude_user());
-            preparedStatement.setString(8, r.getLattitude_user());
-            preparedStatement.setInt(9, r.getIs_active_user());
-            preparedStatement.setInt(10, r.getIs_hotel());
-            preparedStatement.setInt(11, r.getIs_agency());
-            preparedStatement.setInt(12, r.getIs_client());
+            preparedStatement.setString(4, r.getEmail_user());
+            preparedStatement.setString(5, r.getDate_naissance_user());
+            preparedStatement.setString(6, r.getPassword_user());
+            preparedStatement.setInt(7, r.getTel_user());
+            preparedStatement.setString(8, r.getLongitude_user());
+            preparedStatement.setString(9, r.getLattitude_user());
+            preparedStatement.setInt(10, r.getIs_active_user());
+            preparedStatement.setInt(11, r.getIs_hotel());
+            preparedStatement.setInt(12, r.getIs_agency());
+            preparedStatement.setInt(13, r.getIs_client());
             int va = preparedStatement.executeUpdate();
 
             if (va > 0) {

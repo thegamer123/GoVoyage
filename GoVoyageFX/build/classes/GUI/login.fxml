@@ -11,27 +11,39 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #263238;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin9.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
    <children>
-      <Label layoutX="282.0" layoutY="120.0" text="Login" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+      <Label layoutX="282.0" layoutY="120.0" text="Login" textFill="#341b1b" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font></Label>
-      <Label layoutX="282.0" layoutY="183.0" text="Mot de passe" textFill="WHITE">
+      <Label layoutX="282.0" layoutY="183.0" text="Mot de passe" textFill="#341b1b">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold Italic" size="18.0" />
          </font></Label>
-      <Button layoutX="400.0" layoutY="267.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #000a12;" text="Log In" textFill="WHITE" />
-      <Button layoutX="400.0" layoutY="307.0" mnemonicParsing="false" onAction="#signup" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #000a12;" text="Créer Compte" textFill="WHITE" />
+      <Button layoutX="400.0" layoutY="267.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #341b1b;" text="LogIn" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <Button layoutX="400.0" layoutY="307.0" mnemonicParsing="false" onAction="#signup" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #341b1b;" text="Créer Compte" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
       <Line endX="84.0" endY="140.0" layoutX="172.0" layoutY="197.0" startX="84.0" startY="-122.0" />
-      <Arc fill="WHITE" layoutX="69.0" layoutY="171.0" length="270.0" radiusX="26.0" radiusY="24.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="89.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Verdana;" text="Go Voyage" wrappingWidth="149.0">
+      <Arc fill="#341b1b" layoutX="40.0" layoutY="93.0" length="270.0" radiusX="26.0" radiusY="24.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+      <Text fill="#341b1b" fontSmoothingType="LCD" layoutX="52.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Verdana;" text="Go Voyage" wrappingWidth="166.60003662109375">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold Italic" size="26.0" />
          </font>
       </Text>
-      <TextField fx:id="loginTF" layoutX="400.0" layoutY="121.0" promptText="login" style="-fx-background-color: transparent; -fx-border-color: #4f5b62;" styleClass="text-field" stylesheets="@ajouteruser.css" />
-      <PasswordField fx:id="passTF" layoutX="400.0" layoutY="183.0" promptText="mot de passe" style="-fx-border-color: #4f5b62; -fx-background-color: transparent;" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="loginTF" layoutX="400.0" layoutY="121.0" promptText="login" style="-fx-background-color: transparent; -fx-border-color: #4f5b62;" stylesheets="@ajouteruser.css">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></TextField>
+      <PasswordField fx:id="passTF" layoutX="400.0" layoutY="183.0" promptText="mot de passe" style="-fx-border-color: #4f5b62; -fx-background-color: transparent;" styleClass="text-field" stylesheets="@ajouteruser.css">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></PasswordField>
    </children>
    <effect>
       <ColorAdjust />

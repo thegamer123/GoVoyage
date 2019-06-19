@@ -4,13 +4,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AgenceAdditionalInfoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin20.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AgenceAdditionalInfoController">
    <children>
-      <Label layoutX="100.0" layoutY="76.0" text="Nom" />
-      <TextField fx:id="nameTF" layoutX="211.0" layoutY="72.0" prefHeight="25.0" prefWidth="228.0" promptText="nom" />
-      <TextField fx:id="adrTF" layoutX="211.0" layoutY="128.0" prefHeight="25.0" prefWidth="228.0" promptText="adresse" />
-      <Label layoutX="100.0" layoutY="132.0" text="Adresse" />
-      <Button layoutX="211.0" layoutY="247.0" mnemonicParsing="false" onAction="#submitBtn" prefHeight="25.0" prefWidth="234.0" text="Valider" />
+      <Label layoutX="100.0" layoutY="98.0" style="-fx-background-color: #341b1b;" text="Nom" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="nameTF" layoutX="186.0" layoutY="95.0" prefHeight="25.0" prefWidth="228.0" promptText="Nom" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="adrTF" layoutX="186.0" layoutY="129.0" prefHeight="25.0" prefWidth="228.0" promptText="Adresse" />
+      <Label layoutX="100.0" layoutY="132.0" style="-fx-background-color: #341b1b;" text="Adresse" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <Button layoutX="211.0" layoutY="247.0" mnemonicParsing="false" onAction="#submitBtn" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #341b1b;" text="Valider" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <Label layoutX="31.0" layoutY="14.0" prefHeight="26.0" prefWidth="256.0" style="-fx-background-color: #341b1b;" text="Informations Complémentaires" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

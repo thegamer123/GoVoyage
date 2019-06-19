@@ -5,6 +5,7 @@
  */
 package GUI.Reclamation;
 
+import GUI.HotelOfferDetailScreenController;
 import GUI.LoginController;
 import service.HistoriqueService;
 import service.ReclamationService;
@@ -100,11 +101,7 @@ public class ConsulterReclamationController implements Initializable {
     @FXML
     private AnchorPane re;
     @FXML
-    private ImageView del;
-    @FXML
     private Button btnRefresh;
-    @FXML
-    private ImageView btn;
 
     @FXML
     private Button supp2;
@@ -177,6 +174,7 @@ public class ConsulterReclamationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         // rafraichir l'écran des reclamation coté admin
+
         listR.getColumns().clear();
         listR.getItems().clear();
         ReclamationService rs = new ReclamationService();
@@ -287,7 +285,7 @@ public class ConsulterReclamationController implements Initializable {
                 ntr.setToggleGroup(groupe);
                 refrech2Action(event);
 
-                Historique h = new Historique("reponse réclamation", LoginController.id);
+                Historique h = new Historique("reponse réclamation", LoginController.result.getId_user());
                 hs.add(h);
                 refrech3Action(event);
 
@@ -295,7 +293,6 @@ public class ConsulterReclamationController implements Initializable {
                 tn.showAndWait();
 
             }
-           
 
         }
         );
@@ -345,6 +342,7 @@ public class ConsulterReclamationController implements Initializable {
                 prenom.setText(u.getPrenom_user());
                 tel.setText(String.valueOf(u.getTel_user()));
                 email2.setText(u.getEmail_user());
+                email.setText(u.getEmail_user());
                 if (u.getIs_agency() == 1) {
                     type2.setText("Agence");
 
@@ -368,14 +366,25 @@ public class ConsulterReclamationController implements Initializable {
 
     }
 //---------Statistique des réclamations traités et non traités-----------//
-    
+
     public void stat() {
         user.clear();
         RepondReclamationService rp = new RepondReclamationService();
 
-        user.addAll(new PieChart.Data("Traiter", (rp.Calculer("Traiter") * 100) / rp.Calculertotal()),
-                new PieChart.Data("Non Traiter", (rp.Calculer("Non Traiter") * 100) / rp.Calculertotal())
-        );
+        try {
+            user.addAll(new PieChart.Data("Traiter", (rp.Calculer("Traiter") * 100) / rp.Calculertotal()));
+        } catch (Exception e) {
+            user.addAll(new PieChart.Data("Traiter", 0));
+        }
+
+        try {
+            user.addAll(new PieChart.Data("Non Traiter", (rp.Calculer("Non Traiter") * 100) / rp.Calculertotal()));
+        } catch (Exception e) {
+            user.addAll(new PieChart.Data("Non Traiter", 0));
+        }
+//        user.addAll(new PieChart.Data("Traiter", (rp.Calculer("Traiter") * 100) / rp.Calculertotal()),
+//                new PieChart.Data("Non Traiter", (rp.Calculer("Non Traiter") * 100) / rp.Calculertotal())
+//        );
 
         pieChart.setData(user);
         pieChart.setTitle("Les statistiques des mes réponses selon etats");
@@ -389,11 +398,26 @@ public class ConsulterReclamationController implements Initializable {
         user2.clear();
         ReclamationService rs = new ReclamationService();
 
-        user2.addAll(new PieChart.Data("Prix", (rs.Calculer2("Réclamation sur prix des services") * 100) / rs.Calculertotal2()),
-                new PieChart.Data("Qualite", (rs.Calculer2("Réclamation sur qualité de services") * 100) / rs.Calculertotal2()),
-                new PieChart.Data("Autre", (rs.Calculer2("Autres réclamations") * 100) / rs.Calculertotal2())
-        );
 
+        
+                
+        try {
+            new PieChart.Data("Prix", (rs.Calculer2("Réclamation sur prix des services") * 100) / rs.Calculertotal2());
+        } catch (Exception e) {
+            new PieChart.Data("Prix", 0);
+        }
+
+        try {
+            new PieChart.Data("Qualite", (rs.Calculer2("Réclamation sur qualité de services") * 100) / rs.Calculertotal2());
+        } catch (Exception e) {
+            new PieChart.Data("Qualite", 0);
+        }
+        
+         try {
+           new PieChart.Data("Autre", (rs.Calculer2("Autres réclamations") * 100) / rs.Calculertotal2());
+        } catch (Exception e) {
+            new PieChart.Data("Autre", 0);
+        }
         typerec.setData(user2);
         typerec.setTitle("Statistiques sur les types des réclamation ");
         typerec.setLegendSide(Side.BOTTOM);
@@ -436,7 +460,6 @@ public class ConsulterReclamationController implements Initializable {
                 detailsM.setVisible(true);
 
                 RepondReclamation r = (RepondReclamation) mesList.getSelectionModel().getSelectedItem();
-
                 sujetM.setText(r.getSujet());
                 descriptionM.setText(r.getDescription());
                 dateM.setText(r.getDate().toString());
@@ -539,7 +562,7 @@ public class ConsulterReclamationController implements Initializable {
         RepondReclamation rp = (RepondReclamation) mesList.getSelectionModel().selectedItemProperty().getValue();
         rs.deleteRec(rp.getId());
         HistoriqueService hs = new HistoriqueService();
-        Historique h = new Historique("supprimer réponse réclamation", LoginController.id);
+        Historique h = new Historique("supprimer réponse réclamation", LoginController.result.getId_user());
         hs.add(h);
         mesList.getColumns().clear();
         mesList.getItems().clear();
@@ -600,27 +623,30 @@ public class ConsulterReclamationController implements Initializable {
     }
 
     @FXML
-    private void rechercherhisto(KeyEvent event) {
+    private void logoutActionR(ActionEvent event) {
+
+      
+        closeScreen();
+
+    }
+
+    private void closeScreen() {
+
+        Stage stage = (Stage) email.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-    private void logoutActionR(ActionEvent event) {
-
-        try {
-
-            Parent page1;
-            page1 = FXMLLoader.load(getClass().getResource("/GUI/login.fxml"));
-
-            Scene scene1 = new Scene(page1);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene1);
-            stage.show();
-
-        } catch (IOException ex) {
-            Logger.getLogger(ConsulterReclamationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+    private void rechercheHit(KeyEvent event) {
+        HistoriqueService rs = new HistoriqueService();
+        ObservableList data = FXCollections.observableArrayList();
+        List<Historique> liste = rs.getSome(serchhis.getText());
+        data.addAll(liste);
+        initialiser3(data);
     }
+
+//    @FXML
+//    private void refrech3Action(KeyEvent event) {
+//    }
 
 }

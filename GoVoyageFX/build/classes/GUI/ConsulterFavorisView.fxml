@@ -3,10 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsulterFavorisViewController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsulterFavorisViewController">
    <children>
-      <ListView fx:id="favorisesListView" layoutX="10.0" layoutY="35.0" prefHeight="555.0" prefWidth="580.0" />
-      <Button layoutX="538.0" layoutY="10.0" mnemonicParsing="false" onAction="#retourAction" text="Retour" />
+      <ListView fx:id="favorisesListView" layoutX="10.0" layoutY="36.0" prefHeight="555.0" prefWidth="580.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin51.jpg');" />
+      <Button layoutX="499.0" layoutY="15.0" mnemonicParsing="false" onAction="#retourAction" prefHeight="42.0" prefWidth="90.0" style="-fx-background-color: e7c335;" text="Retour">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

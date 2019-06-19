@@ -84,15 +84,11 @@ public class HelloReclamationController implements Initializable {
         prixBR.setToggleGroup(groupe);
         qualiteBR.setToggleGroup(groupe);
         autresBR.setToggleGroup(groupe);
-        radio = (RadioButton) groupe.getSelectedToggle();
+
     }
 
     @FXML
     private void addRec(ActionEvent event) throws IOException, SQLException {
-
-        Reclamation r = new Reclamation(radio.getText(), referenceTF.getText(), descriptionTA.getText(), LoginController.result.getId_user(), sujetTF.getText(), imageURL.getText());
-
-        ReclamationService rc = new ReclamationService();
 
         if (ControleSaisie.isString(referenceTF.getText()) == false || ControleSaisie.isString(sujetTF.getText()) == false
                 || ControleSaisie.isString(descriptionTA.getText()) == false) {
@@ -110,41 +106,24 @@ public class HelloReclamationController implements Initializable {
                 a1.setContentText("Vérifier champ description");
             }
             a1.show();
-            referenceTF.setText("");
-            sujetTF.setText("");
-            descriptionTA.setText("");
 
-        } else {
+        } else { 
+            radio = (RadioButton) groupe.getSelectedToggle();
 
+            ReclamationService rc = new ReclamationService();
+            Reclamation r = new Reclamation(radio.getText(), referenceTF.getText(), descriptionTA.getText(), LoginController.result.getId_user(), sujetTF.getText(), imageURL.getText());
             rc.addRec(r);
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("message informatif");
             alert.setContentText("Votre réclamation a été ajouté avec succès");
             alert.showAndWait();
+            viderChamps();
 
         }
 
     }
 
-    //@FXML
-    //Ajout reclamation user
-//    private void addRec(ActionEvent event) throws IOException {
-////        prixBR.setToggleGroup(groupe);
-////        qualiteBR.setToggleGroup(groupe);
-////        autresBR.setToggleGroup(groupe);
-////
-////        RadioButton radio = (RadioButton) groupe.getSelectedToggle();
-////        Reclamation r = new Reclamation(radio.getText(), referenceTF.getText(), descriptionTA.getText(), LoginController.result.getId_user(), sujetTF.getText(), imageURL.getText());
-////        System.out.println(LoginController.result.getId_user());
-////        ReclamationService rc = new ReclamationService();
-////       
-////        rc.addRec(r);
-////        Alert alert = new Alert(AlertType.INFORMATION);
-////        alert.setTitle("message informatif");
-////        alert.setContentText("Votre réclamation a été ajouté avec succès");
-////        alert.showAndWait();
-//
-//    }
+
     @FXML
     //telecharger une image user 
     private void parcourirAction(ActionEvent event) {
@@ -177,8 +156,13 @@ public class HelloReclamationController implements Initializable {
     }
 
     @FXML
+    //Mettre les champs à blanc  aprés chaque ajout
     public void annulerAction(ActionEvent event) {
-
+viderChamps();
+ 
+    }
+    
+    public void viderChamps(){
         referenceTF.setText("");
         sujetTF.setText("");
         descriptionTA.setText("");
@@ -186,7 +170,6 @@ public class HelloReclamationController implements Initializable {
         prixBR.setSelected(false);
         qualiteBR.setSelected(false);
         autresBR.setSelected(false);
-
 
     }
 
@@ -217,16 +200,8 @@ public class HelloReclamationController implements Initializable {
     }
 
 
- 
-
-    @FXML
-    //Se rediriger vers le home 
-    private void previousAction(ActionEvent event) {
 
 
-        closeScreen();
-
-    }
 
 
     private void closeScreen() {

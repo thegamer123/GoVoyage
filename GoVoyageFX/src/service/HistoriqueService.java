@@ -5,6 +5,7 @@
  */
 package service;
 
+import GUI.LoginController;
 import entite.Reclamation;
 import entite.Historique;
 import Interface.IService;
@@ -35,10 +36,8 @@ public class HistoriqueService implements IService<Historique>{
             ste = ds.getConnection().prepareStatement(req);
             ste.setString(1, h.getAction());            
             ste.setTimestamp(2, Timestamp.from(h.getDate().toInstant(ZoneOffset.ofHours(0))));
-
             ste.setInt(3, h.getId_user());
-           
-
+            System.out.println(LoginController.result.getId_user());
             ste.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(HistoriqueService.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,14 +85,14 @@ public class HistoriqueService implements IService<Historique>{
  public List<Historique> getSome(String txtSearch){
         List<Historique> list =new ArrayList<>();
     try {
-              String req ="SELECT *"
-                    + " FROM historique where id_user like '%"+txtSearch+"%' order by id desc";
+              String req ="SELECT *" + " FROM historique where action like '%"+txtSearch+"%' order by date desc";
+//               "SELECT *"+ " FROM repondreclamation where sujet like '%" + txtSearch + "%' order by date desc";
              ste = ds.getConnection().prepareStatement(req);
              
               ResultSet rs =ste.executeQuery();
               while(rs.next()){
                   
-         list.add(new Historique(rs.getInt("id"), rs.getString("action"), rs.getTimestamp("date").toLocalDateTime(), rs.getInt("id_user")));
+         list.add(new Historique(rs.getInt("id_user"), rs.getString("action"), rs.getTimestamp("date").toLocalDateTime(), rs.getInt("id_user")));
 
               }
             
@@ -104,5 +103,6 @@ public class HistoriqueService implements IService<Historique>{
     
     return list;
     }
+ 
     
 }

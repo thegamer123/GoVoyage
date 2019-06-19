@@ -5,18 +5,31 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelOfferDetailScreenController">
+<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin45.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelOfferDetailScreenController">
    <children>
       <ImageView fx:id="profilePictureIV" fitHeight="198.0" fitWidth="219.0" layoutX="31.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="titleTF" editable="false" layoutX="272.0" layoutY="31.0" prefHeight="38.0" prefWidth="420.0" promptText="HotelF1 Paris Saint Ouen Marché Aux Puces " />
-      <TextArea fx:id="desriptionTA" editable="false" layoutX="31.0" layoutY="261.0" prefHeight="154.0" prefWidth="660.0" promptText="L'HotelF1 Paris Saint-Ouen Marché Aux Puces propose des hébergements avec une télévision à écran plat et une connexion Wi-Fi gratuite dans l'ensemble de ses locaux. Il vous accueille à quelques pas du marché aux puces ainsi qu'à 10 minutes à pied de la station de métro Garibaldi." />
-      <TextField fx:id="startDateTF" editable="false" layoutX="272.0" layoutY="81.0" prefHeight="38.0" prefWidth="420.0" promptText="date début" />
-      <TextField fx:id="dateEndTF" editable="false" layoutX="272.0" layoutY="130.0" prefHeight="38.0" prefWidth="420.0" promptText="date fin" />
-      <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Supprimer" />
-      <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#listerReservation" prefHeight="46.0" prefWidth="219.0" text="Liste des reservations" />
-      <Button fx:id="reclamationbBT" layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#AddRec" prefHeight="46.0" prefWidth="99.0" text="Réclamation" />
-      <Button layoutX="361.0" layoutY="448.0" mnemonicParsing="false" onAction="#Commentaire" prefHeight="46.0" prefWidth="99.0" text="Commentaire" />
-      <TextField fx:id="priceTF" editable="false" layoutX="272.0" layoutY="181.0" prefHeight="38.0" prefWidth="420.0" promptText="prix" />
+      <TextField fx:id="titleTF" editable="false" layoutX="272.0" layoutY="31.0" prefHeight="30.0" prefWidth="420.0" promptText="Hotel" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <TextArea fx:id="desriptionTA" editable="false" layoutX="31.0" layoutY="261.0" prefHeight="101.0" prefWidth="642.0" promptText="Description" styleClass="text-field" stylesheets="@ajouteruser2.css" text="&#10;" />
+      <TextField fx:id="startDateTF" editable="false" layoutX="272.0" layoutY="81.0" prefHeight="30.0" prefWidth="420.0" promptText="Date début" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <TextField fx:id="dateEndTF" editable="false" layoutX="272.0" layoutY="130.0" prefHeight="30.0" prefWidth="420.0" promptText="Date fin" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Supprimer" textFill="#000b11">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#listerReservation" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #5ab0e2;" text="Liste des reservations" textFill="#000b11">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <Button fx:id="reclamationbBT" layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#AddRec" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Réclamation" textFill="#000b11">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <Button layoutX="361.0" layoutY="448.0" mnemonicParsing="false" onAction="#Commentaire" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Commentaire" textFill="#000b11">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <TextField fx:id="priceTF" editable="false" layoutX="272.0" layoutY="181.0" prefHeight="30.0" prefWidth="420.0" promptText="Prix" styleClass="text-field" stylesheets="@ajouteruser2.css" />
    </children>
 </AnchorPane>

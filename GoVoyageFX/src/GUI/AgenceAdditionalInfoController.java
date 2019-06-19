@@ -51,7 +51,7 @@ public class AgenceAdditionalInfoController implements Initializable {
         if (validateData()) {
             result = service.addAgence(new Agence(0, nameTF.getText(), userId, adrTF.getText()));
             if (result > -1) {
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/AgenceHomeScreen.fxml"));
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
                 Scene scene = new Scene(root);
                 Scene currentScene = nameTF.getScene();
                 Stage primStage = (Stage) currentScene.getWindow();
