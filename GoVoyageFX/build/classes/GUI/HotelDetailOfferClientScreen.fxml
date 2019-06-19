@@ -10,10 +10,10 @@
 <AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin45.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelDetailOfferClientScreenController">
    <children>
       <ImageView fx:id="profilePictureIV" fitHeight="198.0" fitWidth="219.0" layoutX="31.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="titleTF" editable="false" layoutX="264.0" layoutY="31.0" prefHeight="30.0" prefWidth="420.0" promptText="Hotel" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextArea fx:id="desriptionTA" editable="false" layoutX="31.0" layoutY="247.0" prefHeight="154.0" prefWidth="660.0" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="startDateTF" editable="false" layoutX="264.0" layoutY="70.0" prefHeight="30.0" prefWidth="420.0" promptText="Date début" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="dateEndTF" editable="false" layoutX="264.0" layoutY="107.0" prefHeight="30.0" prefWidth="420.0" promptText="Date fin" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <TextField fx:id="titleTF" editable="false" layoutX="264.0" layoutY="31.0" prefHeight="30.0" prefWidth="420.0" promptText="Hotel" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextArea fx:id="desriptionTA" editable="false" layoutX="31.0" layoutY="247.0" prefHeight="154.0" prefWidth="660.0" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="startDateTF" editable="false" layoutX="264.0" layoutY="70.0" prefHeight="30.0" prefWidth="420.0" promptText="Date début" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="dateEndTF" editable="false" layoutX="264.0" layoutY="107.0" prefHeight="30.0" prefWidth="420.0" promptText="Date fin" styleClass="text-field" stylesheets="@ajouteruser.css" />
       <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Réserver">
          <font>
             <Font name="System Bold Italic" size="13.0" />
@@ -26,6 +26,6 @@
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font></Button>
-      <TextField fx:id="priceTF" editable="false" layoutX="264.0" layoutY="145.0" prefHeight="30.0" prefWidth="420.0" promptText="Prix" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <TextField fx:id="priceTF" editable="false" layoutX="264.0" layoutY="145.0" prefHeight="30.0" prefWidth="420.0" promptText="Prix" styleClass="text-field" stylesheets="@ajouteruser.css" />
    </children>
 </AnchorPane>

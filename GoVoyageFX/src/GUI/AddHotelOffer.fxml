@@ -8,26 +8,51 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddHotelOfferController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin45.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddHotelOfferController">
    <children>
-      <Label layoutX="111.0" layoutY="44.0" text="Titre :" />
-      <TextField fx:id="titreTF" layoutX="197.0" layoutY="40.0" prefHeight="25.0" prefWidth="261.0" promptText="titre" />
-      <Label layoutX="109.0" layoutY="104.0" text="Photo :" />
-      <ImageView fx:id="picIV" fitHeight="52.0" fitWidth="66.0" layoutX="188.0" layoutY="86.0" onMousePressed="#choosePicture" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="74.0" layoutY="31.0" text="Titre :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="titreTF" layoutX="169.0" layoutY="28.0" prefHeight="25.0" prefWidth="261.0" promptText="titre" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <Label layoutX="74.0" layoutY="79.0" text="Photo :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <ImageView fx:id="picIV" fitHeight="52.0" fitWidth="193.0" layoutX="171.0" layoutY="63.0" onMousePressed="#choosePicture" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../png/gps.png" />
          </image>
       </ImageView>
-      <Label layoutX="108.0" layoutY="158.0" text="Date début :" />
-      <Label layoutX="111.0" layoutY="204.0" text="Date fin :" />
-      <DatePicker fx:id="startDP" layoutX="197.0" layoutY="154.0" prefHeight="25.0" prefWidth="261.0" />
-      <DatePicker fx:id="endDP" layoutX="197.0" layoutY="200.0" prefHeight="25.0" prefWidth="261.0" />
-      <Label layoutX="108.0" layoutY="328.0" text="Prix :" />
-      <TextField fx:id="priceTF" layoutX="197.0" layoutY="324.0" prefHeight="25.0" prefWidth="261.0" />
-      <TextArea fx:id="descriptionTA" layoutX="197.0" layoutY="242.0" prefHeight="64.0" prefWidth="261.0" promptText="description" />
-      <Label layoutX="108.0" layoutY="257.0" text="Description :" />
-      <Button layoutX="484.0" layoutY="361.0" mnemonicParsing="false" onAction="#submitOffer" prefHeight="25.0" prefWidth="102.0" text="Confirmer" />
-      <Button layoutX="374.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="102.0" text="Back" />
+      <Label layoutX="72.0" layoutY="135.0" text="Date début :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="72.0" layoutY="170.0" text="Date fin :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <DatePicker fx:id="startDP" layoutX="169.0" layoutY="132.0" prefHeight="25.0" prefWidth="261.0" />
+      <DatePicker fx:id="endDP" layoutX="169.0" layoutY="167.0" prefHeight="25.0" prefWidth="261.0" />
+      <Label layoutX="72.0" layoutY="276.0" text="Prix :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="priceTF" layoutX="169.0" layoutY="273.0" prefHeight="25.0" prefWidth="261.0" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextArea fx:id="descriptionTA" layoutX="169.0" layoutY="200.0" prefHeight="64.0" prefWidth="261.0" promptText="description" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <Label layoutX="68.0" layoutY="222.0" text="Description :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <Button layoutX="247.0" layoutY="312.0" mnemonicParsing="false" onAction="#submitOffer" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Confirmer">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <Button layoutX="15.0" layoutY="359.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="93.0" style="-fx-background-color: #5ab0e2;" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>
