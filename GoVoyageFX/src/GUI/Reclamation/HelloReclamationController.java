@@ -200,10 +200,6 @@ viderChamps();
     }
 
 
-
-
-
-
     private void closeScreen() {
 
         Stage stage = (Stage) referenceTF.getScene().getWindow();

@@ -5,26 +5,57 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;file:///C:/Users/Lenovo/Desktop/plane_back.png&quot;)url(&quot;file:///C:/Users/Lenovo/Desktop/plane_back.png&quot;);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddAgenceOfferController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin50.jpg') url('file:///C:/xampp/htdocs/Background-RecAdmin50.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddAgenceOfferController">
    <children>
-      <Label layoutX="32.0" layoutY="74.0" text="De :" />
-      <TextField fx:id="fromTF" layoutX="137.0" layoutY="74.0" prefHeight="25.0" prefWidth="261.0" promptText="De :" />
-      <Label layoutX="307.0" layoutY="160.0" text="Date arrivée:" />
-      <DatePicker fx:id="startDP" layoutX="396.0" layoutY="156.0" prefHeight="25.0" prefWidth="152.0" />
-      <Label layoutX="32.0" layoutY="285.0" text="Prix :" />
-      <TextField fx:id="priceTF" layoutX="143.0" layoutY="281.0" prefHeight="25.0" prefWidth="261.0" promptText="prix" />
-      <Button layoutX="484.0" layoutY="361.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="102.0" text="Submit" />
-      <Label layoutX="32.0" layoutY="111.0" text="A :" />
-      <TextField fx:id="toTF" layoutX="137.0" layoutY="111.0" prefHeight="25.0" prefWidth="261.0" promptText="A :" />
-      <Label layoutX="32.0" layoutY="156.0" text="Date départ :" />
-      <DatePicker fx:id="startDP1" layoutX="140.0" layoutY="156.0" prefHeight="25.0" prefWidth="152.0" />
-      <Label layoutX="307.0" layoutY="198.0" text="Heure arrivée:" />
-      <Label layoutX="32.0" layoutY="194.0" text="Heure départ :" />
-      <TextField fx:id="houreStartTF" layoutX="140.0" layoutY="194.0" prefHeight="25.0" prefWidth="152.0" promptText="HH:MM" />
-      <TextField fx:id="houreEndTF1" layoutX="396.0" layoutY="194.0" prefHeight="25.0" prefWidth="152.0" promptText="HH:MM" />
-      <Label layoutX="32.0" layoutY="249.0" text="Nombre d'escale :" />
-      <TextField fx:id="nbEscTF" layoutX="143.0" layoutY="245.0" prefHeight="25.0" prefWidth="261.0" promptText="Nombre d'escale" />
-      <Button layoutX="19.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="102.0" text="Back" />
+      <Label layoutX="21.0" layoutY="39.0" text="De :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="fromTF" layoutX="137.0" layoutY="36.0" prefHeight="25.0" prefWidth="240.0" promptText="De :" />
+      <Label layoutX="310.0" layoutY="111.0" text="Date arrivée:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <DatePicker fx:id="startDP" layoutX="398.0" layoutY="108.0" prefHeight="25.0" prefWidth="152.0" />
+      <Label layoutX="19.0" layoutY="216.0" text="Prix :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="priceTF" layoutX="137.0" layoutY="213.0" prefHeight="25.0" prefWidth="240.0" promptText="prix" />
+      <Button layoutX="310.0" layoutY="267.0" mnemonicParsing="false" onAction="#submit" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #ffffff;" text="Submit" textFill="#341b1b">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Button>
+      <Label layoutX="21.0" layoutY="74.0" text="A :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="toTF" layoutX="137.0" layoutY="71.0" prefHeight="25.0" prefWidth="240.0" promptText="A :" />
+      <Label layoutX="18.0" layoutY="111.0" text="Date départ :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <DatePicker fx:id="startDP1" layoutX="137.0" layoutY="108.0" prefHeight="25.0" prefWidth="152.0" />
+      <Label layoutX="300.0" layoutY="146.0" text="Heure arrivée:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="19.0" layoutY="146.0" text="Heure départ :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="houreStartTF" layoutX="135.0" layoutY="143.0" prefHeight="25.0" prefWidth="155.0" promptText="HH:MM" />
+      <TextField fx:id="houreEndTF1" layoutX="396.0" layoutY="143.0" prefHeight="25.0" prefWidth="155.0" promptText="HH:MM" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <Label layoutX="19.0" layoutY="184.0" text="Nombre d'escale :" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <TextField fx:id="nbEscTF" layoutX="137.0" layoutY="181.0" prefHeight="25.0" prefWidth="240.0" promptText="Nombre d'escale" />
+      <Button layoutX="22.0" layoutY="338.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #ffffff;" text="Back" textFill="#341b1b">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -11,19 +11,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/ho.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.FirstStepReservationHotelController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="400.0" prefWidth="525.0" style="-fx-background-image: url('file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/ho2.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.FirstStepReservationHotelController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../png/ho.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="73.0" layoutY="97.0" prefHeight="17.0" prefWidth="70.0" text="Hotels">
-
-<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/ho2.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.FirstStepReservationHotelController">
-   <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="535.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../png/ho2.jpg" />
          </image>
@@ -35,11 +25,7 @@
          </font></Label>
       <TextField fx:id="rechercheF" editable="false" layoutX="168.0" layoutY="93.0" prefHeight="25.0" prefWidth="265.0" />
 
-      <Label layoutX="74.0" layoutY="177.0" text="Arrivée">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font></Label>
-      <Label layoutX="73.0" layoutY="138.0" prefHeight="17.0" prefWidth="70.0" text="Départ">
+    
 
       <Label layoutX="74.0" layoutY="177.0" text="Arrivée" textFill="WHITE">
          <font>
@@ -52,16 +38,6 @@
          </font></Label>
       <DatePicker fx:id="finDate" layoutX="167.0" layoutY="173.0" prefHeight="25.0" prefWidth="265.0" />
       <DatePicker fx:id="debutDate" layoutX="167.0" layoutY="134.0" prefHeight="25.0" prefWidth="265.0" />
-
-      <Label layoutX="73.0" layoutY="287.0" text="NB. Nuitées">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Label layoutX="73.0" layoutY="215.0" prefHeight="17.0" prefWidth="70.0" text="Adultes">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font></Label>
-      <Label layoutX="73.0" layoutY="248.0" prefHeight="17.0" prefWidth="70.0" text="Enfants">
 
       <Label layoutX="73.0" layoutY="287.0" text="NB. Nuitées" textFill="WHITE">
          <font>
