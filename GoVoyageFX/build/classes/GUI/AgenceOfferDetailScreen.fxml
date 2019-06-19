@@ -7,33 +7,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin45.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AgenceOfferDetailScreenController">
+<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin50.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AgenceOfferDetailScreenController">
    <children>
       <ImageView fx:id="profilePictureIV" fitHeight="192.0" fitWidth="214.0" layoutX="31.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="originTF" editable="false" layoutX="268.0" layoutY="82.0" prefHeight="30.0" prefWidth="420.0" promptText="Origine" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="destinatonTF" editable="false" layoutX="268.0" layoutY="120.0" prefHeight="30.0" prefWidth="420.0" promptText="Destination" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="depTF" editable="false" layoutX="268.0" layoutY="158.0" prefHeight="30.0" prefWidth="420.0" promptText="Date départ" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Supprimer">
+      <TextField fx:id="originTF" editable="false" layoutX="268.0" layoutY="82.0" prefHeight="30.0" prefWidth="420.0" promptText="Origine" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="destinatonTF" editable="false" layoutX="268.0" layoutY="120.0" prefHeight="30.0" prefWidth="420.0" promptText="Destination" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="depTF" editable="false" layoutX="268.0" layoutY="158.0" prefHeight="30.0" prefWidth="420.0" promptText="Date départ" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #341b1b;" text="Supprimer" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font></Button>
-      <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#reservation" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #5ab0e2;" text="Liste des reservations">
+      <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#reservation" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #341b1b;" text="Liste des reservations" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font></Button>
-      <Button fx:id="reclamationbBT" layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Réclamation">
+      <Button fx:id="reclamationbBT" layoutX="474.0" layoutY="448.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #341b1b;" text="Réclamation" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font></Button>
-      <Button layoutX="361.0" layoutY="448.0" mnemonicParsing="false" onAction="#commentaire" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #5ab0e2;" text="Commentaire">
+      <Button layoutX="361.0" layoutY="448.0" mnemonicParsing="false" onAction="#commentaire" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: #341b1b;" text="Commentaire" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font></Button>
-      <TextField fx:id="dateArrTF" editable="false" layoutX="269.0" layoutY="196.0" prefHeight="30.0" prefWidth="420.0" promptText="Date arrivée" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="heureDepDP" editable="false" layoutX="269.0" layoutY="239.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure départ" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="heureArrDep" editable="false" layoutX="269.0" layoutY="280.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure Arrivée" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="nbEscaleTF" editable="false" layoutX="268.0" layoutY="321.0" prefHeight="30.0" prefWidth="420.0" promptText="Nombre d'escale" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="priceTF" editable="false" layoutX="268.0" layoutY="361.0" prefHeight="30.0" prefWidth="420.0" promptText="Prix" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <TextField fx:id="dateArrTF" editable="false" layoutX="269.0" layoutY="196.0" prefHeight="30.0" prefWidth="420.0" promptText="Date arrivée" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="heureDepDP" editable="false" layoutX="269.0" layoutY="239.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure départ" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="heureArrDep" editable="false" layoutX="269.0" layoutY="280.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure Arrivée" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="nbEscaleTF" editable="false" layoutX="268.0" layoutY="321.0" prefHeight="30.0" prefWidth="420.0" promptText="Nombre d'escale" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="priceTF" editable="false" layoutX="268.0" layoutY="361.0" prefHeight="30.0" prefWidth="420.0" promptText="Prix" styleClass="text-field" stylesheets="@ajouteruser.css" />
       <Label layoutX="151.0" layoutY="244.0" text="Heure départ" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="14.0" />
