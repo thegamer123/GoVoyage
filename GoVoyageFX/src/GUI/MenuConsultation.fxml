@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="368.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuConsultationController">
    <children>
@@ -20,14 +21,29 @@
       </Pane>
       <Pane layoutY="165.0" prefHeight="203.0" prefWidth="608.0" style="-fx-background-color: #ffffff;">
          <children>
-            <RadioButton fx:id="butHotel" layoutX="176.0" layoutY="38.0" mnemonicParsing="false" text="Hotels">
+            <RadioButton fx:id="butHotel" layoutX="132.0" layoutY="38.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" text="Hotels">
                <toggleGroup>
                   <ToggleGroup fx:id="mygroup" />
-               </toggleGroup></RadioButton>
-            <RadioButton fx:id="butFlights" layoutX="270.0" layoutY="38.0" mnemonicParsing="false" text="Flights" toggleGroup="$mygroup" />
-            <Button fx:id="butSearch" layoutX="361.0" layoutY="28.0" mnemonicParsing="false" onAction="#Appel" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: #008000;" text="Search" textFill="#f5f4f4" />
-            <Button fx:id="ButDeals" layoutX="222.0" layoutY="86.0" mnemonicParsing="false" onAction="#nav" prefHeight="37.0" prefWidth="175.0" style="-fx-background-color: #008000;" text="View Deals" textFill="#fcf7f7" />
-            <Button fx:id="ButDeals1" layoutX="222.0" layoutY="134.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="175.0" style="-fx-background-color: #008000;" text="logout" textFill="#fcf7f7" />
+               </toggleGroup>
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="butFlights" layoutX="235.0" layoutY="38.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="99.0" text="Flights" toggleGroup="$mygroup">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font></RadioButton>
+            <Button fx:id="butSearch" layoutX="361.0" layoutY="28.0" mnemonicParsing="false" onAction="#Appel" prefHeight="37.0" prefWidth="206.0" style="-fx-background-color: #008000;" text="Search" textFill="#f5f4f4">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font></Button>
+            <Button fx:id="ButDeals" layoutX="222.0" layoutY="86.0" mnemonicParsing="false" onAction="#nav" prefHeight="37.0" prefWidth="175.0" style="-fx-background-color: #008000;" text="View Deals" textFill="#fcf7f7">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font></Button>
+            <Button fx:id="ButDeals1" layoutX="222.0" layoutY="134.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="175.0" style="-fx-background-color: #008000;" text="LogOut" textFill="#fcf7f7">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font></Button>
          </children>
       </Pane>
    </children>

@@ -7,56 +7,61 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultationVolController">
    <children>
-      <SplitPane dividerPositions="0.3384879725085911" layoutX="1.0" layoutY="1.0" prefHeight="586.0" prefWidth="784.0">
+      <SplitPane dividerPositions="0.3384879725085911" layoutX="1.0" prefHeight="587.0" prefWidth="850.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="584.0" prefWidth="237.0" style="-fx-background-color: #80dfff;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="584.0" prefWidth="237.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin50.jpg');">
                <children>
-                  <Label fx:id="labelFrom" layoutX="33.0" layoutY="60.0" prefHeight="17.0" prefWidth="90.0" text="From:" />
-                  <TextField fx:id="FieldFrom" layoutX="9.0" layoutY="100.0" prefHeight="25.0" prefWidth="228.0" />
-                  <Label fx:id="labelTo" layoutX="53.0" layoutY="125.0" prefHeight="17.0" prefWidth="49.0" text="To:" />
-                  <TextField fx:id="FieldDestination" layoutX="10.0" layoutY="163.0" prefHeight="25.0" prefWidth="228.0" />
-                  <Label fx:id="labelDep" layoutX="49.0" layoutY="207.0" text="Departure:" />
-                  <DatePicker fx:id="DateDeparture" layoutX="20.0" layoutY="236.0" prefHeight="25.0" prefWidth="211.0" />
-                  <Button fx:id="buttonSerch" layoutX="95.0" layoutY="285.0" mnemonicParsing="false" onAction="#lireParCritereRecherche" prefHeight="38.0" prefWidth="143.0" style="-fx-background-color: #0000ff;" text="Search" textFill="#f2eeee">
+                  <Label fx:id="labelFrom" layoutX="28.0" layoutY="72.0" prefHeight="17.0" prefWidth="90.0" text="From:" textFill="WHITE">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Label>
+                  <TextField fx:id="FieldFrom" layoutX="9.0" layoutY="100.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label fx:id="labelTo" layoutX="28.0" layoutY="137.0" prefHeight="17.0" prefWidth="49.0" text="To:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Label>
+                  <TextField fx:id="FieldDestination" layoutX="10.0" layoutY="163.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label fx:id="labelDep" layoutX="20.0" layoutY="200.0" text="Departure:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Label>
+                  <DatePicker fx:id="DateDeparture" layoutX="9.0" layoutY="226.0" prefHeight="25.0" prefWidth="211.0" />
+                  <Button fx:id="buttonSerch" layoutX="46.0" layoutY="293.0" mnemonicParsing="false" onAction="#lireParCritereRecherche" prefHeight="38.0" prefWidth="143.0" style="-fx-background-color: #ffffff;" text="Search" textFill="#341b1b">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" text="One Way">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" text="One Way" textFill="#341b1b">
                      <font>
-                        <Font size="26.0" />
+                        <Font name="System Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="53.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../pkgimages/vollllllllll.jpg" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="btnBack" layoutX="14.0" layoutY="545.0" mnemonicParsing="false" onAction="#rollBack" prefHeight="25.0" prefWidth="90.0" text="Back" />
+                  <Button fx:id="btnBack" layoutX="14.0" layoutY="545.0" mnemonicParsing="false" onAction="#rollBack" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Back" textFill="#341b1b">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="584.0" prefWidth="490.0">
                <children>
-                  <ToolBar layoutX="7.0" prefHeight="40.0" prefWidth="506.0" style="-fx-background-color: #80dfff;">
+                  <ToolBar layoutX="-1.0" layoutY="-1.0" prefHeight="58.0" prefWidth="558.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin50.jpg');">
                     <items>
                       <Button fx:id="btnbest" mnemonicParsing="false" onAction="#trierParPrixDsc" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="The Best">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="System Bold Italic" size="14.0" />
                            </font></Button>
-                        <Button fx:id="btncheap" mnemonicParsing="false" onAction="#trierParPrix" prefHeight="30.0" prefWidth="179.0" style="-fx-background-color: #ffffff;" text="the Cheapest">
+                        <Button fx:id="btncheap" mnemonicParsing="false" onAction="#trierParPrix" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #ffffff;" text="The Cheapest">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="System Bold Italic" size="14.0" />
                            </font></Button>
                         <Button fx:id="btndecon" mnemonicParsing="false" onAction="#deconnecter" prefHeight="25.0" prefWidth="110.0" text="Déconnecter" visible="false" />
                     </items>
                   </ToolBar>
-                  <ListView fx:id="listViewVol" layoutX="7.0" layoutY="56.0" prefHeight="514.0" prefWidth="524.0" />
+                  <ListView fx:id="listViewVol" layoutX="-2.0" layoutY="58.0" prefHeight="528.0" prefWidth="566.0" />
                </children>
             </AnchorPane>
         </items>

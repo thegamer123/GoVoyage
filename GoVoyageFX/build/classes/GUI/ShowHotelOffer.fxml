@@ -13,26 +13,43 @@
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutX="7.0" layoutY="10.0" prefHeight="602.0" prefWidth="763.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin55.jpg');">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="14.0" prefHeight="18.0" prefWidth="182.0" text="Deal">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="14.0" prefHeight="18.0" prefWidth="182.0" text="Deal" textFill="#341b1b">
                      <font>
-                        <Font size="27.0" />
+                        <Font name="System Bold Italic" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="16.0" layoutY="147.0" text="Check-in date:" />
-                  <Label layoutX="16.0" layoutY="222.0" text="Check-out date:" />
+                  <Label layoutX="16.0" layoutY="147.0" text="Check-in date:" textFill="#341b1b">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
+                  <Label layoutX="16.0" layoutY="222.0" text="Check-out date:" textFill="#341b1b">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
                   <DatePicker fx:id="date_checkIn" layoutX="16.0" layoutY="180.0" prefHeight="26.0" prefWidth="196.0" />
                   <DatePicker fx:id="date_checkout" layoutX="16.0" layoutY="250.0" prefHeight="26.0" prefWidth="196.0" />
-                  <Button fx:id="butSearch" layoutX="16.0" layoutY="345.0" mnemonicParsing="false" onAction="#controleSearch" prefHeight="32.0" prefWidth="196.0" text="Search" />
+                  <Button fx:id="butSearch" layoutX="16.0" layoutY="345.0" mnemonicParsing="false" onAction="#controleSearch" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #ffffff;" text="Search" textFill="#341b1b">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Button>
                   <TextField fx:id="titleTF" layoutX="18.0" layoutY="104.0" prefHeight="25.0" prefWidth="196.0" promptText="title" />
-                  <Button layoutX="14.0" layoutY="401.0" mnemonicParsing="false"  prefHeight="32.0" prefWidth="196.0" text="Back" />
+                  <Button layoutX="14.0" layoutY="401.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #ffffff;" text="Back" textFill="#341b1b">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font></Button>
+                  <Label layoutX="20.0" layoutY="73.0" text="Titre:" textFill="#341b1b">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="531.0">
                <children>
-                  <ListView fx:id="listViewHotel" layoutX="1.0" prefHeight="602.0" prefWidth="530.0" />
-                  <ListView fx:id="lsitViewHotel" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="501.0" />
-                  <ListView fx:id="listViewVol" layoutX="14.0" layoutY="253.0" prefHeight="200.0" prefWidth="501.0" />
+                  <ListView fx:id="listViewHotel" layoutX="1.0" prefHeight="602.0" prefWidth="530.0" style="-fx-background-color: e7e7e7;" />
+                  <ListView fx:id="lsitViewHotel" layoutX="14.0" layoutY="14.0" prefHeight="137.0" prefWidth="502.0" />
+                  <ListView fx:id="listViewVol" layoutX="14.0" layoutY="253.0" prefHeight="147.0" prefWidth="502.0" />
                </children></AnchorPane>
         </items>
       </SplitPane>

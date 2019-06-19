@@ -398,11 +398,26 @@ public class ConsulterReclamationController implements Initializable {
         user2.clear();
         ReclamationService rs = new ReclamationService();
 
-        user2.addAll(new PieChart.Data("Prix", (rs.Calculer2("Réclamation sur prix des services") * 100) / rs.Calculertotal2()),
-                new PieChart.Data("Qualite", (rs.Calculer2("Réclamation sur qualité de services") * 100) / rs.Calculertotal2()),
-                new PieChart.Data("Autre", (rs.Calculer2("Autres réclamations") * 100) / rs.Calculertotal2())
-        );
 
+        
+                
+        try {
+            new PieChart.Data("Prix", (rs.Calculer2("Réclamation sur prix des services") * 100) / rs.Calculertotal2());
+        } catch (Exception e) {
+            new PieChart.Data("Prix", 0);
+        }
+
+        try {
+            new PieChart.Data("Qualite", (rs.Calculer2("Réclamation sur qualité de services") * 100) / rs.Calculertotal2());
+        } catch (Exception e) {
+            new PieChart.Data("Qualite", 0);
+        }
+        
+         try {
+           new PieChart.Data("Autre", (rs.Calculer2("Autres réclamations") * 100) / rs.Calculertotal2());
+        } catch (Exception e) {
+            new PieChart.Data("Autre", 0);
+        }
         typerec.setData(user2);
         typerec.setTitle("Statistiques sur les types des réclamation ");
         typerec.setLegendSide(Side.BOTTOM);
@@ -607,31 +622,16 @@ public class ConsulterReclamationController implements Initializable {
         initialiser3(data);
     }
 
-
     @FXML
     private void logoutActionR(ActionEvent event) {
 
-//        try {
-//
-//            Parent page1;
-//            page1 = FXMLLoader.load(getClass().getResource("/GUI/login.fxml"));
-//
-//            Scene scene1 = new Scene(page1);
-//
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.setScene(scene1);
-//            stage.show();
-//
-//        } catch (IOException ex) {
-//            Logger.getLogger(ConsulterReclamationController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-  closeScreen();
+      
+        closeScreen();
 
     }
-    
-      private void closeScreen() {
-   
+
+    private void closeScreen() {
+
         Stage stage = (Stage) email.getScene().getWindow();
         stage.close();
     }
@@ -645,8 +645,8 @@ public class ConsulterReclamationController implements Initializable {
         initialiser3(data);
     }
 
-    @FXML
-    private void refrech3Action(KeyEvent event) {
-    }
+//    @FXML
+//    private void refrech3Action(KeyEvent event) {
+//    }
 
 }

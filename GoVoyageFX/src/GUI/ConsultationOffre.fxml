@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultationOffreController">
+<AnchorPane id="AnchorPane" prefHeight="627.0" prefWidth="764.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin45.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ConsultationOffreController">
    <children>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="166.0" />
-      <ListView fx:id="lsitViewHotel" layoutX="166.0" layoutY="44.0" prefHeight="528.0" prefWidth="597.0" />
-      <Button layoutX="643.0" layoutY="4.0" mnemonicParsing="false" onAction="#checkMyFavorites" style="-fx-background-color: transparent; -fx-border-color: orange; -fx-border-width: 2; -fx-border-radius: 20;" text="Mes Favoris" textFill="ORANGE">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="634.0" prefWidth="166.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin45.jpg');" />
+      <ListView fx:id="lsitViewHotel" layoutX="166.0" layoutY="106.0" prefHeight="528.0" prefWidth="597.0" />
+      <Button layoutX="628.0" layoutY="26.0" mnemonicParsing="false" onAction="#checkMyFavorites" style="-fx-background-color: transparent; -fx-border-color: #180804; -fx-border-width: 2; -fx-border-radius: 20;" text="Mes Favoris">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -20,7 +20,7 @@
             </ImageView>
          </graphic>
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font name="System Bold Italic" size="13.0" />
          </font>
       </Button>
    </children>

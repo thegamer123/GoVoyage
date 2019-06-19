@@ -8,15 +8,18 @@
 
 <AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MyHotelOfferReservationListScreenController">
    <children>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="166.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="166.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin55.jpg');">
          <children>
-            <Label layoutX="32.0" layoutY="63.0" text="Liste Réservation">
+            <Label layoutX="15.0" layoutY="65.0" text="Liste Réservation">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold Italic" size="17.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="138.0" promptText="recherche ..." />
+            <TextField layoutX="10.0" layoutY="138.0" promptText="Recherche" style="-fx-background-color: #ffffff;">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font></TextField>
          </children></AnchorPane>
-      <ListView fx:id="lsitViewHotel" layoutX="166.0" prefHeight="572.0" prefWidth="597.0" />
+      <ListView fx:id="lsitViewHotel" layoutX="166.0" prefHeight="572.0" prefWidth="597.0" style="-fx-background-color: e7e7e7;" />
    </children>
 </AnchorPane>

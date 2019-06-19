@@ -200,16 +200,8 @@ viderChamps();
     }
 
 
- 
-
-    @FXML
-    //Se rediriger vers le home 
-    private void previousAction(ActionEvent event) {
 
 
-        closeScreen();
-
-    }
 
 
     private void closeScreen() {

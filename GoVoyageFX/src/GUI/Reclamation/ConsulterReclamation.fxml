@@ -33,12 +33,12 @@
                             <TableColumn prefWidth="75.0" text="C2" />
                           </columns>
                         </TableView>
-                        <Button fx:id="supp" layoutX="115.0" layoutY="26.0" mnemonicParsing="false" onAction="#supprimerAction" prefHeight="36.0" prefWidth="51.0" style="-fx-background-color: #341b1b;" text="Supp" textFill="WHITE">
+                        <Button fx:id="supp" layoutX="121.0" layoutY="26.0" mnemonicParsing="false" onAction="#supprimerAction" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #341b1b;" text="Supprimer" textFill="WHITE">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="rechbtn" layoutX="222.0" layoutY="27.0" onKeyPressed="#rechercheReclamation" onKeyReleased="#rechercheReclamation" prefHeight="34.0" prefWidth="274.0" promptText="Search" style="-fx-background-color: #341b1b;" styleClass="text-field" stylesheets="@../ajouteruser2.css">
+                        <TextField fx:id="rechbtn" layoutX="253.0" layoutY="27.0" onKeyPressed="#rechercheReclamation" onKeyReleased="#rechercheReclamation" prefHeight="36.0" prefWidth="274.0" promptText="Search" style="-fx-background-color: #341b1b;" styleClass="text-field" stylesheets="@../ajouteruser2.css">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></TextField>
@@ -163,7 +163,7 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="btnRefresh" layoutX="52.0" layoutY="26.0" mnemonicParsing="false" onAction="#refreshAction" prefHeight="36.0" prefWidth="39.0" style="-fx-background-color: #341b1b;" text="Ref" textFill="WHITE">
+                        <Button fx:id="btnRefresh" layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#refreshAction" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #341b1b;" text="Rafraîchir" textFill="WHITE">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Button>
@@ -186,15 +186,15 @@
                             <TableColumn prefWidth="75.0" text="C2" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="rechMe" layoutX="266.0" layoutY="23.0" onKeyPressed="#rechercheRep" onKeyReleased="#rechercheRep" prefHeight="34.0" prefWidth="274.0" promptText="Search .." style="-fx-background-color: #341b1b;" styleClass="text-field" stylesheets="@../ajouteruser2.css">
+                        <TextField fx:id="rechMe" layoutX="295.0" layoutY="25.0" onKeyPressed="#rechercheRep" onKeyReleased="#rechercheRep" prefHeight="36.0" prefWidth="274.0" promptText="Search .." style="-fx-background-color: #341b1b;" styleClass="text-field" stylesheets="@../ajouteruser2.css">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></TextField>
-                        <Button fx:id="supp2" layoutX="126.0" layoutY="24.0" mnemonicParsing="false" onAction="#supprimer2Action" prefHeight="32.0" prefWidth="51.0" style="-fx-background-color: #341b1b;" text="Supp" textFill="WHITE">
+                        <Button fx:id="supp2" layoutX="156.0" layoutY="24.0" mnemonicParsing="false" onAction="#supprimer2Action" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #341b1b;" text="Supprimer" textFill="WHITE">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Button>
-                        <Button fx:id="ref2" layoutX="50.0" layoutY="24.0" mnemonicParsing="false" onAction="#refrech2Action" prefHeight="32.0" prefWidth="52.0" style="-fx-background-color: #341b1b;" text="Ref" textFill="WHITE">
+                        <Button fx:id="ref2" layoutX="50.0" layoutY="24.0" mnemonicParsing="false" onAction="#refrech2Action" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #341b1b;" text="Rafraîchir" textFill="WHITE">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Button>
@@ -275,15 +275,15 @@
                             <TableColumn prefWidth="75.0" text="C2" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="serchhis" layoutX="280.0" layoutY="39.0" onKeyPressed="#rechercheHit" onKeyReleased="#rechercheHit" prefHeight="26.0" prefWidth="293.0" promptText="Search .." style="-fx-background-color: #341b1b;" styleClass="text-field" stylesheets="@../ajouteruser2.css">
+                        <TextField fx:id="serchhis" layoutX="319.0" layoutY="34.0" onKeyPressed="#rechercheHit" onKeyReleased="#rechercheHit" prefHeight="36.0" prefWidth="274.0" promptText="Search .." style="-fx-background-color: #341b1b;" styleClass="text-field" stylesheets="@../ajouteruser2.css">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></TextField>
-                        <Button fx:id="supphi" layoutX="173.0" layoutY="34.0" mnemonicParsing="false" onAction="#supprimer3Action" prefHeight="36.0" prefWidth="56.0" style="-fx-background-color: #341b1b;" text="Supp" textFill="#d1d4e2">
+                        <Button fx:id="supphi" layoutX="195.0" layoutY="34.0" mnemonicParsing="false" onAction="#supprimer3Action" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #341b1b;" text="Supprimer" textFill="#d1d4e2">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Button>
-                        <Button fx:id="refhis" layoutX="97.0" layoutY="34.0" mnemonicParsing="false" onAction="#refrech3Action" prefHeight="36.0" prefWidth="54.0" style="-fx-background-color: #341b1b;" text="Ref" textFill="#d1d4e2">
+                        <Button fx:id="refhis" layoutX="97.0" layoutY="34.0" mnemonicParsing="false" onAction="#refrech3Action" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #341b1b;" text="Rafraîchir" textFill="#d1d4e2">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Button>
