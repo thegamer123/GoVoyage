@@ -143,9 +143,12 @@
                               <TextField fx:id="email" layoutX="41.0" layoutY="60.0" prefHeight="26.0" prefWidth="278.0" promptText="To" style="-fx-background-color: #d1d4e2;" />
                               <TextField fx:id="sujet" layoutX="41.0" layoutY="132.0" prefHeight="26.0" prefWidth="279.0" promptText="Sujet" style="-fx-background-color: #d1d4e2;" />
                               <TextArea fx:id="description" layoutX="41.0" layoutY="208.0" prefHeight="200.0" prefWidth="278.0" promptText="Description" style="-fx-background-color: #d1d4e2;" wrapText="true" />
-                              <RadioButton fx:id="ntr" layoutX="245.0" layoutY="437.0" mnemonicParsing="false" text="Non Traiter" />
-                              <Button fx:id="repondR" layoutX="242.0" layoutY="525.0" mnemonicParsing="false" onAction="#repondAction" prefHeight="32.0" prefWidth="88.0" text="Envoyer" />
-                              <RadioButton fx:id="tr" layoutX="80.0" layoutY="437.0" mnemonicParsing="false" text="Traiter" />
+                              <RadioButton fx:id="ntr" layoutX="245.0" layoutY="437.0" mnemonicParsing="false" text="Non Traitée" />
+                              <Button fx:id="repondR" layoutX="242.0" layoutY="525.0" mnemonicParsing="false" onAction="#repondAction" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: #341b1b;" text="Envoyer" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font></Button>
+                              <RadioButton fx:id="tr" layoutX="80.0" layoutY="437.0" mnemonicParsing="false" text="Traitée" />
                               <ImageView fitHeight="36.0" fitWidth="46.0" layoutX="202.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../pkgimages/sad.png" />
