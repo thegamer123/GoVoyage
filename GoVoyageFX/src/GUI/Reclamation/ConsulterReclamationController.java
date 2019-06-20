@@ -204,23 +204,23 @@ public class ConsulterReclamationController implements Initializable {
         //     ----------------------------------------------------email--------------------------   
         repondR.setOnAction(event -> {
 
-            final String username = "govoyage2020@gmail.com";
-            final String password = "Go@@voyage2020";
-
-            Properties props = new Properties();
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            props.put("mail.smtp.port", "587");
-
-            Session session = Session.getInstance(props,
-                    new javax.mail.Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username, password);
-                }
-            });
-
             try {
+                final String username = "govoyage2020@gmail.com";
+                final String password = "Go@@voyage2020";
+
+                Properties props = new Properties();
+                props.put("mail.smtp.auth", "true");
+                props.put("mail.smtp.starttls.enable", "true");
+                props.put("mail.smtp.host", "smtp.gmail.com");
+                props.put("mail.smtp.port", "587");
+                //props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+                Session session = Session.getInstance(props,
+                        new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
 
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("govoyage2020@gmail.com"));
@@ -229,21 +229,20 @@ public class ConsulterReclamationController implements Initializable {
                 message.setSubject(sujet.getText());
                 message.setText(description.getText());
 
-                if (!ControleSaisie.isValidEmailAddress(email.getText())) {
-                    Alert a1 = new Alert(Alert.AlertType.ERROR);
-                    a1.setTitle("Erreur dans le champ To (email) ");
-                    a1.setContentText("le mail n'est pas valide");
-                    a1.show();
-                    email.setText("");
-                } else {
+//                if (!ControleSaisie.isValidEmailAddress(email.getText())) {
+//                    Alert a1 = new Alert(Alert.AlertType.ERROR);
+//                    a1.setTitle("Erreur dans le champ To (email) ");
+//                    a1.setContentText("le mail n'est pas valide");
+//                    a1.show();
+//                    email.setText("");
+//                } else {
+                Transport.send(message);
 
-                    Transport.send(message);
-
-                    System.out.println("Done");
-
-                }
+//                    System.out.println("Done");
+//
+//                }
             } catch (MessagingException e) {
-
+                e.printStackTrace();
             }
 
             tr.setToggleGroup(groupe);
@@ -398,9 +397,6 @@ public class ConsulterReclamationController implements Initializable {
         user2.clear();
         ReclamationService rs = new ReclamationService();
 
-
-        
-                
         try {
             new PieChart.Data("Prix", (rs.Calculer2("Réclamation sur prix des services") * 100) / rs.Calculertotal2());
         } catch (Exception e) {
@@ -412,9 +408,9 @@ public class ConsulterReclamationController implements Initializable {
         } catch (Exception e) {
             new PieChart.Data("Qualite", 0);
         }
-        
-         try {
-           new PieChart.Data("Autre", (rs.Calculer2("Autres réclamations") * 100) / rs.Calculertotal2());
+
+        try {
+            new PieChart.Data("Autre", (rs.Calculer2("Autres réclamations") * 100) / rs.Calculertotal2());
         } catch (Exception e) {
             new PieChart.Data("Autre", 0);
         }
@@ -625,7 +621,6 @@ public class ConsulterReclamationController implements Initializable {
     @FXML
     private void logoutActionR(ActionEvent event) {
 
-      
         closeScreen();
 
     }
@@ -648,5 +643,4 @@ public class ConsulterReclamationController implements Initializable {
 //    @FXML
 //    private void refrech3Action(KeyEvent event) {
 //    }
-
 }

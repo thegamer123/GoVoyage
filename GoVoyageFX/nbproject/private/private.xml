@@ -12,9 +12,22 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/src/GUI/reservationHotel/TarifScreenController.java</file>
-            <file>file:/C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/src/GUI/reservationHotel/FirstStepReservationHotelController.java</file>
-            <file>file:/C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/src/GUI/reservationHotel/SecondStepReservation.fxml</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/Reclamation/HelloReclamationController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/ajouteruser2.css</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/MenuConsultationController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/commentaire/CommentaireViewController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/AgenceOfferListScreenController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/ConsultationVolController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelDetailOfferClientScreenController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/service/FavorisService.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/Reclamation/ConsulterReclamationController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelHomeScreenController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/AgenceHomeScreenController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/HotelOfferListScreenController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/utils/DataSource.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/ClientVolOffersScreenController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/GUI/AddHotelOfferController.java</file>
+            <file>file:/C:/Users/lenovo/Desktop/gitHubGoVoyage/GoVoyage/GoVoyageFX/src/govoyagefx/GoVoyageFX.java</file>
         </group>
     </open-files>
 </project-private>
