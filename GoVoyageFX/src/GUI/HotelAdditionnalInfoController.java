@@ -15,6 +15,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -65,7 +67,32 @@ public class HotelAdditionnalInfoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        prixTF.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,7}")) {
+                    prixTF.setText(oldValue);
+                }
+            }
+        });
+
+        roomTF.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,7}")) {
+                    roomTF.setText(oldValue);
+                }
+            }
+        });
+
+        startTF.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d{0,7}")) {
+                    startTF.setText(oldValue);
+                }
+            }
+        });
     }
 
     @FXML
@@ -74,7 +101,7 @@ public class HotelAdditionnalInfoController implements Initializable {
         ServiceHotel service = new ServiceHotel();
         int result = -1;
         if (validateData()) {
-            result = service.addHotel(new Hotel(0, nameTF.getText(), id_user, 0, adrTF.getText(), startTF.getText(), Integer.parseInt(roomTF.getText()),prixTF.getText(), imageURLTF.getText()));
+            result = service.addHotel(new Hotel(0, nameTF.getText(), id_user, 0, adrTF.getText(), startTF.getText(), Integer.parseInt(roomTF.getText()), prixTF.getText(), imageURLTF.getText()));
             if (result > -1) {
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/login.fxml"));
                 Scene scene = new Scene(root);
@@ -121,8 +148,8 @@ public class HotelAdditionnalInfoController implements Initializable {
     }
 
     @FXML
-   
-        private void parcourirAction(ActionEvent event) {
+
+    private void parcourirAction(ActionEvent event) {
         try {
             FileChooser fileChooser = new FileChooser();
 
@@ -149,7 +176,7 @@ public class HotelAdditionnalInfoController implements Initializable {
         } catch (Exception e) {
             System.out.println("");
         }
-    
+
     }
 
 }

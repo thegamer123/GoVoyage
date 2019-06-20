@@ -8,6 +8,7 @@ package GUI;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,6 +37,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.crypto.NullCipher;
 import javax.imageio.ImageIO;
+import javax.mail.Message;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import service.ServiceHotel;
 import service.ServiceVol;
 import utils.CreatePDF;
@@ -63,8 +73,6 @@ public class AdminHomeScreenController implements Initializable {
 
     @FXML
     private PieChart pieChartVol;
-    @FXML
-    private ImageView exportIV;
 
     /**
      * Initializes the controller class.
@@ -72,7 +80,6 @@ public class AdminHomeScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        exportIV.setImage(new Image(Utility.path + "exportPdf.png"));
         final NumberAxis xAxis = new NumberAxis(0, 10, 1);
         final NumberAxis yAxis = new NumberAxis(-100, 500, 100);
         ServiceHotel service = new ServiceHotel();
@@ -146,7 +153,7 @@ public class AdminHomeScreenController implements Initializable {
     }
 
     @FXML
-    private void exportToPdfAction(MouseEvent event) throws IOException {
+    private void exportToPdfAction(ActionEvent event) throws IOException {
 
         WritableImage nodeshot = pdfPane.snapshot(new SnapshotParameters(), null);
         File file = new File("chart.png");
@@ -157,7 +164,47 @@ public class AdminHomeScreenController implements Initializable {
 
         }
 
-        CreatePDF.viewToPdf("C:\\Users\\Lenovo\\Desktop\\libMap", "chart", "", file.getAbsolutePath(), "C:/Users/Lenovo/Desktop/logo_transparent.png");
+        CreatePDF.viewToPdf("C:\\Users\\Lenovo\\Desktop\\", "chart", "", file.getAbsolutePath(), "C:/Users/Lenovo/Desktop/logo_transparent.png");
+
+        try {
+
+            final String username = "govoyage2020@gmail.com";
+            final String password = "Go@@voyage2020";
+
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.port", "587");
+
+            Session session = Session.getInstance(props,
+                    new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                }
+            });
+
+            Multipart multipart = new MimeMultipart();
+            MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+            attachmentBodyPart.attachFile(new File("C:/Users/Lenovo/Desktop/chart.pdf"));
+            multipart.addBodyPart(attachmentBodyPart);
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("govoyage2020@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(LoginController.result.getEmail_user()));
+            message.setSubject("Chart Pdf(statistiques)");
+            message.setText("GoVoyage service mail");
+
+            message.setContent(multipart);
+
+            Transport.send(message);
+
+            System.out.println("Done");
+        } catch (Exception e) {
+
+        }
+
     }
 
 }

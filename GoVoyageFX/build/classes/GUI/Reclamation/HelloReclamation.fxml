@@ -10,13 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reclamation.HelloReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="976.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin58.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reclamation.HelloReclamationController">
    <children>
-      <ImageView fitHeight="458.0" fitWidth="976.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../xampp/htdocs/Background-RecAdmin58.jpg" />
-         </image>
-      </ImageView>
+      <ImageView fitHeight="458.0" fitWidth="976.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="228.0" layoutY="12.0" prefHeight="46.0" prefWidth="494.0" text="Bienvenue dans l'espace des réclamations" textFill="#19b798" underline="true">
          <font>
             <Font name="System Bold Italic" size="20.0" />
