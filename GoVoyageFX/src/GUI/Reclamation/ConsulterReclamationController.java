@@ -372,15 +372,15 @@ public class ConsulterReclamationController implements Initializable {
         RepondReclamationService rp = new RepondReclamationService();
 
         try {
-            user.addAll(new PieChart.Data("Traiter", (rp.Calculer("Traiter") * 100) / rp.Calculertotal()));
+            user.addAll(new PieChart.Data("Traitée", (rp.Calculer("Traitée") * 100) / rp.Calculertotal()));
         } catch (Exception e) {
-            user.addAll(new PieChart.Data("Traiter", 0));
+            user.addAll(new PieChart.Data("Traitée", 0));
         }
 
         try {
-            user.addAll(new PieChart.Data("Non Traiter", (rp.Calculer("Non Traiter") * 100) / rp.Calculertotal()));
+            user.addAll(new PieChart.Data("Non Traitée", (rp.Calculer("Non Traitée") * 100) / rp.Calculertotal()));
         } catch (Exception e) {
-            user.addAll(new PieChart.Data("Non Traiter", 0));
+            user.addAll(new PieChart.Data("Non Traitée", 0));
         }
 //        user.addAll(new PieChart.Data("Traiter", (rp.Calculer("Traiter") * 100) / rp.Calculertotal()),
 //                new PieChart.Data("Non Traiter", (rp.Calculer("Non Traiter") * 100) / rp.Calculertotal())
