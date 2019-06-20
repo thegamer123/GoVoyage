@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -38,7 +39,11 @@ public class ConsultationOffreController implements Initializable {
 
     @FXML
     private ListView<HotelOffer> lsitViewHotel;
-
+    @FXML
+    private TextField searchTF;
+    ObservableList<HotelOffer> listR;
+    ObservableList<HotelOffer> filteredList;
+    ServiceHotel service;
 
     /**
      * Initializes the controller class.
@@ -46,27 +51,37 @@ public class ConsultationOffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        ServiceHotel service = new ServiceHotel();
-        ObservableList<HotelOffer> listR = FXCollections.observableArrayList(service.readAllOffers());
-        /* for (HotelOffer h : listR) {
-            HotelOffer r = new HotelOffer();
-            int id_hotel = h.getId_hotel();
-            String nom_hotel = h.getTitre_offre_hotel();
-            String description = h.getDescription_offre_hotel();
-            System.out.println("nom_hotel = " + nom_hotel);
-            String img = h.getPhoto_offre_hotel();
-            System.out.println("img = " + img);
-            String prix = h.getPrix();
+        service = new ServiceHotel();
 
-            r.setId_hotel(id_hotel);
-            r.setTitre_offre_hotel(nom_hotel);
-            r.setPhoto_offre_hotel(img);
-            r.setDescription_offre_hotel(description);
-            r.setPrix(prix);
-            listR.add(r);
+        if (LoginController.result.getIs_client() == 0) {
+            listR = FXCollections.observableArrayList(service.readAllOffersByHotelId(String.valueOf(HotelHomeScreenController.idHotel)));
+        } else {
+            listR = FXCollections.observableArrayList(service.readAllOffers());
+        }
 
-        }*/
-        lsitViewHotel.setItems(listR);
+        filteredList = listR;
+
+        bindView();
+        searchTF.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.equals("")) {
+                filteredList.clear();
+                listR.stream().filter(it -> it.getTitre_offre_hotel().contains(newValue)).forEach(it -> {
+                    filteredList.add(it);
+                });
+
+            } else {
+                filteredList.clear();
+                listR = FXCollections.observableArrayList(service.readAllOffers());
+                filteredList.addAll(listR);
+            }
+            bindView();
+        });
+
+    }
+
+    private void bindView() {
+        lsitViewHotel.setItems(filteredList);
         lsitViewHotel.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -101,6 +116,13 @@ public class ConsultationOffreController implements Initializable {
             ((Button) event.getSource()).getScene().setRoot(pane);
         } catch (IOException ex) {
         }
+    }
+
+    @FXML
+    private void back(ActionEvent event) throws IOException {
+        Stage stage = (Stage) searchTF.getScene().getWindow();
+        stage.close();
+
     }
 
 }

@@ -10,9 +10,9 @@
 <AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="716.0" style="-fx-background-image: url('file:///C:/xampp/htdocs/Background-RecAdmin50.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ClientVolOfferDetailScreenController">
    <children>
       <ImageView fx:id="profilePictureIV" fitHeight="145.0" fitWidth="219.0" layoutX="31.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="originTF" editable="false" layoutX="272.0" layoutY="31.0" prefHeight="30.0" prefWidth="420.0" promptText="Origine" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="destinatonTF" editable="false" layoutX="272.0" layoutY="70.0" prefHeight="30.0" prefWidth="420.0" promptText="Destination" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="depTF" editable="false" layoutX="272.0" layoutY="108.0" prefHeight="30.0" prefWidth="420.0" promptText="Date départ" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <TextField fx:id="originTF" editable="false" layoutX="272.0" layoutY="31.0" prefHeight="30.0" prefWidth="420.0" promptText="Origine" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="destinatonTF" editable="false" layoutX="272.0" layoutY="70.0" prefHeight="30.0" prefWidth="420.0" promptText="Destination" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="depTF" editable="false" layoutX="272.0" layoutY="108.0" prefHeight="30.0" prefWidth="420.0" promptText="Date départ" styleClass="text-field" stylesheets="@ajouteruser.css" />
       <Button layoutX="583.0" layoutY="448.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="46.0" prefWidth="99.0" text="Supprimer" visible="false" />
       <Button layoutX="31.0" layoutY="448.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" text="Réserver" textFill="#341b1b">
          <font>
@@ -26,11 +26,11 @@
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Button>
-      <TextField fx:id="dateArrTF" editable="false" layoutX="272.0" layoutY="147.0" prefHeight="30.0" prefWidth="420.0" promptText="Date arrivée" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="heureDepDP" editable="false" layoutX="272.0" layoutY="186.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure départ" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="heureArrDep" editable="false" layoutX="272.0" layoutY="229.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure Arrivée" styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="nbEscaleTF" editable="false" layoutX="272.0" layoutY="270.0" prefHeight="30.0" prefWidth="420.0" promptText="Nombre d'escale " styleClass="text-field" stylesheets="@ajouteruser2.css" />
-      <TextField fx:id="priceTF" editable="false" layoutX="272.0" layoutY="310.0" prefHeight="30.0" prefWidth="420.0" promptText="Prix" styleClass="text-field" stylesheets="@ajouteruser2.css" />
+      <TextField fx:id="dateArrTF" editable="false" layoutX="272.0" layoutY="147.0" prefHeight="30.0" prefWidth="420.0" promptText="Date arrivée" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="heureDepDP" editable="false" layoutX="272.0" layoutY="186.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure départ" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="heureArrDep" editable="false" layoutX="272.0" layoutY="229.0" prefHeight="30.0" prefWidth="420.0" promptText="Heure Arrivée" styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="nbEscaleTF" editable="false" layoutX="272.0" layoutY="270.0" prefHeight="30.0" prefWidth="420.0" promptText="Nombre d'escale " styleClass="text-field" stylesheets="@ajouteruser.css" />
+      <TextField fx:id="priceTF" editable="false" layoutX="272.0" layoutY="310.0" prefHeight="30.0" prefWidth="420.0" promptText="Prix" styleClass="text-field" stylesheets="@ajouteruser.css" />
       <Label layoutX="163.0" layoutY="191.0" text="Heure départ" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />

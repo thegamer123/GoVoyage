@@ -211,9 +211,9 @@ public class AjouterUserController implements Initializable {
             return false;
         } else if (telTF.getText().equals("")) {
             showAlert("le champ telephone est obligatoire");
-            return false;}
-            else if (emailTF.getText().equals("")) {
-            showAlert("le champ telephone est obligatoire");
+            return false;
+        } else if (emailTF.getText().equals("") || !Utility.isValid(emailTF.getText())) {
+            showAlert("le champ mail est obligatoire");
             return false;
         }
 

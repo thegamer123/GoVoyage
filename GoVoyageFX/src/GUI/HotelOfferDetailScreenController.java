@@ -27,7 +27,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import service.ServiceHotel;
 
-
 public class HotelOfferDetailScreenController implements Initializable {
 
     @FXML

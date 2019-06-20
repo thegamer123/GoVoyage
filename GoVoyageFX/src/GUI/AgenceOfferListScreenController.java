@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,6 +27,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import service.CellAgenceOffer;
@@ -41,21 +43,44 @@ public class AgenceOfferListScreenController implements Initializable, IRefreshL
 
     @FXML
     private ListView<Vol> lsitViewHotel;
+    @FXML
+    private TextField searchTF;
+    ObservableList<Vol> listR;
+    ObservableList<Vol> filteredList;
+    ServiceVol service;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        service = new ServiceVol();
+        listR = FXCollections.observableArrayList(service.readAllByAgenceId(String.valueOf(AgenceHomeScreenController.idAgence)));
+        filteredList = listR;
+
         bindView();
+
+        searchTF.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (!newValue.equals("")) {
+                filteredList.clear();
+                listR.stream().filter(it -> it.getOrigine().contains(newValue)).forEach(it -> {
+                    filteredList.add(it);
+                });
+
+            } else {
+                filteredList.clear();
+                listR = FXCollections.observableArrayList(service.readAllByAgenceId(String.valueOf(AgenceHomeScreenController.idAgence)));
+                filteredList.addAll(listR);
+            }
+            bindView();
+        });
     }
 
     public void bindView() {
-        ServiceVol service = new ServiceVol();
-        System.out.println(AgenceHomeScreenController.idAgence);
-        ObservableList<Vol> listR = FXCollections.observableArrayList(service.readAllByAgenceId(String.valueOf(AgenceHomeScreenController.idAgence)));
 
-        lsitViewHotel.setItems(listR);
+        System.out.println(AgenceHomeScreenController.idAgence);
+        lsitViewHotel.setItems(filteredList);
         lsitViewHotel.setOnMouseClicked((MouseEvent event) -> {
             System.out.println("clicked on " + lsitViewHotel.getSelectionModel().getSelectedItem());
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/AgenceOfferDetailScreen.fxml"));
@@ -78,6 +103,7 @@ public class AgenceOfferListScreenController implements Initializable, IRefreshL
                 return new CellAgenceOffer();
             }
         });
+
     }
 
     @FXML
