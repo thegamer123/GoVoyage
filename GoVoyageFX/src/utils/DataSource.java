@@ -21,6 +21,7 @@ public class DataSource {
 
     private DataSource() {
         try {
+            //Druiive classe dans jdbc
             con = DriverManager.getConnection(url, login, pwd);
             System.out.println("connexion etablie");
         } catch (SQLException ex) {
@@ -31,7 +32,7 @@ public class DataSource {
     public Connection getConnection() {
         return con;
     }
-
+//Singleton Instancisation une seul fois qui va etre par la suite controler 
     public static DataSource getInstance() {
         if (data == null) {
             data = new DataSource();

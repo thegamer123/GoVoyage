@@ -11,12 +11,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-
-
-<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/ho2.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.FirstStepReservationHotelController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="400.0" prefWidth="525.0" style="-fx-background-image: url('file:///C:/Yosr/ESPRIT/PFA/GoVoyage/GoVoyageFX/png/ho2.jpg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.reservationHotel.FirstStepReservationHotelController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="535.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../png/ho2.jpg" />
          </image>
